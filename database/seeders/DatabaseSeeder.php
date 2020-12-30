@@ -33,10 +33,10 @@ class DatabaseSeeder extends Seeder
     	Tasktype::flushEventListeners();
     	Subtask::flushEventListeners();
 
-    	$jobtypeQuantity = 12;
-    	$subjobQuantity = 100;
-    	$tasktypeQuantity = 100;
-    	$subtaskQuantity = 100;
+    	$jobtypeQuantity = 15;
+    	$subjobQuantity = 30;
+    	$tasktypeQuantity = 191;
+    	$subtaskQuantity = 73;
 
 		Subtask::factory()->times($subtaskQuantity)->create();
 
@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
 			->each(
 				function($tasktype){
 					$subtasks = Subtask::all()
-									->random(mt_rand(1,5))
+									->random(mt_rand(1,16))
 									->pluck('id');
 
 					$tasktype->subtasks()->attach($subtasks);
@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
 			->each(
 				function($subjob){
 					$tasktypes = Tasktype::all()
-									->random(mt_rand(1,5))
+									->random(mt_rand(1,40))
 									->pluck('id');
 
 					$subjob->tasktypes()->attach($tasktypes);
@@ -69,7 +69,7 @@ class DatabaseSeeder extends Seeder
 			->each(
 				function($jobtype){
 					$subjobs = Subjob::all()
-								->random(mt_rand(1,5))
+								->random(mt_rand(1,4))
 								->pluck('id');
 
 					$jobtype->subjobs()->attach($subjobs);
