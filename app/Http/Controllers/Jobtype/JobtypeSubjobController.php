@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers\Jobtype;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
+use App\Models\Jobtype;
 
-class JobtypeSubjobController extends Controller
+class JobtypeSubjobController extends ApiController
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Jobtype $jobtype)
     {
-        //
+       $subjobs = $jobtype->subjobs;
+       //var_dump($jobtype);
+
+        return $this->showAll($subjobs);
     }
 
     /**

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Jobtype;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
+use App\Models\Jobtype;
 
-class JobtypeController extends Controller
+class JobtypeController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,9 @@ class JobtypeController extends Controller
      */
     public function index()
     {
-        //
+        $jobtypes = Jobtype::all();
+
+        return $this->showAll($jobtypes);
     }
 
     /**
@@ -41,12 +44,12 @@ class JobtypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Jobtype $jobtype
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Jobtype $jobtype)
     {
-        //
+        return $this->showOne($jobtype);
     }
 
     /**

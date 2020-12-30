@@ -15,6 +15,10 @@ class Subtask extends Model
     	'description'
     ];
 
+    protected $hidden = [
+        'pivot',
+    ];
+
     public function tasktypes()
     {
     	return $this->belongsToMany(Tasktype::class);

@@ -16,6 +16,10 @@ class Subjob extends Model
         'description'
     ];
 
+    protected $hidden = [
+        'pivot',
+    ];
+
     public function jobtypes()
     {
       return $this->belongsToMany(Jobtype::class);
