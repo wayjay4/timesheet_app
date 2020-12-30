@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Models;
+
+use App\Models\Subjob;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Jobtype extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+      'name',
+      'description'
+    ];
+
+    public function subjobs()
+    {
+      return $this->belongsToMany(Subjob::class);
+    }
+}
