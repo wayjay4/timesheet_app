@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Tasktype;
+namespace App\Http\Controllers\Timesheet;
 
 use App\Http\Controllers\ApiController;
-use App\Models\Tasktype;
+use App\Models\Timesheet;
 use Illuminate\Http\Request;
 
-class TasktypeController extends ApiController
+class TimesheetController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +42,10 @@ class TasktypeController extends ApiController
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tasktype  $tasktype
+     * @param  \App\Models\Timesheet  $timesheet
      * @return \Illuminate\Http\Response
      */
-    public function show(Tasktype $tasktype)
+    public function show(Timesheet $timesheet)
     {
         //
     }
@@ -53,10 +53,10 @@ class TasktypeController extends ApiController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Tasktype  $tasktype
+     * @param  \App\Models\Timesheet  $timesheet
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tasktype $tasktype)
+    public function edit(Timesheet $timesheet)
     {
         //
     }
@@ -65,10 +65,10 @@ class TasktypeController extends ApiController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tasktype  $tasktype
+     * @param  \App\Models\Timesheet  $timesheet
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tasktype $tasktype)
+    public function update(Request $request, Timesheet $timesheet)
     {
         //
     }
@@ -76,10 +76,10 @@ class TasktypeController extends ApiController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tasktype  $tasktype
+     * @param  \App\Models\Timesheet  $timesheet
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tasktype $tasktype)
+    public function destroy(Timesheet $timesheet)
     {
         //
     }

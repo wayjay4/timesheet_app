@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Tasktype;
+namespace App\Http\Controllers\Costcenter;
 
 use App\Http\Controllers\ApiController;
-use App\Models\Tasktype;
+use App\Models\Costcenter;
 use Illuminate\Http\Request;
 
-class TasktypeController extends ApiController
+class CostcenterController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +42,10 @@ class TasktypeController extends ApiController
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tasktype  $tasktype
+     * @param  \App\Models\Costcenter  $costcenter
      * @return \Illuminate\Http\Response
      */
-    public function show(Tasktype $tasktype)
+    public function show(Costcenter $costcenter)
     {
         //
     }
@@ -53,10 +53,10 @@ class TasktypeController extends ApiController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Tasktype  $tasktype
+     * @param  \App\Models\Costcenter  $costcenter
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tasktype $tasktype)
+    public function edit(Costcenter $costcenter)
     {
         //
     }
@@ -65,10 +65,10 @@ class TasktypeController extends ApiController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tasktype  $tasktype
+     * @param  \App\Models\Costcenter  $costcenter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tasktype $tasktype)
+    public function update(Request $request, Costcenter $costcenter)
     {
         //
     }
@@ -76,10 +76,10 @@ class TasktypeController extends ApiController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tasktype  $tasktype
+     * @param  \App\Models\Costcenter  $costcenter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tasktype $tasktype)
+    public function destroy(Costcenter $costcenter)
     {
         //
     }

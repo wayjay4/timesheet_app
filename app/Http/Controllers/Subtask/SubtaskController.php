@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Subtask;
 
+use App\Http\Controllers\ApiController;
+use App\Models\Subtask;
 use Illuminate\Http\Request;
 
-class SubtaskController extends Controller
+class SubtaskController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -40,10 +42,10 @@ class SubtaskController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Subtask  $subtask
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Subtask $subtask)
     {
         //
     }
@@ -51,10 +53,10 @@ class SubtaskController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Subtask  $subtask
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Subtask $subtask)
     {
         //
     }
@@ -63,10 +65,10 @@ class SubtaskController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Subtask  $subtask
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Subtask $subtask)
     {
         //
     }
@@ -74,10 +76,10 @@ class SubtaskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Subtask  $subtask
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Subtask $subtask)
     {
         //
     }
