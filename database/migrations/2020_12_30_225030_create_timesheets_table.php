@@ -16,13 +16,15 @@ class CreateTimesheetsTable extends Migration
         Schema::create('timesheets', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->float('hours', 2, 2)->unsigned();
+            $table->decimal('hours', $precision = 8, $scale = 2)->unsigned();
             $table->string('comments');
             $table->date('date_submitted');
+            $table->unsignedBigInteger('employee_id');
+            $table->unsignedBigInteger('activity_id');
             $table->timestamps();
 
             $table->foreign('employee_id')->references('id')->on('users');
-            $table->foreign('activity_id')->references('id')->on('activity')
+            $table->foreign('activity_id')->references('id')->on('activities');
         });
     }
 

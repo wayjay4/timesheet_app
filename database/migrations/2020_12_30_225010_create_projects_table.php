@@ -19,6 +19,7 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->string('location');
             $table->string('other_details', 1000);
+            $table->unsignedBigInteger('manager_id');
             $table->timestamps();
 
             $table->foreign('manager_id')->references('id')->on('users');

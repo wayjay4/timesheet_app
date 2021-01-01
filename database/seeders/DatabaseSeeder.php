@@ -6,8 +6,15 @@ use App\Models\Jobtype;
 use App\Models\Subjob;
 use App\Models\Subtask;
 use App\Models\Tasktype;
+use App\Models\Activity;
+use App\Models\Costcenter;
+use App\Models\Project;
+use App\Models\Role;
+use App\Models\Timesheet;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Database\Seeders\RoleSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -75,5 +82,40 @@ class DatabaseSeeder extends Seeder
 					$jobtype->subjobs()->attach($subjobs);
 				}
 			);
+
+
+
+		Activity::truncate();
+    	Costcenter::truncate();
+    	Project::truncate();
+    	Role::truncate();
+    	Timesheet::truncate();
+    	User::truncate();
+
+    	Activity::flushEventListeners();
+    	Costcenter::flushEventListeners();
+    	Project::flushEventListeners();
+    	Role::flushEventListeners();
+    	Timesheet::flushEventListeners();
+    	User::flushEventListeners();
+
+    	$activityQuantity = 3;
+    	$costcenterQuantity = 2;
+    	$projectQuantity = 3;
+    	$roleQuantity = 2;
+    	$timesheetQuantity = 6;
+    	$userQuantity = 10;
+
+
+        $this->call([
+          RoleSeeder::class,
+        ]);
+
+    	//Role::factory()->times($roleQuantity)->create();
+    	User::factory()->times($userQuantity)->create();
+    	Costcenter::factory()->times($costcenterQuantity)->create();
+    	Project::factory()->times($projectQuantity)->create();
+    	Activity::factory()->times($activityQuantity)->create();
+    	Timesheet::factory()->times($timesheetQuantity)->create();
     }
 }

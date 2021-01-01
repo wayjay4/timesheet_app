@@ -19,6 +19,7 @@ class CreateActivitiesTable extends Migration
             $table->string('other_details', 1000);
             $table->date('start_date');
             $table->date('end_date');
+            $table->unsignedBigInteger('project_id');
             $table->timestamps();
 
             $table->foreign('project_id')->references('id')->on('projects');
