@@ -15,10 +15,10 @@ class RoleSeeder extends Seeder
     public function run()
     {
       $roleTypes = array(
-        'Employee',
-        'Supervisor'
+        'employee',
+        'supervisor'
       );
-      
+
       foreach($roleTypes as $key=>$value){
         DB::table('roles')->insert([
           'name' => $value
