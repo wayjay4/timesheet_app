@@ -15,6 +15,10 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Database\Seeders\RoleSeeder;
+use Database\Seeders\JobtypeSeeder;
+use Database\Seeders\SubjobSeeder;
+use Database\Seeders\TasktypeSeeder;
+use Database\Seeders\SubTaskSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -45,43 +49,59 @@ class DatabaseSeeder extends Seeder
     	$tasktypeQuantity = 191;
     	$subtaskQuantity = 73;
 
-		Subtask::factory()->times($subtaskQuantity)->create();
+    	$this->call([
+          SubtaskSeeder::class,
+        ]);
 
-		Tasktype::factory()->times($tasktypeQuantity)
-			->create()
-			->each(
-				function($tasktype){
-					$subtasks = Subtask::all()
-									->random(mt_rand(1,16))
-									->pluck('id');
+		// Subtask::factory()->times($subtaskQuantity)->create();
 
-					$tasktype->subtasks()->attach($subtasks);
-				}
-			);
+		$this->call([
+          TasktypeSeeder::class,
+        ]);
 
-		Subjob::factory()->times($subjobQuantity)
-			->create()
-			->each(
-				function($subjob){
-					$tasktypes = Tasktype::all()
-									->random(mt_rand(1,40))
-									->pluck('id');
+		// Tasktype::factory()->times($tasktypeQuantity)
+		// 	->create()
+		// 	->each(
+		// 		function($tasktype){
+		// 			$subtasks = Subtask::all()
+		// 							->random(mt_rand(1,16))
+		// 							->pluck('id');
 
-					$subjob->tasktypes()->attach($tasktypes);
-				}
-			);
+		// 			$tasktype->subtasks()->attach($subtasks);
+		// 		}
+		// 	);
 
-		Jobtype::factory()->times($jobtypeQuantity)
-			->create()
-			->each(
-				function($jobtype){
-					$subjobs = Subjob::all()
-								->random(mt_rand(1,4))
-								->pluck('id');
+		$this->call([
+          SubjobSeeder::class,
+        ]);
 
-					$jobtype->subjobs()->attach($subjobs);
-				}
-			);
+		// Subjob::factory()->times($subjobQuantity)
+		// 	->create()
+		// 	->each(
+		// 		function($subjob){
+		// 			$tasktypes = Tasktype::all()
+		// 							->random(mt_rand(1,40))
+		// 							->pluck('id');
+
+		// 			$subjob->tasktypes()->attach($tasktypes);
+		// 		}
+		// 	);
+
+		$this->call([
+          JobtypeSeeder::class,
+        ]);
+
+		// Jobtype::factory()->times($jobtypeQuantity)
+		// 	->create()
+		// 	->each(
+		// 		function($jobtype){
+		// 			$subjobs = Subjob::all()
+		// 						->random(mt_rand(1,4))
+		// 						->pluck('id');
+
+		// 			$jobtype->subjobs()->attach($subjobs);
+		// 		}
+		// 	);
 
 
 
