@@ -10,6 +10,13 @@ class Costcenter extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+    	'name',
+    	'description',
+    	'order_details',
+    	'owner_id',
+    ];
+
     public function account(){
         return $this->belongsTo(Account::class);
     }

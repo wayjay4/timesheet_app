@@ -10,6 +10,10 @@ class Role extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+    	'name',
+    ];
+
     public function accounts(){
     	return $this->hasMany(Account::class);
     }

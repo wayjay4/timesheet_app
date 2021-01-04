@@ -11,6 +11,15 @@ class Timesheet extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+    	'date',
+    	'hours',
+    	'comments',
+    	'date_submitted',
+    	'employee_id',
+    	'activity_id',
+    ];
+
     public function account(){
         return $this->belongsTo(Account::class);
     }

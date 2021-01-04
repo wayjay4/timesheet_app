@@ -10,6 +10,14 @@ class Project extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+    	'project_code',
+    	'name',
+    	'location',
+    	'other_details',
+    	'manager_id',
+    ];
+
     public function activities(){
     	return $this->hasMany(Activity::class);
     }
