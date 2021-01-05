@@ -17,13 +17,13 @@ class CreateTimesheetsTable extends Migration
             $table->id();
             $table->date('date');
             $table->decimal('hours', $precision = 8, $scale = 2)->unsigned();
-            $table->string('comments');
+            $table->string('job_type');
             $table->date('date_submitted');
-            $table->unsignedBigInteger('employee_id');
+            $table->unsignedBigInteger('account_id');
             $table->unsignedBigInteger('activity_id');
             $table->timestamps();
 
-            $table->foreign('employee_id')->references('id')->on('users');
+            $table->foreign('account_id')->references('id')->on('users');
             $table->foreign('activity_id')->references('id')->on('activities');
         });
     }

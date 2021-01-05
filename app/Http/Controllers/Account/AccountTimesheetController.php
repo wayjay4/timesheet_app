@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Timesheet;
+namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\ApiController;
-use App\Models\Timesheet;
+use App\Models\Account;
+use app\Models\Timesheet;
 use Illuminate\Http\Request;
 
-class TimesheetController extends ApiController
+class AccountTimesheetController extends ApiController
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Account $account)
     {
-        $timesheets = Timesheet::all();
+        $timesheets = $account->timesheets;
 
         return $this->showAll($timesheets);
     }
@@ -44,21 +45,21 @@ class TimesheetController extends ApiController
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Timesheet  $timesheet
+     * @param  \App\Models\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function show(Timesheet $timesheet)
+    public function show(Account $account)
     {
-        return $this->showOne($timesheet);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Timesheet  $timesheet
+     * @param  \App\Models\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function edit(Timesheet $timesheet)
+    public function edit(Account $account)
     {
         //
     }
@@ -67,10 +68,10 @@ class TimesheetController extends ApiController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Timesheet  $timesheet
+     * @param  \App\Models\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Timesheet $timesheet)
+    public function update(Request $request, Account $account)
     {
         //
     }
@@ -78,10 +79,10 @@ class TimesheetController extends ApiController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Timesheet  $timesheet
+     * @param  \App\Models\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Timesheet $timesheet)
+    public function destroy(Account $account)
     {
         //
     }

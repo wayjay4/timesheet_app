@@ -14,9 +14,9 @@ class Timesheet extends Model
     protected $fillable = [
     	'date',
     	'hours',
-    	'comments',
+    	'job_type',
     	'date_submitted',
-    	'employee_id',
+    	'account_id',
     	'activity_id',
     ];
 

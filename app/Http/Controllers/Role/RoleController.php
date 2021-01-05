@@ -15,7 +15,9 @@ class RoleController extends ApiController
      */
     public function index()
     {
-        //
+        $roles = Role::all();
+
+        return $this->showAll($roles);
     }
 
     /**
@@ -47,7 +49,7 @@ class RoleController extends ApiController
      */
     public function show(Role $role)
     {
-        //
+        return $this->showOne($role);
     }
 
     /**

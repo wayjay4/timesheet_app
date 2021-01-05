@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\ApiController;
-use App\Models\account;
+use App\Models\Account;
 use Illuminate\Http\Request;
 
 class AccountController extends ApiController
@@ -15,7 +15,9 @@ class AccountController extends ApiController
      */
     public function index()
     {
-        //
+        $accounts = Account::has('role')->get();
+
+        return $this->showAll($accounts);
     }
 
     /**
@@ -42,21 +44,21 @@ class AccountController extends ApiController
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\account  $account
+     * @param  \App\Models\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function show(account $account)
+    public function show(Account $account)
     {
-        //
+        return $this->showOne($account);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\account  $account
+     * @param  \App\Models\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function edit(account $account)
+    public function edit(Account $account)
     {
         //
     }
@@ -65,10 +67,10 @@ class AccountController extends ApiController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\account  $account
+     * @param  \App\Models\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, account $account)
+    public function update(Request $request, Account $account)
     {
         //
     }
@@ -76,10 +78,10 @@ class AccountController extends ApiController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\account  $account
+     * @param  \App\Models\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function destroy(account $account)
+    public function destroy(Account $account)
     {
         //
     }

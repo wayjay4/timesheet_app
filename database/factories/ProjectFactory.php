@@ -27,7 +27,7 @@ class ProjectFactory extends Factory
             'name' => $this->faker->word,
             'location' => $this->faker->word,
             'other_details' => $this->faker->paragraph(1),
-            'manager_id' => User::all()->random()->id
+            'account_id' => User::all()->random()->id
         ];
     }
 }

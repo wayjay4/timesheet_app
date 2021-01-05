@@ -14,7 +14,7 @@ class Costcenter extends Model
     	'name',
     	'description',
     	'order_details',
-    	'owner_id',
+    	'account_id',
     ];
 
     public function account(){

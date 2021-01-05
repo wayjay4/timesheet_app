@@ -15,7 +15,9 @@ class TasktypeController extends ApiController
      */
     public function index()
     {
-        //
+        $tasktypes = Tasktype::all();
+
+        return $this->showAll($tasktypes);
     }
 
     /**
@@ -47,7 +49,7 @@ class TasktypeController extends ApiController
      */
     public function show(Tasktype $tasktype)
     {
-        //
+        return $this->showOne($tasktype);
     }
 
     /**

@@ -15,7 +15,9 @@ class ActivityController extends ApiController
      */
     public function index()
     {
-        //
+        $activites = Activity::all();
+
+        return $this->showAll($activites);
     }
 
     /**
@@ -47,7 +49,7 @@ class ActivityController extends ApiController
      */
     public function show(Activity $activity)
     {
-        //
+        return $this->showOne($activity);
     }
 
     /**

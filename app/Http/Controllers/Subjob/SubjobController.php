@@ -15,7 +15,9 @@ class SubjobController extends ApiController
      */
     public function index()
     {
-        //
+        $subjobs = Subjob::all();
+
+        return $this->showAll($subjobs);
     }
 
     /**
@@ -47,7 +49,7 @@ class SubjobController extends ApiController
      */
     public function show(Subjob $subjob)
     {
-        //
+        return $this->showAll($subjob);
     }
 
     /**

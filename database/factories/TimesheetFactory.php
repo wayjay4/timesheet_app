@@ -6,6 +6,7 @@ use App\Models\Timesheet;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
 use App\Models\Activity;
+use App\Models\Jobtype;
 
 class TimesheetFactory extends Factory
 {
@@ -23,12 +24,19 @@ class TimesheetFactory extends Factory
      */
     public function definition()
     {
+        $jobtype = Jobtype::all()->random();
+        $subtype = $jobtype->subjobs->random();
+        $tasktype = $subtype->tasktypes->random();
+        $subtask = $tasktype->subtasks->random();
+
+        $job_type = $jobtype->name.'-'.$subtype->name.'-'.$tasktype->name.'-'.$subtask->name;
+
         return [
             'date' => $this->faker->dateTimeBetween('-5 days', 'now'),
             'hours' => $this->faker->randomFloat(1, 1, 10),
-            'comments' => $this->faker->paragraph(1),
+            'job_type' => $job_type,
             'date_submitted' => $this->faker->dateTimeBetween('-5 days', 'now'),
-            'employee_id' => User::all()->random()->id,
+            'account_id' => User::all()->random()->id,
             'activity_id' => Activity::all()->random()->id
         ];
     }

@@ -15,7 +15,9 @@ class CostcenterController extends ApiController
      */
     public function index()
     {
-        //
+        $costcenters = Costcenter::all();
+
+        return $this->showAll($costcenters);
     }
 
     /**
@@ -47,7 +49,7 @@ class CostcenterController extends ApiController
      */
     public function show(Costcenter $costcenter)
     {
-        //
+        return $this->showOne($costcenter);
     }
 
     /**

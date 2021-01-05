@@ -26,7 +26,7 @@ class CostcenterFactory extends Factory
             'name' => $this->faker->word,
             'descripton' => $this->faker->paragraph(1),
             'order_details' => $this->faker->paragraph(1),
-            'owner_id' => User::all()->random()->id
+            'account_id' => User::all()->random()->id
         ];
     }
 }

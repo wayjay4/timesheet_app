@@ -15,7 +15,9 @@ class ProjectController extends ApiController
      */
     public function index()
     {
-        //
+        $projects = Project::all();
+
+        return $this->showAll($projects);
     }
 
     /**
@@ -47,7 +49,7 @@ class ProjectController extends ApiController
      */
     public function show(Project $project)
     {
-        //
+        return $this->showOne($project);
     }
 
     /**

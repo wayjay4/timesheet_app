@@ -15,7 +15,9 @@ class SubtaskController extends ApiController
      */
     public function index()
     {
-        //
+        $subtasks = Subtask::all();
+
+        return $this->showAll($subtasks);
     }
 
     /**
@@ -47,7 +49,7 @@ class SubtaskController extends ApiController
      */
     public function show(Subtask $subtask)
     {
-        //
+        return $this->showAll($subtask);
     }
 
     /**
