@@ -1,4 +1,8 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/js/react/React_app.js": "/js/react/React_app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/bootstrap/bootstrap.min.css": "/css/bootstrap/bootstrap.min.css",
+    "/css/bootstrap/bootstrap.min.css.map": "/css/bootstrap/bootstrap.min.css.map",
+    "/js/bootstrap/bootstrap.bundle.min.js": "/js/bootstrap/bootstrap.bundle.min.js",
+    "/js/bootstrap/bootstrap.bundle.min.js.map": "/js/bootstrap/bootstrap.bundle.min.js.map"
 }

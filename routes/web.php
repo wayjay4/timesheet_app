@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,10 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::any('timesheet/dashboard/', [DashboardController::class, 'index'])
+	->middleware('auth:sanctum','verified');
+
+Route::any('timesheet/dashboard/{any}', [DashboardController::class, 'index'])
+	->middleware('auth:sanctum', 'verified')
+	->where('any', '.*');
