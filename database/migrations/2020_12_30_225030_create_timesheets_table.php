@@ -15,9 +15,13 @@ class CreateTimesheetsTable extends Migration
     {
         Schema::create('timesheets', function (Blueprint $table) {
             $table->id();
+            $table->string('building');
             $table->date('date');
+            $table->string('type');
+            $table->string('subtype');
+            $table->string('task');
+            $table->string('subtask');
             $table->decimal('hours', $precision = 8, $scale = 2)->unsigned();
-            $table->string('job_type');
             $table->date('date_submitted');
             $table->unsignedBigInteger('account_id');
             $table->unsignedBigInteger('activity_id');

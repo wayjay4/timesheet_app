@@ -12,9 +12,13 @@ class Timesheet extends Model
     use HasFactory;
 
     protected $fillable = [
+        'building',
     	'date',
+        'type',
+        'subtype',
+        'task',
+        'subtask',
     	'hours',
-    	'job_type',
     	'date_submitted',
     	'account_id',
     	'activity_id',

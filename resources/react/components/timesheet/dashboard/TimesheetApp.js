@@ -113,12 +113,12 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                         {timesheets.map((timesheet) => (
                                             <tr>
                                                 <th key={timesheet.id} scope="row">{timesheet.id}</th>
-                                                <td>&nbsp;</td>
+                                                <td>{timesheet.building}</td>
                                                 <td>{timesheet.date}</td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
+                                                <td>{timesheet.type}</td>
+                                                <td>{timesheet.subtype}</td>
+                                                <td>{timesheet.task}</td>
+                                                <td>{timesheet.subtask}</td>
                                                 <td>{timesheet.hours}</td>
                                                 <td>&nbsp;</td>
                                                 <td>&nbsp;</td>

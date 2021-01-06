@@ -33,8 +33,12 @@ class TimesheetFactory extends Factory
 
         return [
             'date' => $this->faker->dateTimeBetween('-5 days', 'now'),
+            'building' => $this->faker->randomNumber(3),
             'hours' => $this->faker->randomFloat(1, 1, 10),
-            'job_type' => $job_type,
+            'type' => $jobtype,
+            'subtype' => $subtype,
+            'task' => $tasktype,
+            'subtask' => $subtask,
             'date_submitted' => $this->faker->dateTimeBetween('-5 days', 'now'),
             'account_id' => User::all()->random()->id,
             'activity_id' => Activity::all()->random()->id
