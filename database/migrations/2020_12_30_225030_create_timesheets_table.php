@@ -15,6 +15,7 @@ class CreateTimesheetsTable extends Migration
     {
         Schema::create('timesheets', function (Blueprint $table) {
             $table->id();
+            $table->date('week_ending');
             $table->string('building');
             $table->date('date');
             $table->string('type');

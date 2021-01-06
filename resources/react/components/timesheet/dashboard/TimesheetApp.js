@@ -111,8 +111,8 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                     :
                                     <tbody>
                                         {timesheets.map((timesheet) => (
-                                            <tr>
-                                                <th key={timesheet.id} scope="row">{timesheet.id}</th>
+                                            <tr key={timesheet.id}>
+                                                <th scope="row">{timesheet.id}</th>
                                                 <td>{timesheet.building}</td>
                                                 <td>{timesheet.date}</td>
                                                 <td>{timesheet.type}</td>
@@ -177,59 +177,68 @@ function TimesheetApp ({apiKey, apiUrl}) {
                             
 
                             <form>
-                              <div className="form-group">
-                                <label htmlFor="exampleFormControlInput1">Building</label>
-                                <input type="email" className="form-control form-control-sm" id="exampleFormControlInput1" placeholder="bldg #" />
+                              <div hidden className="form-group col-md-3">
+                                <label htmlFor="exampleFormControlInput4">Week Ending</label>
+                                <input type="date" className="form-control form-control-sm" id="exampleFormControlInput4" placeholder="date" />
                               </div>
 
-                              <div className="form-group">
-                                <label htmlFor="exampleFormControlInput2">Date</label>
-                                <input type="date" className="form-control form-control-sm" id="exampleFormControlInput2" placeholder="date" />
-                              </div>
+                                <div className="form-row">
+                                  <div className="form-group col-md-6">
+                                    <label htmlFor="exampleFormControlInput1">Building</label>
+                                    <input type="email" className="form-control form-control-sm" id="exampleFormControlInput1" placeholder="bldg #" />
+                                  </div>
 
-                              <div className="form-group">
-                                <label htmlFor="exampleFormControlSelect1">Type</label>
-                                <select className="form-control form-control-sm" id="exampleFormControlSelect1">
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                </select>
-                              </div>
+                                  <div className="form-group col-md-6">
+                                    <label htmlFor="exampleFormControlInput2">Date</label>
+                                    <input type="date" className="form-control form-control-sm" id="exampleFormControlInput2" placeholder="date" />
+                                  </div>
+                                </div>
 
-                              <div className="form-group">
-                                <label htmlFor="exampleFormControlSelect2">Subtype</label>
-                                <select className="form-control form-control-sm" id="exampleFormControlSelect2">
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                </select>
-                              </div>
+                                <div className="form-row">
+                                  <div className="form-group col-md-3">
+                                    <label htmlFor="exampleFormControlSelect1">Type</label>
+                                    <select className="form-control form-control-sm" id="exampleFormControlSelect1">
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                      <option>5</option>
+                                    </select>
+                                  </div>
 
-                              <div className="form-group">
-                                <label htmlFor="exampleFormControlSelect3">Task</label>
-                                <select className="form-control form-control-sm" id="exampleFormControlSelect3">
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                </select>
-                              </div>
+                                  <div className="form-group col-md-3">
+                                    <label htmlFor="exampleFormControlSelect2">Subtype</label>
+                                    <select className="form-control form-control-sm" id="exampleFormControlSelect2">
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                      <option>5</option>
+                                    </select>
+                                  </div>
 
-                              <div className="form-group">
-                                <label htmlFor="exampleFormControlSelect4">Subtask</label>
-                                <select className="form-control form-control-sm" id="exampleFormControlSelect4">
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                </select>
-                              </div>
+                                  <div className="form-group col-md-3">
+                                    <label htmlFor="exampleFormControlSelect3">Task</label>
+                                    <select className="form-control form-control-sm" id="exampleFormControlSelect3">
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                      <option>5</option>
+                                    </select>
+                                  </div>
+
+                                  <div className="form-group col-md-3">
+                                    <label htmlFor="exampleFormControlSelect4">Subtask</label>
+                                    <select className="form-control form-control-sm" id="exampleFormControlSelect4">
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                      <option>5</option>
+                                    </select>
+                                  </div>
+                                </div>
 
                               <div className="form-group">
                                 <label htmlFor="exampleFormControlInput3">Hours</label>

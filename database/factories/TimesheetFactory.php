@@ -32,6 +32,7 @@ class TimesheetFactory extends Factory
         $job_type = $jobtype->name.'-'.$subtype->name.'-'.$tasktype->name.'-'.$subtask->name;
 
         return [
+            'week_ending' => $this->faker->dateTimeBetween('now', '+5 days'),
             'date' => $this->faker->dateTimeBetween('-5 days', 'now'),
             'building' => $this->faker->randomNumber(3),
             'hours' => $this->faker->randomFloat(1, 1, 10),

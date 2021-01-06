@@ -12,6 +12,7 @@ class Timesheet extends Model
     use HasFactory;
 
     protected $fillable = [
+        'week_ending',
         'building',
     	'date',
         'type',
