@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-//import ComposerList from "./components/ComposerList";
+import RecordModal from "./components/RecordModal";
 //import CRouter from "./components/shared/CRouter";
 import "./styles/composerDashboard.css";
 import logo from "./images/logo.png";
@@ -7,6 +7,8 @@ import logo from "./images/logo.png";
 function TimesheetApp ({apiKey, apiUrl}) {
     // state vars
     const [timesheets, setTimesheets] = useState({});
+    const [foreman, setForeman] = useState('');
+    const [weekending, setWeekending] = useState('');
 
     // use effect
     useEffect(() => {
@@ -27,7 +29,6 @@ function TimesheetApp ({apiKey, apiUrl}) {
         .then(response => response.json())
         .then(response => {
             setTimesheets(response);
-            console.log(response);
         })
         .catch(err => {
             console.log(err);
@@ -38,6 +39,16 @@ function TimesheetApp ({apiKey, apiUrl}) {
         //console.log("clickHandler:");
         //console.log(el.target);
         console.log("hello world, button was clicked!");
+    };
+
+    const handleForemanChange = (el) => {
+        console.log(el.target.value);
+        setForeman(el.target.value);
+    };
+
+    const handleWeekendingChange = (el) => {
+        console.log(el.target.value);
+        setWeekending(el.target.value);
     };
 
     const isTimesheetsValid = () => {
@@ -55,8 +66,12 @@ function TimesheetApp ({apiKey, apiUrl}) {
                             <tr>
                                 <td scope="col">#</td>
                                 <td colSpan="4"></td>
-                                <td colSpan="2"></td>
-                                <td colSpan="3"></td>
+                                <td colSpan="2">
+                                    <input type="text" className="form-control form-control-sm" id="foreman" value={foreman} onChange={handleForemanChange} placeholder="foreman's name" />
+                                </td>
+                                <td colSpan="3">
+                                    <input type="date" className="form-control form-control-sm" id="weedending" value={weekending} onChange={handleWeekendingChange} placeholder="date" />
+                                </td>
                                 <td colSpan="4" rowSpan="2">
                                     <div>
                                         <div><img src={logo} className="img-fluid" /></div>
@@ -155,137 +170,10 @@ function TimesheetApp ({apiKey, apiUrl}) {
                         </thead>
                     </table>
                 </div>
-
-                <div className="container">
-                    { /*Button trigger modal*/ }
-                    <button type="button" className="btn btn-primary btn-sm" data-toggle="modal" data-target="#addTimeModal">
-                      Add Timesheet
-                    </button>
-
-                    { /*Modal*/ }
-                    <div className="modal fade" id="addTimeModal" data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="addTimeModalLabel" aria-hidden="true">
-                      <div className="modal-dialog">
-                        <div className="modal-content">
-                          <div className="modal-header">
-                            <h5 className="modal-title" id="addTimeModalLabel">Add Record</h5>
-
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div className="modal-body">
-                            
-
-                            <form>
-                              <div hidden className="form-group col-md-3">
-                                <label htmlFor="exampleFormControlInput4">Week Ending</label>
-                                <input type="date" className="form-control form-control-sm" id="exampleFormControlInput4" placeholder="date" />
-                              </div>
-
-                                <div className="form-row">
-                                  <div className="form-group col-md-6">
-                                    <label htmlFor="exampleFormControlInput1">Building</label>
-                                    <input type="email" className="form-control form-control-sm" id="exampleFormControlInput1" placeholder="bldg #" />
-                                  </div>
-
-                                  <div className="form-group col-md-6">
-                                    <label htmlFor="exampleFormControlInput2">Date</label>
-                                    <input type="date" className="form-control form-control-sm" id="exampleFormControlInput2" placeholder="date" />
-                                  </div>
-                                </div>
-
-                                <div className="form-row">
-                                  <div className="form-group col-md-3">
-                                    <label htmlFor="exampleFormControlSelect1">Type</label>
-                                    <select className="form-control form-control-sm" id="exampleFormControlSelect1">
-                                      <option>1</option>
-                                      <option>2</option>
-                                      <option>3</option>
-                                      <option>4</option>
-                                      <option>5</option>
-                                    </select>
-                                  </div>
-
-                                  <div className="form-group col-md-3">
-                                    <label htmlFor="exampleFormControlSelect2">Subtype</label>
-                                    <select className="form-control form-control-sm" id="exampleFormControlSelect2">
-                                      <option>1</option>
-                                      <option>2</option>
-                                      <option>3</option>
-                                      <option>4</option>
-                                      <option>5</option>
-                                    </select>
-                                  </div>
-
-                                  <div className="form-group col-md-3">
-                                    <label htmlFor="exampleFormControlSelect3">Task</label>
-                                    <select className="form-control form-control-sm" id="exampleFormControlSelect3">
-                                      <option>1</option>
-                                      <option>2</option>
-                                      <option>3</option>
-                                      <option>4</option>
-                                      <option>5</option>
-                                    </select>
-                                  </div>
-
-                                  <div className="form-group col-md-3">
-                                    <label htmlFor="exampleFormControlSelect4">Subtask</label>
-                                    <select className="form-control form-control-sm" id="exampleFormControlSelect4">
-                                      <option>1</option>
-                                      <option>2</option>
-                                      <option>3</option>
-                                      <option>4</option>
-                                      <option>5</option>
-                                    </select>
-                                  </div>
-                                </div>
-
-                              <div className="form-group">
-                                <label htmlFor="exampleFormControlInput3">Hours</label>
-                                <input type="text" className="form-control form-control-sm" id="exampleFormControlInput3" placeholder="hours worked" />
-                              </div>
-
-
-
-                              <div hidden className="form-group">
-                                <label htmlFor="exampleFormControlSelect2">Example multiple select</label>
-                                <select multiple className="form-control form-control-sm" id="exampleFormControlSelect2">
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                                </select>
-                              </div>
-                              <div hidden className="form-group">
-                                <label htmlFor="exampleFormControlTextarea1">Example textarea</label>
-                                <textarea className="form-control form-control-sm" id="exampleFormControlTextarea1" rows="3"></textarea>
-                              </div>
-                            </form>
-
-                          </div>
-                          <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary">Submit</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-                {
-                    !isTimesheetsValid() 
-                        ? 
-                        <p>There are no timesheets to display.</p>
-                        : 
-                        <div className="composer-items-list">
-                            <ul>
-                                {timesheets.map((timesheet) => (
-                                    <li key={timesheet.id}>{timesheet.job_type}</li>
-                                ))}
-                            </ul>
-                        </div>
-                }
+                <RecordModal
+                    apiUrl={apiUrl}
+                    apiKey={apiKey}
+                />
             </div>
         </div>
     );

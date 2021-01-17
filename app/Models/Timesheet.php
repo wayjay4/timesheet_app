@@ -13,13 +13,13 @@ class Timesheet extends Model
 
     protected $fillable = [
         'week_ending',
+        'date',
         'building',
-    	'date',
+        'hours',
         'type',
         'subtype',
         'task',
         'subtask',
-    	'hours',
     	'date_submitted',
     	'account_id',
     	'activity_id',

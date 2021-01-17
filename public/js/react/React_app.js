@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -6451,7 +6451,7 @@ module.exports = {
 
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/react/components/timesheet/dashboard/styles/composerDashboard.css":
 /*!*********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/react/components/timesheet/dashboard/styles/composerDashboard.css ***!
+  !*** ./node_modules/css-loader??ref--8-1!./node_modules/postcss-loader/src??ref--8-2!./resources/react/components/timesheet/dashboard/styles/composerDashboard.css ***!
   \*********************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -6461,7 +6461,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, "* {\n  /*margin: 0;\n  padding: 0;*/\n  box-sizing: border-box;\n}\n\n\n:root {\n\t--siteColor-darkgrey: #2B2D3C;\n\t--siteColor-magenta: #61063F;\n\t--siteColor-red: #E70342;\n\t--siteColor-lightmagenta: #A60744;\n\t--siteColor-lightgrey: #8A83AB;\n\t--siteColor-white: #F1F1F1;\n\n\t--devs-border-size: 0px;  /* use 0 for 'off' and 1 for 'on'*/\n\t--siteColor-cyan: rgba(0,255,255,.6);\n\t--siteColor-lightcyan: rgba(0,255,255,.2);\n\n\tfont-size: 16px;\n}\n\nhtml {\n\tbackground-color: var(--siteColor-darkgrey, gray);\n}\n\n\nbody {\n\tline-height: 1.5;\n\tfont-family: \"Poppins\", sans-serif;\n\tcolor: #CEC7C6;\n\n\tmin-height: 100vh;\n\tbackground: url(/images/backgrounds/blueblackhue_bground.jpg) no-repeat center center fixed;\n\tbackground-size: cover;\n}\n\n.composer-item a {\n\tcolor: inherit;\n}\n\n.composer-item a:hover {\n\ttext-decoration: none;\n}\n\n\n/* Main Outer Container/Content Divs */\n.container,\n.content {\n\tmin-width: 98%;\n\tpadding: 0.5em;\n}\n\n.container {\n\tborder: var(--devs-border-size, 0px) solid white;\n}\n\n.column-container {\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: space-between;\n}\n\n.row-container {\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: space-between;\n}\n\n.baseline {\n\talign-items: baseline;\n}\n\n.center-vertical {\n\talign-items: center;\n}\n\n.list-disc {\n\tpadding-left: 1.3em;\n\tlist-style: disc outside none;\n}\n\n.list-disc li {\n\tmargin-bottom: 0.5em;\n}\n\n\n.content {\n\tborder: var(--devs-border-size, 0px) solid yellow;\n}\n\n\n/* Composer Dashboard Main Container/Content Divs */\n#composer-dashboard  {\n\tmin-width: 100%;\n\tborder: var(--devs-border-size, 0px) solid red;\n}\n\n#composer-dashboard div.container {\n\tborder: var(--devs-border-size, 0px) solid white;\n}\n\n#composer-dashboard div.content {\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tborder: 1px solid var(--siteColor-cyan, cyan);\n\ttransition: all 1s ease;\n}\n\n\n\n/* Composer Dashboard Styling for Inner Content */\n.composer-items-list {\n\tmin-width: 100%;\n\tmargin:0.5em;\n\tpadding: 0.5em;\n\n\t/*\n\t// default settings for small phone\n\tdisplay: flex;\n\tflex-direction: column;\n\tflex-wrap: nowrap;\n\tjustify-content: flex-start;\n\talign-items: stretch;\n\ttransition: all 1s ease;\n\t*/\n}\n\n.composer-item {\n\tbackground: rgba(0,0,0,0.75);\n\tmargin:0.25em;\n\tborder-radius: 5px;\n\tflex-grow: 1;\n\tflex-shrink: 1;\n\ttransition: all 1s ease;\n\n\t/*\n\t// default settings for small phone\n\twidth: 100%;\n\t*/\n}\n\n\n.composer-item:hover {\n\tbackground: rgba(0,0,0, 0.60);\n\tposition: relative;\n\tbottom: 0px;\n\tleft: 0px;\n}\n\n.composer-item div.container {\n\theight: 100%;\n}\n\n.composer-card {\n\twidth:100%;\n\theight: 100%;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: space-between;\n\talign-items: stretch;\n\ttransition: all 0s ease;\n}\n\n.composer-body {\n\tpadding: 0.5em;\n\tborder: var(--devs-border-size, 0px) solid yellow;\n\ttransition: all 0s ease;\n\n\t/*\n\t// default settings for small phone\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: flex-start;\n\talign-items: flex-start;\n\tflex-wrap: wrap;\n\t*/\n}\n\n.composer-img {\n\twidth: 5em;\n\theight: 5em;\n\tborder-radius: 9999px;\n\t-o-object-fit: cover;\n\t   object-fit: cover;\n\tmargin: 0.5rem;\n\tborder: 1px solid yellow;\n}\n\n.composer-data {\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: space-between;\n\talign-items: flex-start;\n\tmargin: 0.5em;\n\tpadding: 0.5em;\n\tborder: var(--devs-border-size, 0px) solid lightgreen;\n\tflex: 1 1;\n\ttransition: all 0s ease;\n\tfont-size: 0.9rem;\n}\n\n.composer-data ul {\n\twidth: 100%;\n}\n\n.track-name {\n\ttext-transform: capitalize;\n}\n\n.item-label {\n\tfont-weight: 500;\n\tcolor: var(--siteColor-cyan, cyan);\n\tfont-size: 1.10em;\n\ttext-transform: capitalize;\n\tmargin-right: 0.2em;\n}\n\n\n.list-group-item {\n\tbackground-color: transparent;\n\tborder: 1px solid var(--siteColor-lightcyan, cyan);\n\n\n}\n\ndiv.audio-player-container {\n\twidth: 100%;\n}\n\ndiv.audio-player-container audio {\n\tdisplay: block;\n\twidth: 100%;\n}\n\n\n.btn-container {\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: space-between;\n\talign-items: stretch;\n\ttransition: all 1s ease;\n\tborder: var(--devs-border-size, 0px) solid purple;\n}\n\n.btn-group {\n\tdisplay: flex;\n\tflex-direction: row;\n\tflex-wrap: wrap;\n\tjustify-content: space-between;\n\talign-items: center;\n\ttransition: all 1s ease;\n}\n\n.btn-group button {\n\tmargin:0em 0em 0.25em 0em;\n}\n\n\n\n.box-shadow {\n\tbox-shadow: 3px 3px 1px 0px var(--siteColor-lightcyan, cyan);\n}\n\n\n\n\n/* Extra small devices (phones, 600px and down) */\n@media only screen and (max-width: 600px) {\n\t.composer-items-list {\n\t\tdisplay: flex;\n\t\tflex-direction: column;\n\t\tflex-wrap: nowrap;\n\t\tjustify-content: flex-start;\n\t\talign-items: stretch;\n\t\ttransition: all 1s ease;\n\t}\n\n\t.composer-item {\n\t\twidth: 100%;\n\t}\n\n\t.composer-body {\n\t\tdisplay: flex;\n\t\tflex-direction: row;\n\t\tjustify-content: flex-start;\n\t\talign-items: flex-start;\n\t\tflex-wrap: wrap;\n\t}\n}\n\n/* Small devices (portrait tablets and large phones, 600px and up) */\n@media only screen and (min-width: 601px) {\n\t.composer-items-list {\n\t\tdisplay: flex;\n\t\tflex-direction: row;\n\t\tflex-wrap: wrap;\n\t\tjustify-content: space-around;\n\t\talign-items: stretch;\n\t\ttransition: all 1s ease;\n\t}\n\n\t.composer-item {\n\t\twidth: 48%;\n\t}\n\n\t.composer-body {\n\t\tdisplay: flex;\n\t\tflex-direction: column;\n\t\tjustify-content: flex-start;\n\t\talign-items: stretch;\n\t\tflex-wrap: wrap;\n\t}\n}\n\n/* Medium devices (landscape tablets, 768px and up) */\n@media only screen and (min-width: 768px) {\n\t.composer-item {\n\t\twidth: 48%;\n\t}\n}\n\n/* Large devices (laptops/desktops, 992px and up) */\n@media only screen and (min-width: 992px) {\n\t.composer-item {\n\t\twidth: 25%;\n\t}\n}\n\n/* Extra large devices (large laptops and desktops, 1200px and up) */\n@media only screen and (min-width: 1200px) {\n\t.composer-item {\n\t\twidth: 20%;\n\t}\n}\n\n\n\n\n\n\n\n\n\n\n/* Composition Dashboard Styling for Inner Content */\n.composition-list-container {\n\tdisplay: none;\n\tborder: 1px solid yellow;\n}\n\n.composition-main-container {\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tborder: 1px solid red;\n\tbackground-color: var(--siteColor-white, white);\n\tmargin: 1rem;\n}\n\n.composition-list {\n\tmin-width: 95%;\n\tlist-style: none;\n}\n\n.composition-container {\n\tmargin: 0.5rem 0.5rem 1.0rem 0.5rem;\n\tfont-size: 1.15rem;\n\tcolor: black;\n\tdisplay: flex;\n\tjustify-content: space-between;\n\talign-items: center;\n\ttransition: all 1s ease;\n\tborder-bottom: 2px solid var(--siteColor-lightmagenta, green);\n\tbox-shadow: 0px 0px 0px 0px var(--siteColor-lightgrey, lightgrey);\n\tpadding: 1rem 1rem;\n}\t\n\n.composition {\n\tposition: relative;\n\twidth: 100%;\n}\n\n\n\n\n.audiotrack-list-container {\n\tdisplay: none;\n}\n\n.audiotrack-main-container {\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tborder: 1px solid orange;\n\tbackground-color: var(--siteColor-white, white);\n\tmargin: 1rem;\n}\n\n\n\n\n\n.audiotrack-container {\n\tmargin: 0.5rem;\n\tfont-size: 0.9rem;\n\tcolor: black;\n\tborder-bottom: 2px solid purple;\n\tbox-shadow: 0px 0px 0px 0px var(--siteColor-lightgrey, lightgrey);\n\tmin-width: 95%;\n}\n\n.audiotrack {\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: flex-start;\n\talign-items: stretch;\n\tflex-wrap: wrap;\n\tmin-width: 100%;\n}\n\n\n\n\n\n\n.trackdata-info {\n\tdisplay: flex;\n\talign-items: stretch;\n\tflex: 1 1 15%;\n\tmargin: 0.1rem;\n\tmargin-bottom: 1rem;\n\tpadding: 0.1rem;\n\tborder: 0px solid black;\n}\n\n.trackdata-info img {\n\t/*\n\twidth: 200px;\n\theight: 200px;\n\t*/\n}\n\n.trackdata-btn-group {\n\tdisplay:flex;\n\tjustify-content: center;\n\talign-items: flex-end;\n}\n", ""]);
+exports.push([module.i, "* {\n  /*margin: 0;\n  padding: 0;*/\n  box-sizing: border-box;\n}\n\n:root {\n  --siteColor-darkgrey: #2B2D3C;\n  --siteColor-magenta: #61063F;\n  --siteColor-red: #E70342;\n  --siteColor-lightmagenta: #A60744;\n  --siteColor-lightgrey: #8A83AB;\n  --siteColor-white: #F1F1F1;\n  --devs-border-size: 0px;  /* use 0 for 'off' and 1 for 'on'*/\n  --siteColor-cyan: rgba(0,255,255,.6);\n  --siteColor-lightcyan: rgba(0,255,255,.2);\n  font-size: 16px;\n}\n\nhtml {\n  background-color: var(--siteColor-darkgrey, gray);\n}\n\nbody {\n  line-height: 1.5;\n  font-family: \"Poppins\", sans-serif;\n  color: #CEC7C6;\n  min-height: 100vh;\n  background: url(/images/backgrounds/blueblackhue_bground.jpg) no-repeat center center fixed;\n  background-size: cover;\n}\n\n.composer-item a {\n  color: inherit;\n}\n\n.composer-item a:hover {\n  text-decoration: none;\n}\n\n/* Main Outer Container/Content Divs */\n\n.container,\n.content {\n  min-width: 98%;\n  padding: 0.5em;\n}\n\n.container {\n  border: var(--devs-border-size, 0px) solid white;\n}\n\n.column-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n\n.row-container {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n}\n\n.baseline {\n  align-items: baseline;\n}\n\n.center-vertical {\n  align-items: center;\n}\n\n.list-disc {\n  padding-left: 1.3em;\n  list-style: disc outside none;\n}\n\n.list-disc li {\n  margin-bottom: 0.5em;\n}\n\n.content {\n  border: var(--devs-border-size, 0px) solid yellow;\n}\n\n/* Composer Dashboard Main Container/Content Divs */\n\n#composer-dashboard  {\n  min-width: 100%;\n  border: var(--devs-border-size, 0px) solid red;\n}\n\n#composer-dashboard div.container {\n  border: var(--devs-border-size, 0px) solid white;\n}\n\n#composer-dashboard div.content {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 1px solid var(--siteColor-cyan, cyan);\n  transition: all 1s ease;\n}\n\n/* Composer Dashboard Styling for Inner Content */\n\n.composer-items-list {\n  min-width: 100%;\n  margin:0.5em;\n  padding: 0.5em;\n  /*\n\t// default settings for small phone\n\tdisplay: flex;\n\tflex-direction: column;\n\tflex-wrap: nowrap;\n\tjustify-content: flex-start;\n\talign-items: stretch;\n\ttransition: all 1s ease;\n\t*/\n}\n\n.composer-item {\n  background: rgba(0,0,0,0.75);\n  margin:0.25em;\n  border-radius: 5px;\n  flex-grow: 1;\n  flex-shrink: 1;\n  transition: all 1s ease;\n  /*\n\t// default settings for small phone\n\twidth: 100%;\n\t*/\n}\n\n.composer-item:hover {\n  background: rgba(0,0,0, 0.60);\n  position: relative;\n  bottom: 0px;\n  left: 0px;\n}\n\n.composer-item div.container {\n  height: 100%;\n}\n\n.composer-card {\n  width:100%;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: stretch;\n  transition: all 0s ease;\n}\n\n.composer-body {\n  padding: 0.5em;\n  border: var(--devs-border-size, 0px) solid yellow;\n  transition: all 0s ease;\n  /*\n\t// default settings for small phone\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: flex-start;\n\talign-items: flex-start;\n\tflex-wrap: wrap;\n\t*/\n}\n\n.composer-img {\n  width: 5em;\n  height: 5em;\n  border-radius: 9999px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  margin: 0.5rem;\n  border: 1px solid yellow;\n}\n\n.composer-data {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin: 0.5em;\n  padding: 0.5em;\n  border: var(--devs-border-size, 0px) solid lightgreen;\n  flex: 1 1;\n  transition: all 0s ease;\n  font-size: 0.9rem;\n}\n\n.composer-data ul {\n  width: 100%;\n}\n\n.track-name {\n  text-transform: capitalize;\n}\n\n.item-label {\n  font-weight: 500;\n  color: var(--siteColor-cyan, cyan);\n  font-size: 1.10em;\n  text-transform: capitalize;\n  margin-right: 0.2em;\n}\n\n.list-group-item {\n  background-color: transparent;\n  border: 1px solid var(--siteColor-lightcyan, cyan);\n}\n\ndiv.audio-player-container {\n  width: 100%;\n}\n\ndiv.audio-player-container audio {\n  display: block;\n  width: 100%;\n}\n\n.btn-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: stretch;\n  transition: all 1s ease;\n  border: var(--devs-border-size, 0px) solid purple;\n}\n\n.btn-group {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 1s ease;\n}\n\n.btn-group button {\n  margin:0em 0em 0.25em 0em;\n}\n\n.box-shadow {\n  box-shadow: 3px 3px 1px 0px var(--siteColor-lightcyan, cyan);\n}\n\n/* Extra small devices (phones, 600px and down) */\n\n@media only screen and (max-width: 600px) {\n  .composer-items-list {\n    display: flex;\n    flex-direction: column;\n    flex-wrap: nowrap;\n    justify-content: flex-start;\n    align-items: stretch;\n    transition: all 1s ease;\n  }\n\n  .composer-item {\n    width: 100%;\n  }\n\n  .composer-body {\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-wrap: wrap;\n  }\n}\n\n/* Small devices (portrait tablets and large phones, 600px and up) */\n\n@media only screen and (min-width: 601px) {\n  .composer-items-list {\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    justify-content: space-around;\n    align-items: stretch;\n    transition: all 1s ease;\n  }\n\n  .composer-item {\n    width: 48%;\n  }\n\n  .composer-body {\n    display: flex;\n    flex-direction: column;\n    justify-content: flex-start;\n    align-items: stretch;\n    flex-wrap: wrap;\n  }\n}\n\n/* Medium devices (landscape tablets, 768px and up) */\n\n@media only screen and (min-width: 768px) {\n  .composer-item {\n    width: 48%;\n  }\n}\n\n/* Large devices (laptops/desktops, 992px and up) */\n\n@media only screen and (min-width: 992px) {\n  .composer-item {\n    width: 25%;\n  }\n}\n\n/* Extra large devices (large laptops and desktops, 1200px and up) */\n\n@media only screen and (min-width: 1200px) {\n  .composer-item {\n    width: 20%;\n  }\n}\n\n/* Composition Dashboard Styling for Inner Content */\n\n.composition-list-container {\n  display: none;\n  border: 1px solid yellow;\n}\n\n.composition-main-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 1px solid red;\n  background-color: var(--siteColor-white, white);\n  margin: 1rem;\n}\n\n.composition-list {\n  min-width: 95%;\n  list-style: none;\n}\n\n.composition-container {\n  margin: 0.5rem 0.5rem 1.0rem 0.5rem;\n  font-size: 1.15rem;\n  color: black;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 1s ease;\n  border-bottom: 2px solid var(--siteColor-lightmagenta, green);\n  box-shadow: 0px 0px 0px 0px var(--siteColor-lightgrey, lightgrey);\n  padding: 1rem 1rem;\n}\n\n.composition {\n  position: relative;\n  width: 100%;\n}\n\n.audiotrack-list-container {\n  display: none;\n}\n\n.audiotrack-main-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 1px solid orange;\n  background-color: var(--siteColor-white, white);\n  margin: 1rem;\n}\n\n.audiotrack-container {\n  margin: 0.5rem;\n  font-size: 0.9rem;\n  color: black;\n  border-bottom: 2px solid purple;\n  box-shadow: 0px 0px 0px 0px var(--siteColor-lightgrey, lightgrey);\n  min-width: 95%;\n}\n\n.audiotrack {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: stretch;\n  flex-wrap: wrap;\n  min-width: 100%;\n}\n\n.trackdata-info {\n  display: flex;\n  align-items: stretch;\n  flex: 1 1 15%;\n  margin: 0.1rem;\n  margin-bottom: 1rem;\n  padding: 0.1rem;\n  border: 0px solid black;\n}\n\n.trackdata-info img {\n  /*\n\twidth: 200px;\n\theight: 200px;\n\t*/\n}\n\n.trackdata-btn-group {\n  display:flex;\n  justify-content: center;\n  align-items: flex-end;\n}\n", ""]);
 
 // exports
 
@@ -70545,17 +70545,63 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _timesheet_dashboard_TimesheetApp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./timesheet/dashboard/TimesheetApp */ "./resources/react/components/timesheet/dashboard/TimesheetApp.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
 
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
 
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+  return arr2;
+}
+
+function _iterableToArrayLimit(arr, i) {
+  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
 
 
 
@@ -70605,37 +70651,93 @@ if (document.getElementById('timesheet-dashboard')) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/composerDashboard.css */ "./resources/react/components/timesheet/dashboard/styles/composerDashboard.css");
-/* harmony import */ var _styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./images/logo.png */ "./resources/react/components/timesheet/dashboard/images/logo.png");
-/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_images_logo_png__WEBPACK_IMPORTED_MODULE_2__);
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+/* harmony import */ var _components_RecordModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/RecordModal */ "./resources/react/components/timesheet/dashboard/components/RecordModal.js");
+/* harmony import */ var _styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/composerDashboard.css */ "./resources/react/components/timesheet/dashboard/styles/composerDashboard.css");
+/* harmony import */ var _styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./images/logo.png */ "./resources/react/components/timesheet/dashboard/images/logo.png");
+/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_images_logo_png__WEBPACK_IMPORTED_MODULE_3__);
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
 
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
 
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+  return arr2;
+}
 
- //import ComposerList from "./components/ComposerList";
-//import CRouter from "./components/shared/CRouter";
+function _iterableToArrayLimit(arr, i) {
+  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+
+ //import CRouter from "./components/shared/CRouter";
 
 
 
 
 function TimesheetApp(_ref) {
   var apiKey = _ref.apiKey,
-      apiUrl = _ref.apiUrl;
+      apiUrl = _ref.apiUrl; // state vars
 
-  // state vars
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
       _useState2 = _slicedToArray(_useState, 2),
       timesheets = _useState2[0],
-      setTimesheets = _useState2[1]; // use effect
+      setTimesheets = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState4 = _slicedToArray(_useState3, 2),
+      foreman = _useState4[0],
+      setForeman = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState6 = _slicedToArray(_useState5, 2),
+      weekending = _useState6[0],
+      setWeekending = _useState6[1]; // use effect
 
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
@@ -70656,7 +70758,6 @@ function TimesheetApp(_ref) {
       return response.json();
     }).then(function (response) {
       setTimesheets(response);
-      console.log(response);
     })["catch"](function (err) {
       console.log(err);
     });
@@ -70666,6 +70767,16 @@ function TimesheetApp(_ref) {
     //console.log("clickHandler:");
     //console.log(el.target);
     console.log("hello world, button was clicked!");
+  };
+
+  var handleForemanChange = function handleForemanChange(el) {
+    console.log(el.target.value);
+    setForeman(el.target.value);
+  };
+
+  var handleWeekendingChange = function handleWeekendingChange(el) {
+    console.log(el.target.value);
+    setWeekending(el.target.value);
   };
 
   var isTimesheetsValid = function isTimesheetsValid() {
@@ -70686,13 +70797,27 @@ function TimesheetApp(_ref) {
     colSpan: "4"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     colSpan: "2"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    className: "form-control form-control-sm",
+    id: "foreman",
+    value: foreman,
+    onChange: handleForemanChange,
+    placeholder: "foreman's name"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     colSpan: "3"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "date",
+    className: "form-control form-control-sm",
+    id: "weedending",
+    value: weekending,
+    onChange: handleWeekendingChange,
+    placeholder: "date"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     colSpan: "4",
     rowSpan: "2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _images_logo_png__WEBPACK_IMPORTED_MODULE_2___default.a,
+    src: _images_logo_png__WEBPACK_IMPORTED_MODULE_3___default.a,
     className: "img-fluid"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "VLL- New Mexico")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
@@ -70763,7 +70888,319 @@ function TimesheetApp(_ref) {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     colSpan: "7",
     rowSpan: "2"
-  }, "Totals"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Mon"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tue"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Wed"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Thu"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Fri"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Sat"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Sun")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\xA0"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Totals"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Mon"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tue"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Wed"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Thu"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Fri"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Sat"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Sun")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\xA0"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_RecordModal__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    apiUrl: apiUrl,
+    apiKey: apiKey
+  })));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (TimesheetApp);
+
+/***/ }),
+
+/***/ "./resources/react/components/timesheet/dashboard/components/JobtypeList.js":
+/*!**********************************************************************************!*\
+  !*** ./resources/react/components/timesheet/dashboard/components/JobtypeList.js ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var JobtypeList = function JobtypeList(_ref) {
+  var jobTypes = _ref.jobTypes,
+      handleJobtypeChange = _ref.handleJobtypeChange;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: "type"
+  }, "Type"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    className: "form-control form-control-sm",
+    id: "type",
+    name: "type",
+    onChange: handleJobtypeChange
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "0"
+  }, "\xA0"), jobTypes.map(function (jobType) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: jobType.id,
+      value: jobType.id
+    }, jobType.name);
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (JobtypeList);
+
+/***/ }),
+
+/***/ "./resources/react/components/timesheet/dashboard/components/RecordModal.js":
+/*!**********************************************************************************!*\
+  !*** ./resources/react/components/timesheet/dashboard/components/RecordModal.js ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _JobtypeList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./JobtypeList */ "./resources/react/components/timesheet/dashboard/components/JobtypeList.js");
+/* harmony import */ var _SubjobList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SubjobList */ "./resources/react/components/timesheet/dashboard/components/SubjobList.js");
+/* harmony import */ var _TasktypeList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TasktypeList */ "./resources/react/components/timesheet/dashboard/components/TasktypeList.js");
+/* harmony import */ var _SubtaskList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SubtaskList */ "./resources/react/components/timesheet/dashboard/components/SubtaskList.js");
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+function _iterableToArrayLimit(arr, i) {
+  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+
+
+
+
+
+
+var RecordModal = function RecordModal(_ref) {
+  var apiUrl = _ref.apiUrl,
+      apiKey = _ref.apiKey; // state vars
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      jobTypes = _useState2[0],
+      setJobtypes = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState4 = _slicedToArray(_useState3, 2),
+      jobType = _useState4[0],
+      setJobtype = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      subJobs = _useState6[0],
+      setSubjobs = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState8 = _slicedToArray(_useState7, 2),
+      subJob = _useState8[0],
+      setSubjob = _useState8[1];
+
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState10 = _slicedToArray(_useState9, 2),
+      taskTypes = _useState10[0],
+      setTasktypes = _useState10[1];
+
+  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState12 = _slicedToArray(_useState11, 2),
+      taskType = _useState12[0],
+      setTasktype = _useState12[1];
+
+  var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState14 = _slicedToArray(_useState13, 2),
+      subTasks = _useState14[0],
+      setSubtasks = _useState14[1];
+
+  var _useState15 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState16 = _slicedToArray(_useState15, 2),
+      subTask = _useState16[0],
+      setSubtask = _useState16[1];
+
+  var _useState17 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
+      _useState18 = _slicedToArray(_useState17, 2),
+      formValues = _useState18[0],
+      setFormValues = _useState18[1]; // use effect
+
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    getJobTypes();
+  }, []);
+
+  var isArrayValid = function isArrayValid(arr) {
+    return arr.length > 0;
+  };
+
+  var getJobTypes = function getJobTypes() {
+    // api connection and send request
+    fetch(apiUrl + "jobtypes", {
+      "method": "GET",
+      "headers": {
+        "Authorization": "Bearer " + apiKey,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Referer": location.origin
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (response) {
+      setJobtypes(response);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  };
+
+  var handleJobtypeChange = function handleJobtypeChange(el) {
+    setJobtype(el.target.value);
+    getSubjobs(el.target.value);
+    handleFormChange(el);
+  };
+
+  var getSubjobs = function getSubjobs(jobType) {
+    // api connection and send request
+    fetch(apiUrl + "jobtypes/" + jobType + "/subjobs", {
+      "method": "GET",
+      "headers": {
+        "Authorization": "Bearer " + apiKey,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Referer": location.origin
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (response) {
+      setSubjobs(response);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  };
+
+  var handleSubjobChange = function handleSubjobChange(el) {
+    setSubjob(el.target.value);
+    getTasktypes(jobType, el.target.value);
+    handleFormChange(el);
+  };
+
+  var getTasktypes = function getTasktypes(jobType, subJob) {
+    // api connection and send request
+    fetch(apiUrl + "jobtypes/" + jobType + "/subjobs/" + subJob + "/tasktypes", {
+      "method": "GET",
+      "headers": {
+        "Authorization": "Bearer " + apiKey,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Referer": location.origin
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (response) {
+      setTasktypes(response);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  };
+
+  var handleTasktypeChange = function handleTasktypeChange(el) {
+    setTasktype(el.target.value);
+    getSubtasks(jobType, subJob, el.target.value);
+    handleFormChange(el);
+  };
+
+  var getSubtasks = function getSubtasks(jobType, subJob, taskType) {
+    // api connection and send request
+    fetch(apiUrl + "jobtypes/" + jobType + "/subjobs/" + subJob + "/tasktypes/" + taskType + "/subtasks", {
+      "method": "GET",
+      "headers": {
+        "Authorization": "Bearer " + apiKey,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Referer": location.origin
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (response) {
+      setSubtasks(response);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  };
+
+  var handleSubtasksChange = function handleSubtasksChange(el) {
+    setSubtask(el.target.value);
+    handleFormChange(el);
+  };
+
+  var handleFormChange = function handleFormChange(el) {
+    formValues[el.target.name] = el.target.value;
+    setFormValues(formValues);
+  };
+
+  var handleSubmitForm = function handleSubmitForm(el) {
+    console.log("formValues Submitted: ");
+    console.log(formValues);
+    var account = 1; // make connection
+
+    fetch(apiUrl + "accounts/" + account + "/timesheets", {
+      "method": "POST",
+      "headers": {
+        "Authorization": "Bearer " + apiKey,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Referer": location.origin
+      },
+      "body": JSON.stringify(formValues)
+    }).then(function (response) {
+      return response.json();
+    }).then(function (response) {
+      console.log("response from timesheet store: ");
+      console.log(response);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
@@ -70796,93 +71233,77 @@ function TimesheetApp(_ref) {
     "aria-hidden": "true"
   }, "\xD7"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-body"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    id: "timesheet_form"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     hidden: true,
     className: "form-group col-md-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "exampleFormControlInput4"
+    htmlFor: "week_ending"
   }, "Week Ending"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "date",
     className: "form-control form-control-sm",
-    id: "exampleFormControlInput4",
+    id: "week_ending",
+    name: "week_ending",
+    onChange: handleFormChange,
     placeholder: "date"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group col-md-6"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "exampleFormControlInput1"
+    htmlFor: "building"
   }, "Building"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "email",
     className: "form-control form-control-sm",
-    id: "exampleFormControlInput1",
+    id: "building",
+    name: "building",
+    onChange: handleFormChange,
     placeholder: "bldg #"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group col-md-6"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "exampleFormControlInput2"
+    htmlFor: "building"
   }, "Date"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "date",
     className: "form-control form-control-sm",
-    id: "exampleFormControlInput2",
+    id: "date",
+    name: "date",
+    onChange: handleFormChange,
     placeholder: "date"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group col-md-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "exampleFormControlSelect1"
-  }, "Type"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    className: "form-control form-control-sm",
-    id: "exampleFormControlSelect1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "5"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, !isArrayValid(jobTypes) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "no jobTypes.") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_JobtypeList__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    jobTypes: jobTypes,
+    handleJobtypeChange: handleJobtypeChange
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group col-md-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "exampleFormControlSelect2"
-  }, "Subtype"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    className: "form-control form-control-sm",
-    id: "exampleFormControlSelect2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "5"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, !isArrayValid(subJobs) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "no subJobs.") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubjobList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    subJobs: subJobs,
+    handleSubjobChange: handleSubjobChange
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group col-md-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "exampleFormControlSelect3"
-  }, "Task"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    className: "form-control form-control-sm",
-    id: "exampleFormControlSelect3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "5"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, !isArrayValid(taskTypes) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "no taskTypes.") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TasktypeList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    taskTypes: taskTypes,
+    handleTasktypeChange: handleTasktypeChange
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group col-md-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "exampleFormControlSelect4"
-  }, "Subtask"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    className: "form-control form-control-sm",
-    id: "exampleFormControlSelect4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "5")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, !isArrayValid(subTasks) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "no subTasks.") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubtaskList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    subTasks: subTasks,
+    handleSubtasksChange: handleSubtasksChange
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "exampleFormControlInput3"
+    htmlFor: "hours"
   }, "Hours"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "text",
     className: "form-control form-control-sm",
-    id: "exampleFormControlInput3",
+    id: "hours",
+    name: "hours",
+    onChange: handleFormChange,
     placeholder: "hours worked"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    hidden: true,
-    className: "form-group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "exampleFormControlSelect2"
-  }, "Example multiple select"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    multiple: true,
-    className: "form-control form-control-sm",
-    id: "exampleFormControlSelect2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "5"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    hidden: true,
-    className: "form-group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "exampleFormControlTextarea1"
-  }, "Example textarea"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-    className: "form-control form-control-sm",
-    id: "exampleFormControlTextarea1",
-    rows: "3"
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-footer"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -70891,17 +71312,123 @@ function TimesheetApp(_ref) {
     "data-dismiss": "modal"
   }, "Close"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
-    className: "btn btn-primary"
-  }, "Submit")))))), !isTimesheetsValid() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "There are no timesheets to display.") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "composer-items-list"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, timesheets.map(function (timesheet) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-      key: timesheet.id
-    }, timesheet.job_type);
-  })))));
-}
+    className: "btn btn-primary",
+    onClick: handleSubmitForm
+  }, "Submit"))))));
+};
 
-/* harmony default export */ __webpack_exports__["default"] = (TimesheetApp);
+/* harmony default export */ __webpack_exports__["default"] = (RecordModal);
+
+/***/ }),
+
+/***/ "./resources/react/components/timesheet/dashboard/components/SubjobList.js":
+/*!*********************************************************************************!*\
+  !*** ./resources/react/components/timesheet/dashboard/components/SubjobList.js ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var SubjobList = function SubjobList(_ref) {
+  var subJobs = _ref.subJobs,
+      handleSubjobChange = _ref.handleSubjobChange;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: "subtype"
+  }, "SubType"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    className: "form-control form-control-sm",
+    id: "subtype",
+    name: "subtype",
+    onChange: handleSubjobChange
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "0"
+  }, "\xA0"), subJobs.map(function (subJob) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: subJob.id,
+      value: subJob.id
+    }, subJob.name);
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SubjobList);
+
+/***/ }),
+
+/***/ "./resources/react/components/timesheet/dashboard/components/SubtaskList.js":
+/*!**********************************************************************************!*\
+  !*** ./resources/react/components/timesheet/dashboard/components/SubtaskList.js ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var SubtaskList = function SubtaskList(_ref) {
+  var subTasks = _ref.subTasks,
+      handleSubtasksChange = _ref.handleSubtasksChange;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: "subtask"
+  }, "SubTask"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    className: "form-control form-control-sm",
+    id: "subtask",
+    name: "subtask",
+    onChange: handleSubtasksChange
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "0"
+  }, "\xA0"), subTasks.map(function (subTask) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: subTask.id,
+      value: subTask.id
+    }, subTask.name);
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SubtaskList);
+
+/***/ }),
+
+/***/ "./resources/react/components/timesheet/dashboard/components/TasktypeList.js":
+/*!***********************************************************************************!*\
+  !*** ./resources/react/components/timesheet/dashboard/components/TasktypeList.js ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var TasktypeList = function TasktypeList(_ref) {
+  var taskTypes = _ref.taskTypes,
+      handleTasktypeChange = _ref.handleTasktypeChange;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: "task"
+  }, "TaskType"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    className: "form-control form-control-sm",
+    id: "task",
+    name: "task",
+    onChange: handleTasktypeChange
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "0"
+  }, "\xA0"), taskTypes.map(function (taskType) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: taskType.id,
+      value: taskType.id
+    }, taskType.name);
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (TasktypeList);
 
 /***/ }),
 
@@ -70924,7 +71451,7 @@ module.exports = "/images/logo.png?28c2eba4e0a6dfb0d7ab16823709faf4";
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/postcss-loader/src??ref--6-2!./composerDashboard.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/react/components/timesheet/dashboard/styles/composerDashboard.css");
+var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader??ref--8-1!../../../../../../node_modules/postcss-loader/src??ref--8-2!./composerDashboard.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/react/components/timesheet/dashboard/styles/composerDashboard.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -70946,26 +71473,14 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!****************************************************************!*\
-  !*** multi ./resources/react/App.js ./resources/sass/app.scss ***!
-  \****************************************************************/
+/***/ 1:
+/*!**************************************!*\
+  !*** multi ./resources/react/App.js ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/karma/Workbench/homestead/timesheet_app/resources/react/App.js */"./resources/react/App.js");
-module.exports = __webpack_require__(/*! /Users/karma/Workbench/homestead/timesheet_app/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /home/vagrant/code/timesheet_app/resources/react/App.js */"./resources/react/App.js");
 
 
 /***/ })

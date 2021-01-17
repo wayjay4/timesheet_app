@@ -55,7 +55,7 @@ Route::resource('subtasks', SubtaskController::class, ['only' => ['index', 'show
 Route::resource('accounts', AccountController::class, ['only' => ['index', 'show']]);
 Route::resource('accounts.roles', AccountRoleController::class, ['only' => ['index']]);
 Route::resource('accounts.costcenters', AccountCostcenterController::class, ['only' => ['index']]);
-Route::resource('accounts.timesheets', AccountTimesheetController::class, ['only' => ['index']]);
+Route::resource('accounts.timesheets', AccountTimesheetController::class, ['only' => ['index', 'store']]);
 Route::resource('accounts.projects', AccountProjectController::class, ['only', ['index']]);
 Route::resource('accounts.activities', AccountActivityController::class, ['only' => ['index']]);
 

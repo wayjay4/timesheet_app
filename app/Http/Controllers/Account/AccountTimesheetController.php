@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\ApiController;
 use App\Models\Account;
-use app\Models\Timesheet;
+use App\Models\Timesheet;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AccountTimesheetController extends ApiController
 {
@@ -37,9 +39,35 @@ class AccountTimesheetController extends ApiController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $account)
     {
-        //
+        // $rules = [
+            //'quantity' => 'required|min:1',
+        // ];
+
+        // $this->validate($rules, $request);
+
+        
+
+        return DB::transaction(function() use ($request, $account){
+            $activity_id = 1;
+            
+            $timesheet = Timesheet::create([
+                'week_ending' => $request->date,
+                'building' => $request->building,
+                'date' => $request->date,
+                'type' => $request->type,
+                'subtype' => $request->subtype,
+                'task' => $request->task,
+                'subtask' => $request->subtask,
+                'hours' => $request->hours,
+                'date_submitted' => $request->date,
+                'account_id' => $account->id,
+                'activity_id' => $activity_id
+            ]);
+
+            return $this->showOne($timesheet, 201);
+        });
     }
 
     /**

@@ -1,0 +1,19 @@
+import React from "react";
+
+const SubtaskList = ({
+	subTasks, handleSubtasksChange
+}) => {
+    return (
+		<div>
+			<label htmlFor="subtask">SubTask</label>
+			<select className="form-control form-control-sm" id="subtask" name="subtask" onChange={handleSubtasksChange}>
+			    <option value="0">&nbsp;</option>
+			    {subTasks.map((subTask) => (
+		            <option key={subTask.id} value={subTask.id}>{subTask.name}</option>
+	            ))}
+            </select>
+		</div>
+	);
+};
+
+export default SubtaskList;
