@@ -71181,7 +71181,7 @@ var RecordModal = function RecordModal(_ref) {
     console.log(formValues);
     var account = 1; // make connection
 
-    fetch(apiUrl + "accounts/" + account + "/timesheets", {
+    fetch(apiUrl + "accounts/" + account + "/ timesheets", {
       "method": "POST",
       "headers": {
         "Authorization": "Bearer " + apiKey,
@@ -71480,7 +71480,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/vagrant/code/timesheet_app/resources/react/App.js */"./resources/react/App.js");
+module.exports = __webpack_require__(/*! /Users/karma/Workbench/homestead/timesheet_app/resources/react/App.js */"./resources/react/App.js");
 
 
 /***/ })

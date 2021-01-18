@@ -15,6 +15,7 @@ mix.options({processCssUrls: false})
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),
+        require('autoprefixer')
     ])
     .sass('resources/sass/app.scss', 'public/css')
     .styles(['node_modules/bootstrap/dist/css/bootstrap.min.css'], 'public/css/bootstrap/bootstrap.min.css')
@@ -24,5 +25,4 @@ mix.options({processCssUrls: false})
 	.react('resources/react/App.js', 'public/js/react/React_app.js')
 	.js('resources/js/app.js', 'public/js')
     .webpackConfig(require('./webpack.config'));
-    ;
 
