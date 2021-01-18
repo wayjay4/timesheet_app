@@ -14,8 +14,7 @@ const mix = require('laravel-mix');
 mix.options({processCssUrls: false})
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
-        require('tailwindcss'),
-        require('autoprefixer')
+        require('tailwindcss')
     ])
     .sass('resources/sass/app.scss', 'public/css')
     .styles(['node_modules/bootstrap/dist/css/bootstrap.min.css'], 'public/css/bootstrap/bootstrap.min.css')

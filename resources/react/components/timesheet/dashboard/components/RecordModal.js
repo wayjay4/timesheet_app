@@ -142,7 +142,7 @@ const RecordModal = ({apiUrl, apiKey}) => {
 		let account = 1;
 
 		// make connection
-		fetch(apiUrl+"accounts/"+account+"/ timesheets", {
+		fetch(apiUrl+"accounts/"+account+"/timesheets", {
 			"method": "POST",
             "headers": {
                 "Authorization": "Bearer "+apiKey,
