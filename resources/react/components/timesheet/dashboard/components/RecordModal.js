@@ -55,8 +55,8 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 			setJobtypes(response);
 
 			if(timesheet.id > 0 && !isEditFormReady){
-				$("#type-"+timesheet.id).val(timesheet.type);
-				handleJobtypeChange({"target": $("#type-"+timesheet.id)[0]});
+				$("#jobtype-"+timesheet.id).val(timesheet.jobtype_id);
+				handleJobtypeChange({"target": $("#jobtype-"+timesheet.id)[0]});
 			}
 		})
 		.catch(err => {
@@ -65,8 +65,6 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 	};
 
     const handleJobtypeChange = (el) => {
-    	// console.log(el);
-    	// console.log(el.target.value);
 		setJobtype(el.target.value);
 		setSubjob(0);
 		setTasktype(0);
@@ -97,8 +95,8 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 			setSubjobs(response);
 
 			if(timesheet.id > 0 && !isEditFormReady){
-				$("#subtype-"+timesheet.id).val(timesheet.subtype);
-				handleSubjobChange({"target": $("#subtype-"+timesheet.id)[0]});
+				$("#subjob-"+timesheet.id).val(timesheet.subjob_id);
+				handleSubjobChange({"target": $("#subjob-"+timesheet.id)[0]});
 			}
 		})
 		.catch(err => {
@@ -134,8 +132,8 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 			setTasktypes(response);
 
 			if(timesheet.id > 0 && !isEditFormReady){
-				$("#task-"+timesheet.id).val(timesheet.task);
-				handleTasktypeChange({"target": $("#task-"+timesheet.id)[0]});
+				$("#tasktype-"+timesheet.id).val(timesheet.tasktype_id);
+				handleTasktypeChange({"target": $("#tasktype-"+timesheet.id)[0]});
 			}
 		})
 		.catch(err => {
@@ -169,7 +167,7 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 			setSubtasks(response);
 
 			if(timesheet.id > 0 && !isEditFormReady){
-				$("#subtask-"+timesheet.id).val(timesheet.subtask);
+				$("#subtask-"+timesheet.id).val(timesheet.subtask_id);
 				handleSubtasksChange({"target": $("#subtask-"+timesheet.id)[0]});
 			}
 		})

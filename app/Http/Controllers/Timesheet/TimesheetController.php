@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Timesheet;
 
 use App\Http\Controllers\ApiController;
 use App\Models\Timesheet;
+use App\Models\Jobtype;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TimesheetController extends ApiController
 {

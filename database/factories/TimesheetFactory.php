@@ -25,22 +25,22 @@ class TimesheetFactory extends Factory
     public function definition()
     {
         $jobtype = Jobtype::all()->random();
-        $subtype = $jobtype->subjobs->random();
-        $tasktype = $subtype->tasktypes->random();
+        $subjob = $jobtype->subjobs->random();
+        $tasktype = $subjob->tasktypes->random();
         $subtask = $tasktype->subtasks->random();
 
-        $job_type = $jobtype->name.'-'.$subtype->name.'-'.$tasktype->name.'-'.$subtask->name;
+        $job_type = $jobtype->name.'-'.$subjob->name.'-'.$tasktype->name.'-'.$subtask->name;
 
         return [
             'week_ending' => $this->faker->dateTimeBetween('now', '+5 days'),
             'date' => $this->faker->dateTimeBetween('-5 days', 'now'),
             'building' => $this->faker->randomNumber(3),
             'hours' => $this->faker->randomFloat(1, 1, 10),
-            'type' => $jobtype,
-            'subtype' => $subtype,
-            'task' => $tasktype,
-            'subtask' => $subtask,
             'date_submitted' => $this->faker->dateTimeBetween('-5 days', 'now'),
+            'jobtype_id' => $jobtype->id,
+            'subjob_id' => $subjob->id,
+            'tasktype_id' => $tasktype->id,
+            'subtask_id' => $subtask->id,
             'account_id' => User::all()->random()->id,
             'activity_id' => Activity::all()->random()->id
         ];

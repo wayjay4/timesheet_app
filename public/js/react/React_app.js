@@ -70758,6 +70758,7 @@ function TimesheetApp(_ref) {
       return response.json();
     }).then(function (response) {
       setTimesheets(response);
+      console.log(response);
     })["catch"](function (err) {
       console.log(err);
     });
@@ -70895,7 +70896,7 @@ function TimesheetApp(_ref) {
       key: timesheet.id
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
       scope: "row"
-    }, timesheet.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.building), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.date), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.type), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.subtype), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.task), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.subtask), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    }, timesheet.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.building), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.date), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.jobtype.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.subjob.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.tasktype.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.subtask.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       colSpan: "1"
     }, timesheet.hours), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       colSpan: "1"
@@ -70996,11 +70997,11 @@ var JobtypeList = function JobtypeList(_ref) {
       handleJobtypeChange = _ref.handleJobtypeChange,
       timesheet = _ref.timesheet;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "type-" + timesheet.id
+    htmlFor: "jobtype-" + timesheet.id
   }, "Type"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     className: "form-control form-control-sm",
-    id: "type-" + timesheet.id,
-    name: "type",
+    id: "jobtype-" + timesheet.id,
+    name: "jobtype",
     onChange: handleJobtypeChange
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "0"
@@ -71196,9 +71197,9 @@ var RecordModal = function RecordModal(_ref) {
       setJobtypes(response);
 
       if (timesheet.id > 0 && !isEditFormReady) {
-        $("#type-" + timesheet.id).val(timesheet.type);
+        $("#jobtype-" + timesheet.id).val(timesheet.jobtype_id);
         handleJobtypeChange({
-          "target": $("#type-" + timesheet.id)[0]
+          "target": $("#jobtype-" + timesheet.id)[0]
         });
       }
     })["catch"](function (err) {
@@ -71207,8 +71208,6 @@ var RecordModal = function RecordModal(_ref) {
   };
 
   var handleJobtypeChange = function handleJobtypeChange(el) {
-    // console.log(el);
-    // console.log(el.target.value);
     setJobtype(el.target.value);
     setSubjob(0);
     setTasktype(0);
@@ -71236,9 +71235,9 @@ var RecordModal = function RecordModal(_ref) {
       setSubjobs(response);
 
       if (timesheet.id > 0 && !isEditFormReady) {
-        $("#subtype-" + timesheet.id).val(timesheet.subtype);
+        $("#subjob-" + timesheet.id).val(timesheet.subjob_id);
         handleSubjobChange({
-          "target": $("#subtype-" + timesheet.id)[0]
+          "target": $("#subjob-" + timesheet.id)[0]
         });
       }
     })["catch"](function (err) {
@@ -71272,9 +71271,9 @@ var RecordModal = function RecordModal(_ref) {
       setTasktypes(response);
 
       if (timesheet.id > 0 && !isEditFormReady) {
-        $("#task-" + timesheet.id).val(timesheet.task);
+        $("#tasktype-" + timesheet.id).val(timesheet.tasktype_id);
         handleTasktypeChange({
-          "target": $("#task-" + timesheet.id)[0]
+          "target": $("#tasktype-" + timesheet.id)[0]
         });
       }
     })["catch"](function (err) {
@@ -71306,7 +71305,7 @@ var RecordModal = function RecordModal(_ref) {
       setSubtasks(response);
 
       if (timesheet.id > 0 && !isEditFormReady) {
-        $("#subtask-" + timesheet.id).val(timesheet.subtask);
+        $("#subtask-" + timesheet.id).val(timesheet.subtask_id);
         handleSubtasksChange({
           "target": $("#subtask-" + timesheet.id)[0]
         });
@@ -71559,11 +71558,11 @@ var SubjobList = function SubjobList(_ref) {
       handleSubjobChange = _ref.handleSubjobChange,
       timesheet = _ref.timesheet;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "subtype-" + timesheet.id
+    htmlFor: "subjob-" + timesheet.id
   }, "SubType"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     className: "form-control form-control-sm",
-    id: "subtype-" + timesheet.id,
-    name: "subtype",
+    id: "subjob-" + timesheet.id,
+    name: "subjob",
     onChange: handleSubjobChange
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "0"
@@ -71635,11 +71634,11 @@ var TasktypeList = function TasktypeList(_ref) {
       handleTasktypeChange = _ref.handleTasktypeChange,
       timesheet = _ref.timesheet;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "task-" + timesheet.id
+    htmlFor: "tasktype-" + timesheet.id
   }, "TaskType"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     className: "form-control form-control-sm",
-    id: "task-" + timesheet.id,
-    name: "task",
+    id: "tasktype-" + timesheet.id,
+    name: "tasktype",
     onChange: handleTasktypeChange
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "0"

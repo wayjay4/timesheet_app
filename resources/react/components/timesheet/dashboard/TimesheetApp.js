@@ -29,6 +29,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
         .then(response => response.json())
         .then(response => {
             setTimesheets(response);
+            console.log(response);
         })
         .catch(err => {
             console.log(err);
@@ -156,10 +157,10 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                                 <th scope="row">{timesheet.id}</th>
                                                 <td>{timesheet.building}</td>
                                                 <td>{timesheet.date}</td>
-                                                <td>{timesheet.type}</td>
-                                                <td>{timesheet.subtype}</td>
-                                                <td>{timesheet.task}</td>
-                                                <td>{timesheet.subtask}</td>
+                                                <td>{timesheet.jobtype.name}</td>
+                                                <td>{timesheet.subjob.name}</td>
+                                                <td>{timesheet.tasktype.name}</td>
+                                                <td>{timesheet.subtask.name}</td>
                                                 <td colSpan="1">{timesheet.hours}</td>
                                                 <td colSpan="1">
                                                     
