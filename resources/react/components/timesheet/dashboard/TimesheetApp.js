@@ -29,6 +29,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
         .then(response => response.json())
         .then(response => {
             setTimesheets(response);
+            console.log(response);
         })
         .catch(err => {
             console.log(err);
@@ -95,7 +96,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
 
             <div className="content">
                 <div className="timesheet-container">
-                    <table className="table table-bordered table-dark">
+                    <table className="table table-bordered table-hover table-dark table-sm">
                         <thead>
                             <tr>
                                 <td scope="col">#</td>
@@ -150,7 +151,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                         </tr>
                                     </tbody>
                                     :
-                                    <tbody>
+                                    <tbody className="table-striped">
                                         {timesheets.map((timesheet) => (
                                             <tr key={timesheet.id}>
                                                 <th scope="row">{timesheet.id}</th>

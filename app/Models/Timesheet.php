@@ -30,9 +30,13 @@ class Timesheet extends Model
     	'activity_id',
     ];
 
-    protected $with = ['jobtype', 'subjob', 'tasktype', 'subtask'];
+    protected $with = ['account', 'jobtype', 'subjob', 'tasktype', 'subtask', 'activity', 'supervisor'];
 
     public function account(){
+        return $this->belongsTo(Account::class);
+    }
+
+    public function supervisor(){
         return $this->belongsTo(Account::class);
     }
 

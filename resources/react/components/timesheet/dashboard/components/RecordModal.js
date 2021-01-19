@@ -189,8 +189,11 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 	const handleSubmitForm = (el) => {
 		let account = 1;
 
-		formValues['week_ending'] = formValues['date'];
-		formValues['supervisor_id'] = 2;
+		let week_ending = $("#weekending").val();
+		let foreman = $("#foreman").val();
+
+		formValues['week_ending'] = week_ending;
+		formValues['supervisor_id'] = foreman;
 
 		setFormValues(formValues);
 
@@ -220,10 +223,11 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 	const handleSubmitEditForm = (el) => {
 		let account = 1;
 
-		formValues['week_ending'] = formValues['date'];
-		formValues['supervisor_id'] = 2;
+		let week_ending = $("#weekending").val();
+		let foreman = $("#foreman").val();
 
-		setFormValues(formValues);
+		formValues['week_ending'] = week_ending;
+		formValues['supervisor_id'] = foreman;
 
 		fetch(apiUrl+"accounts/"+account+"/timesheets/"+timesheet.id, {
 			"method": "PUT",

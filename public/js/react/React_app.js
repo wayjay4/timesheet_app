@@ -70758,6 +70758,7 @@ function TimesheetApp(_ref) {
       return response.json();
     }).then(function (response) {
       setTimesheets(response);
+      console.log(response);
     })["catch"](function (err) {
       console.log(err);
     });
@@ -70819,7 +70820,7 @@ function TimesheetApp(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "timesheet-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-    className: "table table-bordered table-dark"
+    className: "table table-bordered table-hover table-dark table-sm"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     scope: "col"
   }, "#"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
@@ -70890,7 +70891,9 @@ function TimesheetApp(_ref) {
     scope: "row"
   }, "#"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     colSpan: "9"
-  }, "There are no timesheets to display."))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, timesheets.map(function (timesheet) {
+  }, "There are no timesheets to display."))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
+    className: "table-striped"
+  }, timesheets.map(function (timesheet) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: timesheet.id
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
@@ -71326,8 +71329,10 @@ var RecordModal = function RecordModal(_ref) {
 
   var handleSubmitForm = function handleSubmitForm(el) {
     var account = 1;
-    formValues['week_ending'] = formValues['date'];
-    formValues['supervisor_id'] = 2;
+    var week_ending = $("#weekending").val();
+    var foreman = $("#foreman").val();
+    formValues['week_ending'] = week_ending;
+    formValues['supervisor_id'] = foreman;
     setFormValues(formValues); // make connection
 
     fetch(apiUrl + "accounts/" + account + "/timesheets", {
@@ -71353,9 +71358,10 @@ var RecordModal = function RecordModal(_ref) {
 
   var handleSubmitEditForm = function handleSubmitEditForm(el) {
     var account = 1;
-    formValues['week_ending'] = formValues['date'];
-    formValues['supervisor_id'] = 2;
-    setFormValues(formValues);
+    var week_ending = $("#weekending").val();
+    var foreman = $("#foreman").val();
+    formValues['week_ending'] = week_ending;
+    formValues['supervisor_id'] = foreman;
     fetch(apiUrl + "accounts/" + account + "/timesheets/" + timesheet.id, {
       "method": "PUT",
       "headers": {
