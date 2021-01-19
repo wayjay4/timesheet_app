@@ -70744,8 +70744,9 @@ function TimesheetApp(_ref) {
   }, []);
 
   var getTimesheets = function getTimesheets() {
-    // make connection
-    fetch(apiUrl + "timesheets", {
+    var account = 1; // make connection
+
+    fetch(apiUrl + "accounts/" + account + "/timesheets", {
       "method": "GET",
       "headers": {
         "Authorization": "Bearer " + apiKey,
@@ -70824,7 +70825,7 @@ function TimesheetApp(_ref) {
     scope: "col"
   }, "#"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     colSpan: "4"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, isTimesheetsValid() ? timesheets[0].account.name : "")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     colSpan: "2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "text",

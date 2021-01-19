@@ -16,8 +16,10 @@ function TimesheetApp ({apiKey, apiUrl}) {
     }, []);
 
     const getTimesheets = () => {
+        let account = 1;
+
         // make connection
-        fetch(apiUrl+"timesheets", {
+        fetch(apiUrl+"accounts/"+account+"/timesheets", {
             "method": "GET",
             "headers": {
                 "Authorization": "Bearer "+apiKey,
@@ -100,7 +102,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
                         <thead>
                             <tr>
                                 <td scope="col">#</td>
-                                <td colSpan="4"></td>
+                                <td colSpan="4"><h3>{isTimesheetsValid() ? timesheets[0].account.name : ""}</h3></td>
                                 <td colSpan="2">
                                     <input type="text" className="form-control form-control-sm" id="foreman" value={foreman} onChange={handleForemanChange} placeholder="foreman's name" />
                                 </td>
