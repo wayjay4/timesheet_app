@@ -53,7 +53,7 @@ class AccountTimesheetController extends ApiController
             $activity_id = 1;
             
             $timesheet = Timesheet::create([
-                'week_ending' => $request->date,
+                'week_ending' => $request->week_ending,
                 'building' => $request->building,
                 'date' => $request->date,
                 'jobtype_id' => $request->jobtype,
@@ -62,6 +62,7 @@ class AccountTimesheetController extends ApiController
                 'subtask_id' => $request->subtask,
                 'hours' => $request->hours,
                 'date_submitted' => $request->date,
+                'supervisor_id' => $request->supervisor_id,
                 'account_id' => $account->id,
                 'activity_id' => $activity_id
             ]);
@@ -108,6 +109,7 @@ class AccountTimesheetController extends ApiController
         $timesheet->subjob_id = $request->subjob;
         $timesheet->tasktype_id = $request->tasktype;
         $timesheet->subtask_id = $request->subtask;
+        $timesheet->supervisor_id = $request->supervisor_id;
         $timesheet->hours = $request->hours;
 
         $timesheet->save();

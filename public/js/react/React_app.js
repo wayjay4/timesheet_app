@@ -70758,7 +70758,6 @@ function TimesheetApp(_ref) {
       return response.json();
     }).then(function (response) {
       setTimesheets(response);
-      console.log(response);
     })["catch"](function (err) {
       console.log(err);
     });
@@ -70839,7 +70838,7 @@ function TimesheetApp(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "date",
     className: "form-control form-control-sm",
-    id: "weedending",
+    id: "weekending",
     value: weekending,
     onChange: handleWeekendingChange,
     placeholder: "date"
@@ -71326,7 +71325,10 @@ var RecordModal = function RecordModal(_ref) {
   };
 
   var handleSubmitForm = function handleSubmitForm(el) {
-    var account = 1; // make connection
+    var account = 1;
+    formValues['week_ending'] = formValues['date'];
+    formValues['supervisor_id'] = 2;
+    setFormValues(formValues); // make connection
 
     fetch(apiUrl + "accounts/" + account + "/timesheets", {
       "method": "POST",
@@ -71351,6 +71353,9 @@ var RecordModal = function RecordModal(_ref) {
 
   var handleSubmitEditForm = function handleSubmitEditForm(el) {
     var account = 1;
+    formValues['week_ending'] = formValues['date'];
+    formValues['supervisor_id'] = 2;
+    setFormValues(formValues);
     fetch(apiUrl + "accounts/" + account + "/timesheets/" + timesheet.id, {
       "method": "PUT",
       "headers": {
@@ -71435,7 +71440,7 @@ var RecordModal = function RecordModal(_ref) {
     "aria-labelledby": "addTimeModalLabel-" + timesheet.id,
     "aria-hidden": "true"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "modal-dialog"
+    className: "modal-dialog modal-dialog-centered modal-xl"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

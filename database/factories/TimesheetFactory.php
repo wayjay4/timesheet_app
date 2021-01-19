@@ -29,7 +29,8 @@ class TimesheetFactory extends Factory
         $tasktype = $subjob->tasktypes->random();
         $subtask = $tasktype->subtasks->random();
 
-        $job_type = $jobtype->name.'-'.$subjob->name.'-'.$tasktype->name.'-'.$subtask->name;
+        $supervisor = User::where('role_id', '=', 2)->get()->random();
+        $employee = User::where('role_id', '<>', $supervisor->id)->get()->random();
 
         return [
             'week_ending' => $this->faker->dateTimeBetween('now', '+5 days'),
@@ -41,7 +42,8 @@ class TimesheetFactory extends Factory
             'subjob_id' => $subjob->id,
             'tasktype_id' => $tasktype->id,
             'subtask_id' => $subtask->id,
-            'account_id' => User::all()->random()->id,
+            'supervisor_id' => $supervisor->id,
+            'account_id' => $employee->id,
             'activity_id' => Activity::all()->random()->id
         ];
     }

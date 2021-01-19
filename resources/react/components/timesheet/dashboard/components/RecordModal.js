@@ -189,6 +189,11 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 	const handleSubmitForm = (el) => {
 		let account = 1;
 
+		formValues['week_ending'] = formValues['date'];
+		formValues['supervisor_id'] = 2;
+
+		setFormValues(formValues);
+
 		// make connection
 		fetch(apiUrl+"accounts/"+account+"/timesheets", {
 			"method": "POST",
@@ -214,6 +219,11 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 
 	const handleSubmitEditForm = (el) => {
 		let account = 1;
+
+		formValues['week_ending'] = formValues['date'];
+		formValues['supervisor_id'] = 2;
+
+		setFormValues(formValues);
 
 		fetch(apiUrl+"accounts/"+account+"/timesheets/"+timesheet.id, {
 			"method": "PUT",
@@ -277,7 +287,7 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 
 		    { /*Modal*/ }
 		    <div className="modal fade" id={"addTimeModal-"+timesheet.id} data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby={"addTimeModalLabel-"+timesheet.id} aria-hidden="true">
-		      <div className="modal-dialog">
+		      <div className="modal-dialog modal-dialog-centered modal-xl">
 		        <div className="modal-content">
 		          <div className="modal-header">
 		            <h5 className="modal-title" id={"addTimeModalLabel-"+timesheet.id}>{modalHeaderText}</h5>

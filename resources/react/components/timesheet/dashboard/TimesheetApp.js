@@ -29,7 +29,6 @@ function TimesheetApp ({apiKey, apiUrl}) {
         .then(response => response.json())
         .then(response => {
             setTimesheets(response);
-            console.log(response);
         })
         .catch(err => {
             console.log(err);
@@ -105,7 +104,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                     <input type="text" className="form-control form-control-sm" id="foreman" value={foreman} onChange={handleForemanChange} placeholder="foreman's name" />
                                 </td>
                                 <td colSpan="1">
-                                    <input type="date" className="form-control form-control-sm" id="weedending" value={weekending} onChange={handleWeekendingChange} placeholder="date" />
+                                    <input type="date" className="form-control form-control-sm" id="weekending" value={weekending} onChange={handleWeekendingChange} placeholder="date" />
                                 </td>
                                 <td colSpan="1" rowSpan="2">
                                     <div>

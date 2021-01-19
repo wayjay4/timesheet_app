@@ -25,6 +25,7 @@ class Timesheet extends Model
         'subjob_id',
         'tasktype_id',
         'subtask_id',
+        'supervisor_id',
     	'account_id',
     	'activity_id',
     ];

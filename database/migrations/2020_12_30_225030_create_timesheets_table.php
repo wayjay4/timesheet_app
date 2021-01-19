@@ -20,20 +20,14 @@ class CreateTimesheetsTable extends Migration
             $table->date('date');
             $table->decimal('hours', $precision = 8, $scale = 2)->unsigned();
             $table->date('date_submitted');
-            $table->unsignedBigInteger('jobtype_id');
-            $table->unsignedBigInteger('subjob_id');
-            $table->unsignedBigInteger('tasktype_id');
-            $table->unsignedBigInteger('subtask_id');
-            $table->unsignedBigInteger('account_id');
-            $table->unsignedBigInteger('activity_id');
+            $table->foreignId('jobtype_id')->constrained('jobtypes');
+            $table->foreignId('subjob_id')->constrained('subjobs');
+            $table->foreignId('tasktype_id')->constrained('tasktypes');
+            $table->foreignId('subtask_id')->constrained('subtasks');
+            $table->foreignId('supervisor_id')->constrained('users');
+            $table->foreignId('account_id')->constrained('users');
+            $table->foreignId('activity_id')->constrained('activities');
             $table->timestamps();
-
-            $table->foreign('jobtype_id')->references('id')->on('jobtypes');
-            $table->foreign('subjob_id')->references('id')->on('subjobs');
-            $table->foreign('tasktype_id')->references('id')->on('tasktypes');
-            $table->foreign('subtask_id')->references('id')->on('subtasks');
-            $table->foreign('account_id')->references('id')->on('users');
-            $table->foreign('activity_id')->references('id')->on('activities');
         });
     }
 
