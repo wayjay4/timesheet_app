@@ -20,7 +20,9 @@ use App\Http\Controllers\Project\ProjectController;
 use App\Http\Controllers\Activity\ActivityController;
 use App\Http\Controllers\Timesheet\TimesheetController;
 use App\Http\Controllers\Subjob\SubjobController;
+use App\Http\Controllers\Subjob\SubjobTasktypeController;
 use App\Http\Controllers\Tasktype\TasktypeController;
+use App\Http\Controllers\Tasktype\TasktypeSubtaskController;
 use App\Http\Controllers\Subtask\SubtaskController;
 
 
@@ -44,9 +46,11 @@ Route::resource('jobtypes.subjobs.tasktypes.subtasks', JobtypeSubjobTasktypeSubt
 
 // Subjob
 Route::resource('subjobs', SubjobController::class, ['only' => ['index', 'show']]);
+Route::resource('subjobs.tasktypes', SubjobTasktypeController::class, ['only' => ['index', 'show']]);
 
 // Tasktype
 Route::resource('tasktypes', TasktypeController::class, ['only' => ['index', 'show']]);
+Route::resource('tasktypes.subtasks', TasktypeSubtaskController::class, ['only' => ['index', 'show']]);
 
 // Subtask
 Route::resource('subtasks', SubtaskController::class, ['only' => ['index', 'show']]);

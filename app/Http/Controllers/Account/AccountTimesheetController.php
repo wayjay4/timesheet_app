@@ -101,7 +101,7 @@ class AccountTimesheetController extends ApiController
      */
     public function update(Request $request, Account $account, Timesheet $timesheet)
     {
-        $timesheet->week_ending = $request->date;
+        $timesheet->week_ending = $request->week_ending;
         $timesheet->building = $request->building;
         $timesheet->date = $request->date;
         $timesheet->type = $request->type;

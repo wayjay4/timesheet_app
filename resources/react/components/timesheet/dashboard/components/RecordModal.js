@@ -26,6 +26,8 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 	const [modalHeaderText, setModalHeaderText] = useState("nbsp;");
 	const [modalSubmitButton, setModalSubmitButton] = useState("nbsp;");
 
+	const [isEditFormReady, setIsEditFormReady] = useState(false);
+
 	// use effect
 	useEffect(() => {
 		getJobTypes();
@@ -52,10 +54,10 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 		.then(response => {
 			setJobtypes(response);
 
-			// if(timesheet.id > 0){
-			// 	$("#type-"+timesheet.id).val(timesheet.type);
-			// 	handleJobtypeChange({"target": $("#type-"+timesheet.id)[0]});
-			// }
+			if(timesheet.id > 0 && !isEditFormReady){
+				$("#type-"+timesheet.id).val(timesheet.type);
+				handleJobtypeChange({"target": $("#type-"+timesheet.id)[0]});
+			}
 		})
 		.catch(err => {
 			console.log(err);
@@ -66,6 +68,15 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
     	// console.log(el);
     	// console.log(el.target.value);
 		setJobtype(el.target.value);
+		setSubjob(0);
+		setTasktype(0);
+		setSubtask(0);
+
+		setSubjobs({});
+		setTasktypes({});
+		setSubtasks({});
+
+
 		getSubjobs(el.target.value);
 		handleFormChange(el);
 	};
@@ -85,11 +96,10 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 		.then(response => {
 			setSubjobs(response);
 
-			// if(timesheet.id > 0){
-			// 	$("#subtype-"+timesheet.id).val(timesheet.subtype);
-			// 	//console.log($("#subtype-"+timesheet.id));
-			// 	handleSubjobChange({"target": $("#subtype-"+timesheet.id)[0]});
-			// }
+			if(timesheet.id > 0 && !isEditFormReady){
+				$("#subtype-"+timesheet.id).val(timesheet.subtype);
+				handleSubjobChange({"target": $("#subtype-"+timesheet.id)[0]});
+			}
 		})
 		.catch(err => {
 			console.log(err);
@@ -97,15 +107,20 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 	};
 
     const handleSubjobChange = (el) => {
-    	//console.log(el.target.value);
-		setSubjob(el.target.value);
-		getTasktypes(jobType, el.target.value);
+    	setSubjob(el.target.value);
+		setTasktype(0);
+		setSubtask(0);
+
+		setTasktypes({});
+		setSubtasks({});
+
+		getTasktypes(el.target.value);
 		handleFormChange(el);
 	};
 
-	const getTasktypes = (jobType, subJob) => {
+	const getTasktypes = (subJob) => {
 		// api connection and send request
-		fetch(apiUrl+"jobtypes/"+jobType+"/subjobs/"+subJob+"/tasktypes", {
+		fetch(apiUrl+"subjobs/"+subJob+"/tasktypes", {
 			"method": "GET",
 			"headers": {
 				"Authorization": "Bearer "+apiKey,
@@ -117,6 +132,11 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 		.then(response => response.json())
 		.then(response => {
 			setTasktypes(response);
+
+			if(timesheet.id > 0 && !isEditFormReady){
+				$("#task-"+timesheet.id).val(timesheet.task);
+				handleTasktypeChange({"target": $("#task-"+timesheet.id)[0]});
+			}
 		})
 		.catch(err => {
 			console.log(err);
@@ -125,13 +145,17 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 
     const handleTasktypeChange = (el) => {
 		setTasktype(el.target.value);
-		getSubtasks(jobType, subJob, el.target.value);
+		setSubtask(0);
+
+		setSubtasks({});
+
+		getSubtasks(el.target.value);
 		handleFormChange(el);
 	};
 
-	const getSubtasks = (jobType, subJob, taskType) => {
+	const getSubtasks = (taskType) => {
 		// api connection and send request
-		fetch(apiUrl+"jobtypes/"+jobType+"/subjobs/"+subJob+"/tasktypes/"+taskType+"/subtasks", {
+		fetch(apiUrl+"tasktypes/"+taskType+"/subtasks", {
 			"method": "GET",
 			"headers": {
 				"Authorization": "Bearer "+apiKey,
@@ -143,6 +167,11 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 		.then(response => response.json())
 		.then(response => {
 			setSubtasks(response);
+
+			if(timesheet.id > 0 && !isEditFormReady){
+				$("#subtask-"+timesheet.id).val(timesheet.subtask);
+				handleSubtasksChange({"target": $("#subtask-"+timesheet.id)[0]});
+			}
 		})
 		.catch(err => {
 			console.log(err);
@@ -239,6 +268,8 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 		handleFormChange({"target": $("#building-"+timesheet.id)[0]});
 		handleFormChange({"target": $("#date-"+timesheet.id)[0]});
 		handleFormChange({"target": $("#hours-"+timesheet.id)[0]});
+
+		setIsEditFormReady(true);
 	};
 
 	return (

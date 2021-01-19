@@ -71163,7 +71163,12 @@ var RecordModal = function RecordModal(_ref) {
   var _useState23 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("nbsp;"),
       _useState24 = _slicedToArray(_useState23, 2),
       modalSubmitButton = _useState24[0],
-      setModalSubmitButton = _useState24[1]; // use effect
+      setModalSubmitButton = _useState24[1];
+
+  var _useState25 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState26 = _slicedToArray(_useState25, 2),
+      isEditFormReady = _useState26[0],
+      setIsEditFormReady = _useState26[1]; // use effect
 
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
@@ -71188,10 +71193,14 @@ var RecordModal = function RecordModal(_ref) {
     }).then(function (response) {
       return response.json();
     }).then(function (response) {
-      setJobtypes(response); // if(timesheet.id > 0){
-      // 	$("#type-"+timesheet.id).val(timesheet.type);
-      // 	handleJobtypeChange({"target": $("#type-"+timesheet.id)[0]});
-      // }
+      setJobtypes(response);
+
+      if (timesheet.id > 0 && !isEditFormReady) {
+        $("#type-" + timesheet.id).val(timesheet.type);
+        handleJobtypeChange({
+          "target": $("#type-" + timesheet.id)[0]
+        });
+      }
     })["catch"](function (err) {
       console.log(err);
     });
@@ -71201,6 +71210,12 @@ var RecordModal = function RecordModal(_ref) {
     // console.log(el);
     // console.log(el.target.value);
     setJobtype(el.target.value);
+    setSubjob(0);
+    setTasktype(0);
+    setSubtask(0);
+    setSubjobs({});
+    setTasktypes({});
+    setSubtasks({});
     getSubjobs(el.target.value);
     handleFormChange(el);
   };
@@ -71218,26 +71233,32 @@ var RecordModal = function RecordModal(_ref) {
     }).then(function (response) {
       return response.json();
     }).then(function (response) {
-      setSubjobs(response); // if(timesheet.id > 0){
-      // 	$("#subtype-"+timesheet.id).val(timesheet.subtype);
-      // 	//console.log($("#subtype-"+timesheet.id));
-      // 	handleSubjobChange({"target": $("#subtype-"+timesheet.id)[0]});
-      // }
+      setSubjobs(response);
+
+      if (timesheet.id > 0 && !isEditFormReady) {
+        $("#subtype-" + timesheet.id).val(timesheet.subtype);
+        handleSubjobChange({
+          "target": $("#subtype-" + timesheet.id)[0]
+        });
+      }
     })["catch"](function (err) {
       console.log(err);
     });
   };
 
   var handleSubjobChange = function handleSubjobChange(el) {
-    //console.log(el.target.value);
     setSubjob(el.target.value);
-    getTasktypes(jobType, el.target.value);
+    setTasktype(0);
+    setSubtask(0);
+    setTasktypes({});
+    setSubtasks({});
+    getTasktypes(el.target.value);
     handleFormChange(el);
   };
 
-  var getTasktypes = function getTasktypes(jobType, subJob) {
+  var getTasktypes = function getTasktypes(subJob) {
     // api connection and send request
-    fetch(apiUrl + "jobtypes/" + jobType + "/subjobs/" + subJob + "/tasktypes", {
+    fetch(apiUrl + "subjobs/" + subJob + "/tasktypes", {
       "method": "GET",
       "headers": {
         "Authorization": "Bearer " + apiKey,
@@ -71249,6 +71270,13 @@ var RecordModal = function RecordModal(_ref) {
       return response.json();
     }).then(function (response) {
       setTasktypes(response);
+
+      if (timesheet.id > 0 && !isEditFormReady) {
+        $("#task-" + timesheet.id).val(timesheet.task);
+        handleTasktypeChange({
+          "target": $("#task-" + timesheet.id)[0]
+        });
+      }
     })["catch"](function (err) {
       console.log(err);
     });
@@ -71256,13 +71284,15 @@ var RecordModal = function RecordModal(_ref) {
 
   var handleTasktypeChange = function handleTasktypeChange(el) {
     setTasktype(el.target.value);
-    getSubtasks(jobType, subJob, el.target.value);
+    setSubtask(0);
+    setSubtasks({});
+    getSubtasks(el.target.value);
     handleFormChange(el);
   };
 
-  var getSubtasks = function getSubtasks(jobType, subJob, taskType) {
+  var getSubtasks = function getSubtasks(taskType) {
     // api connection and send request
-    fetch(apiUrl + "jobtypes/" + jobType + "/subjobs/" + subJob + "/tasktypes/" + taskType + "/subtasks", {
+    fetch(apiUrl + "tasktypes/" + taskType + "/subtasks", {
       "method": "GET",
       "headers": {
         "Authorization": "Bearer " + apiKey,
@@ -71274,6 +71304,13 @@ var RecordModal = function RecordModal(_ref) {
       return response.json();
     }).then(function (response) {
       setSubtasks(response);
+
+      if (timesheet.id > 0 && !isEditFormReady) {
+        $("#subtask-" + timesheet.id).val(timesheet.subtask);
+        handleSubtasksChange({
+          "target": $("#subtask-" + timesheet.id)[0]
+        });
+      }
     })["catch"](function (err) {
       console.log(err);
     });
@@ -71382,6 +71419,7 @@ var RecordModal = function RecordModal(_ref) {
     handleFormChange({
       "target": $("#hours-" + timesheet.id)[0]
     });
+    setIsEditFormReady(true);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
