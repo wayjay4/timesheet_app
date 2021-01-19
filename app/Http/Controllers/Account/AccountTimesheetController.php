@@ -99,9 +99,20 @@ class AccountTimesheetController extends ApiController
      * @param  \App\Models\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Account $account)
+    public function update(Request $request, Account $account, Timesheet $timesheet)
     {
-        //
+        $timesheet->week_ending = $request->date;
+        $timesheet->building = $request->building;
+        $timesheet->date = $request->date;
+        $timesheet->type = $request->type;
+        $timesheet->subtype = $request->subtype;
+        $timesheet->task = $request->task;
+        $timesheet->subtask = $request->subtask;
+        $timesheet->hours = $request->hours;
+
+        $timesheet->save();
+
+        return $this->showOne($timesheet);
     }
 
     /**
@@ -110,8 +121,10 @@ class AccountTimesheetController extends ApiController
      * @param  \App\Models\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Account $account)
+    public function destroy(Account $account, Timesheet $timesheet)
     {
-        //
+        Timesheet::find($timesheet->id)->delete();
+
+        return $this->showOne($timesheet);
     }
 }

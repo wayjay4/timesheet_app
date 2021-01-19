@@ -3,14 +3,11 @@ import JobtypeList from "./JobtypeList";
 import SubjobList from "./SubjobList";
 import TasktypeList from "./TasktypeList";
 import SubtaskList from "./SubtaskList";
-import AddModalButton from "./AddModalButton";
-import EditModalButton from "./EditModalButton";
 
-const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
+const EditRecordModal = ({apiUrl, apiKey, getTimesheets}) => {
 	// state vars
 	const [jobTypes, setJobtypes] = useState([]);
 	const [jobType, setJobtype] = useState();
-
 	const [subJobs, setSubjobs] = useState([]);
 	const [subJob, setSubjob] = useState();
 
@@ -22,15 +19,9 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 
 	const [formValues, setFormValues] = useState({});
 
-	const [modalButton, setModalButton] = useState("nbsp;");
-	const [modalHeaderText, setModalHeaderText] = useState("nbsp;");
-	const [modalSubmitButton, setModalSubmitButton] = useState("nbsp;");
-
 	// use effect
 	useEffect(() => {
 		getJobTypes();
-
-		setFormButton();
 	}, []);
 
 	const isArrayValid = (arr) => {
@@ -51,11 +42,6 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 		.then(response => response.json())
 		.then(response => {
 			setJobtypes(response);
-
-			// if(timesheet.id > 0){
-			// 	$("#type-"+timesheet.id).val(timesheet.type);
-			// 	handleJobtypeChange({"target": $("#type-"+timesheet.id)[0]});
-			// }
 		})
 		.catch(err => {
 			console.log(err);
@@ -63,8 +49,6 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 	};
 
     const handleJobtypeChange = (el) => {
-    	// console.log(el);
-    	// console.log(el.target.value);
 		setJobtype(el.target.value);
 		getSubjobs(el.target.value);
 		handleFormChange(el);
@@ -84,12 +68,6 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 		.then(response => response.json())
 		.then(response => {
 			setSubjobs(response);
-
-			// if(timesheet.id > 0){
-			// 	$("#subtype-"+timesheet.id).val(timesheet.subtype);
-			// 	//console.log($("#subtype-"+timesheet.id));
-			// 	handleSubjobChange({"target": $("#subtype-"+timesheet.id)[0]});
-			// }
 		})
 		.catch(err => {
 			console.log(err);
@@ -97,7 +75,6 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 	};
 
     const handleSubjobChange = (el) => {
-    	//console.log(el.target.value);
 		setSubjob(el.target.value);
 		getTasktypes(jobType, el.target.value);
 		handleFormChange(el);
@@ -160,6 +137,8 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 	};
 
 	const handleSubmitForm = (el) => {
+		console.log("formValues Submitted: ");
+		console.log(formValues);
 		let account = 1;
 
 		// make connection
@@ -175,83 +154,29 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 		})
 		.then(response => response.json())
 		.then(response => {
-			console.log("response from timesheet STORE: ");
+			console.log("response from timesheet store: ");
 			console.log(response);
 			getTimesheets();
-			$('#addTimeModal-'+timesheet.id).modal('hide');
+			$('#addTimeModal').modal('hide');
 		})
 		.catch(err => {
 			console.log(err);
 		});
-	};
-
-	const handleSubmitEditForm = (el) => {
-		let account = 1;
-
-		fetch(apiUrl+"accounts/"+account+"/timesheets/"+timesheet.id, {
-			"method": "PUT",
-            "headers": {
-                "Authorization": "Bearer "+apiKey,
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "Referer": location.origin,
-            },
-            "body": JSON.stringify(formValues),
-		})
-		.then(response => response.json())
-		.then(response => {
-			console.log("response from timesheet EDIT: ");
-			console.log(response);
-			getTimesheets();
-			$('#addTimeModal-'+timesheet.id).modal('hide');
-		})
-		.catch(err => {
-			console.log(err);
-		});
-	};
-
-	const setFormButton = () => {
-		let button;
-		let modalHeaderText;
-		let submitButton;
-
-		if(timesheet.id > 0){
-			button = <EditModalButton timesheet={timesheet} />;
-			modalHeaderText = "Edit Record";
-			submitButton = <button type="button" className="btn btn-primary" onClick={handleSubmitEditForm}>Submit</button>;
-		}
-		else{
-			button = <AddModalButton timesheet={timesheet} />;
-			modalHeaderText = "Add Record";
-			submitButton = <button type="button" className="btn btn-primary" onClick={handleSubmitForm}>Submit</button>;
-		}
-
-		setModalButton(button);
-		setModalHeaderText(modalHeaderText);
-		setModalSubmitButton(submitButton);
-
-		$("#week_ending-"+timesheet.id).val(timesheet.date);
-		$("#building-"+timesheet.id).val(timesheet.building);
-		$("#date-"+timesheet.id).val(timesheet.date);
-		$("#hours-"+timesheet.id).val(timesheet.hours);
-
-		handleFormChange({"target": $("#week_ending-"+timesheet.id)[0]});
-		handleFormChange({"target": $("#building-"+timesheet.id)[0]});
-		handleFormChange({"target": $("#date-"+timesheet.id)[0]});
-		handleFormChange({"target": $("#hours-"+timesheet.id)[0]});
 	};
 
 	return (
-		<div className="container" style={{color:"black"}}>
+		<div className="container">
 		    { /*Button trigger modal*/ }
-		    {modalButton}
+		    <button type="button" className="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#editTimeModal">
+		      Add Timesheet
+		    </button>
 
 		    { /*Modal*/ }
-		    <div className="modal fade" id={"addTimeModal-"+timesheet.id} data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby={"addTimeModalLabel-"+timesheet.id} aria-hidden="true">
+		    <div className="modal fade" id="editTimeModal" data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="addTimeModalLabel" aria-hidden="true">
 		      <div className="modal-dialog">
 		        <div className="modal-content">
 		          <div className="modal-header">
-		            <h5 className="modal-title" id={"addTimeModalLabel-"+timesheet.id}>{modalHeaderText}</h5>
+		            <h5 className="modal-title" id="addTimeModalLabel">Add Record</h5>
 
 		            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
 		              <span aria-hidden="true">&times;</span>
@@ -260,21 +185,21 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 		          <div className="modal-body">
 		            
 
-		            <form id={"timesheet_form-"+timesheet.id}>
+		            <form id="timesheet_form">
 		              <div hidden className="form-group col-md-3">
-		                <label htmlFor={"week_ending-"+timesheet.id}>Week Ending</label>
-		                <input type="date" className="form-control form-control-sm" id={"week_ending-"+timesheet.id} name="week_ending" onChange={handleFormChange} placeholder="date" />
+		                <label htmlFor="week_ending">Week Ending</label>
+		                <input type="date" className="form-control form-control-sm" id="week_ending" name="week_ending" onChange={handleFormChange} placeholder="date" />
 		              </div>
 
 		                <div className="form-row">
 		                  <div className="form-group col-md-6">
-		                    <label htmlFor={"building-"+timesheet.id}>Building</label>
-		                    <input type="text" className="form-control form-control-sm" id={"building-"+timesheet.id} name="building" onChange={handleFormChange} placeholder="bldg #" />
+		                    <label htmlFor="building">Building</label>
+		                    <input type="email" className="form-control form-control-sm" id="building" name="building" onChange={handleFormChange} placeholder="bldg #" />
 		                  </div>
 
 		                  <div className="form-group col-md-6">
-		                    <label htmlFor={"date-"+timesheet.id}>Date</label>
-		                    <input type="date" className="form-control form-control-sm" id={"date-"+timesheet.id} name="date" onChange={handleFormChange} placeholder="date" />
+		                    <label htmlFor="building">Date</label>
+		                    <input type="date" className="form-control form-control-sm" id="date" name="date" onChange={handleFormChange} placeholder="date" />
 		                  </div>
 		                </div>
 
@@ -285,7 +210,7 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 		                  			?
 		                  			<div>no jobTypes.</div>
 		                  			:
-		                  			<JobtypeList jobTypes={jobTypes} handleJobtypeChange={handleJobtypeChange} timesheet={timesheet} />
+		                  			<JobtypeList jobTypes={jobTypes} handleJobtypeChange={handleJobtypeChange} />
 		                  	}
 		                  </div>
 
@@ -295,7 +220,7 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 		                  			?
 		                  			<div>no subJobs.</div>
 		                  			:
-		                  			<SubjobList subJobs={subJobs} handleSubjobChange={handleSubjobChange} timesheet={timesheet} />
+		                  			<SubjobList subJobs={subJobs} handleSubjobChange={handleSubjobChange} />
 		                  	}
 		                  </div>
 
@@ -305,7 +230,7 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 		                  			?
 		                  			<div>no taskTypes.</div>
 		                  			:
-		                  			<TasktypeList taskTypes={taskTypes} handleTasktypeChange={handleTasktypeChange} timesheet={timesheet} />
+		                  			<TasktypeList taskTypes={taskTypes} handleTasktypeChange={handleTasktypeChange} />
 		                  	}
 		                  </div>
 
@@ -315,14 +240,14 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 		                  			?
 		                  			<div>no subTasks.</div>
 		                  			:
-		                  			<SubtaskList subTasks={subTasks} handleSubtasksChange={handleSubtasksChange} timesheet={timesheet} />
+		                  			<SubtaskList subTasks={subTasks} handleSubtasksChange={handleSubtasksChange} />
 		                  	}
 		                  </div>
 		                </div>
 
 		              <div className="form-group">
-		                <label htmlFor={"hours-"+timesheet.id}>Hours</label>
-		                <input type="text" className="form-control form-control-sm" id={"hours-"+timesheet.id} name="hours" onChange={handleFormChange} placeholder="hours worked" />
+		                <label htmlFor="hours">Hours</label>
+		                <input type="text" className="form-control form-control-sm" id="hours" name="hours" onChange={handleFormChange} placeholder="hours worked" />
 		              </div>
 
 		            </form>
@@ -330,7 +255,7 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 		          </div>
 		          <div className="modal-footer">
 		            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-		            {modalSubmitButton}
+		            <button type="button" className="btn btn-primary" onClick={handleSubmitForm}>Submit</button>
 		          </div>
 		        </div>
 		      </div>
@@ -339,4 +264,4 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 	);
 };
 
-export default RecordModal;
+export default EditRecordModal;

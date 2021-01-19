@@ -55,6 +55,40 @@ function TimesheetApp ({apiKey, apiUrl}) {
         return (timesheets.length > 0);
     };
 
+    const deleteRecordHandler = (el) => {
+        let account = 1;
+        let timesheet_id = el.target.getAttribute("data-ts");
+
+        // make connection
+        fetch(apiUrl+"accounts/"+account+"/timesheets/"+timesheet_id, {
+            "method": "DELETE",
+            "headers": {
+                "Authorization": "Bearer "+apiKey,
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Referer": location.origin,
+            }
+        })
+        .then(response => response.json())
+        .then(response => {
+            getTimesheets();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    };
+
+    const editRecordHandler = (el) => {
+        console.log("editRecordHandler:");
+        console.log(el.target);
+        console.log(el.target.getAttribute("data-ts"));
+
+        let account = 1;
+        let timesheet_id = el.target.getAttribute("data-ts");
+
+
+    };
+
     return (
         <div className="container">
             <h3>Timesheets Listing Container</h3>
@@ -69,10 +103,10 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                 <td colSpan="2">
                                     <input type="text" className="form-control form-control-sm" id="foreman" value={foreman} onChange={handleForemanChange} placeholder="foreman's name" />
                                 </td>
-                                <td colSpan="3">
+                                <td colSpan="1">
                                     <input type="date" className="form-control form-control-sm" id="weedending" value={weekending} onChange={handleWeekendingChange} placeholder="date" />
                                 </td>
-                                <td colSpan="4" rowSpan="2">
+                                <td colSpan="1" rowSpan="2">
                                     <div>
                                         <div><img src={logo} className="img-fluid" /></div>
                                         <div>VLL- New Mexico</div>
@@ -83,17 +117,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                 <th scope="col">#</th>
                                 <th scope="col" colSpan="4">Employee Name</th>
                                 <th scope="col" colSpan="2">Foreman Name</th>
-                                <th scope="col" colSpan="3">Week Ending</th>
-                            </tr>
-                            <tr>
-                                <th scope="col" colSpan="7"></th>
-                                <th scope="col">Mon</th>
-                                <th scope="col">Tue</th>
-                                <th scope="col">Wed</th>
-                                <th scope="col">Thu</th>
-                                <th scope="col">Fri</th>
-                                <th scope="col">Sat</th>
-                                <th scope="col">Sun</th>
+                                <th scope="col" colSpan="1">Week Ending</th>
                             </tr>
                             <tr>
                                 <th scope="col">#</th>
@@ -103,13 +127,15 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                 <th scope="col">Subtype</th>
                                 <th scope="col">Task</th>
                                 <th scope="col">Subtask</th>
-                                <th scope="col">HRS</th>
-                                <th scope="col">HRS</th>
-                                <th scope="col">HRS</th>
-                                <th scope="col">HRS</th>
-                                <th scope="col">HRS</th>
-                                <th scope="col">HRS</th>
-                                <th scope="col">HRS</th>
+                                <th scope="col" colSpan="1">HRS</th>
+                                <th scope="col" colSpan="1">
+                                    <RecordModal
+                                        apiUrl={apiUrl}
+                                        apiKey={apiKey}
+                                        getTimesheets={getTimesheets}
+                                        timesheet={{"id":0}}
+                                    />
+                                </th>
                             </tr>
                         </thead>
 
@@ -120,7 +146,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                     <tbody>
                                         <tr>
                                             <th scope="row">#</th>
-                                            <td colSpan="14">There are no timesheets to display.</td>
+                                            <td colSpan="9">There are no timesheets to display.</td>
                                         </tr>
                                     </tbody>
                                     :
@@ -134,13 +160,18 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                                 <td>{timesheet.subtype}</td>
                                                 <td>{timesheet.task}</td>
                                                 <td>{timesheet.subtask}</td>
-                                                <td>{timesheet.hours}</td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
+                                                <td colSpan="1">{timesheet.hours}</td>
+                                                <td colSpan="1">
+                                                    
+                                                    <RecordModal
+                                                        apiUrl={apiUrl}
+                                                        apiKey={apiKey}
+                                                        getTimesheets={getTimesheets}
+                                                        timesheet={timesheet}
+                                                    />
+                                                    <button type="button" className="btn btn-outline-danger btn-sm" data-ts={timesheet.id} onClick={deleteRecordHandler}>Delete Timesheet Record</button>
+                                                    
+                                                </td>
                                             </tr>
                                         ))}
                                     </tbody>
@@ -149,31 +180,15 @@ function TimesheetApp ({apiKey, apiUrl}) {
 
                         <thead>
                             <tr>
-                                <th colSpan="7" rowSpan="2">Totals</th>
-                                <th>Mon</th>
-                                <th>Tue</th>
-                                <th>Wed</th>
-                                <th>Thu</th>
-                                <th>Fri</th>
-                                <th>Sat</th>
-                                <th>Sun</th>
+                                <th colSpan="7" rowSpan="2">&nbsp;</th>
+                                <th colSpan="2">Totals for Week:</th>
                             </tr>
                             <tr>
-                                <th>&nbsp;</th>
-                                <th>&nbsp;</th>
-                                <th>&nbsp;</th>
-                                <th>&nbsp;</th>
-                                <th>&nbsp;</th>
-                                <th>&nbsp;</th>
-                                <th>&nbsp;</th>
+                                <th colSpan="2">&nbsp;</th>
                             </tr>
                         </thead>
                     </table>
                 </div>
-                <RecordModal
-                    apiUrl={apiUrl}
-                    apiKey={apiKey}
-                />
             </div>
         </div>
     );
