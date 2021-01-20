@@ -17,6 +17,7 @@ class CreateTimesheetsTable extends Migration
             $table->id();
             $table->date('week_ending');
             $table->string('building');
+            $table->string('foreman_name');
             $table->date('date');
             $table->decimal('hours', $precision = 8, $scale = 2)->unsigned();
             $table->date('date_submitted');

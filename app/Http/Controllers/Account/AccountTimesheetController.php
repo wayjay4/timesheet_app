@@ -56,6 +56,7 @@ class AccountTimesheetController extends ApiController
                 'week_ending' => $request->week_ending,
                 'building' => $request->building,
                 'date' => $request->date,
+                'foreman_name' => $request->foreman_name,
                 'jobtype_id' => $request->jobtype,
                 'subjob_id' => $request->subjob,
                 'tasktype_id' => $request->tasktype,
@@ -105,6 +106,7 @@ class AccountTimesheetController extends ApiController
         $timesheet->week_ending = $request->week_ending;
         $timesheet->building = $request->building;
         $timesheet->date = $request->date;
+        $timesheet->foreman_name = $request->foreman_name;
         $timesheet->jobtype_id = $request->jobtype;
         $timesheet->subjob_id = $request->subjob;
         $timesheet->tasktype_id = $request->tasktype;

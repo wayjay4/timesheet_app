@@ -37,6 +37,7 @@ class TimesheetFactory extends Factory
             'date' => $this->faker->dateTimeBetween('-5 days', 'now'),
             'building' => $this->faker->randomNumber(3),
             'hours' => $this->faker->randomFloat(1, 1, 10),
+            'foreman_name' => $this->faker->name,
             'date_submitted' => $this->faker->dateTimeBetween('-5 days', 'now'),
             'jobtype_id' => $jobtype->id,
             'subjob_id' => $subjob->id,

@@ -20,6 +20,7 @@ class Timesheet extends Model
         'date',
         'building',
         'hours',
+        'foreman_name',
     	'date_submitted',
         'jobtype_id',
         'subjob_id',

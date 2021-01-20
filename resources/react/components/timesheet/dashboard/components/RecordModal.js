@@ -193,7 +193,8 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet, deleteRecordHand
 		let foreman = $("#foreman").val();
 
 		formValues['week_ending'] = week_ending;
-		formValues['supervisor_id'] = foreman;
+		formValues['foreman_name'] = foreman;
+		formValues['supervisor_id'] = 2;
 
 		setFormValues(formValues);
 
@@ -227,7 +228,8 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet, deleteRecordHand
 		let foreman = $("#foreman").val();
 
 		formValues['week_ending'] = week_ending;
-		formValues['supervisor_id'] = foreman;
+		formValues['foreman_name'] = foreman;
+		formValues['supervisor_id'] = 2;
 
 		fetch(apiUrl+"accounts/"+account+"/timesheets/"+timesheet.id, {
 			"method": "PUT",

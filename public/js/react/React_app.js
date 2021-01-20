@@ -71407,7 +71407,8 @@ var RecordModal = function RecordModal(_ref) {
     var week_ending = $("#weekending").val();
     var foreman = $("#foreman").val();
     formValues['week_ending'] = week_ending;
-    formValues['supervisor_id'] = foreman;
+    formValues['foreman_name'] = foreman;
+    formValues['supervisor_id'] = 2;
     setFormValues(formValues); // make connection
 
     fetch(apiUrl + "accounts/" + account + "/timesheets", {
@@ -71436,7 +71437,8 @@ var RecordModal = function RecordModal(_ref) {
     var week_ending = $("#weekending").val();
     var foreman = $("#foreman").val();
     formValues['week_ending'] = week_ending;
-    formValues['supervisor_id'] = foreman;
+    formValues['foreman_name'] = foreman;
+    formValues['supervisor_id'] = 2;
     fetch(apiUrl + "accounts/" + account + "/timesheets/" + timesheet.id, {
       "method": "PUT",
       "headers": {
