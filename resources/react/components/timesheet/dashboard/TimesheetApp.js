@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RecordModal from "./components/RecordModal";
+import TimesheetDataHeader from "./components/TimesheetDataHeader";
 import TimesheetData from "./components/TimesheetData";
 //import CRouter from "./components/shared/CRouter";
 import "./styles/composerDashboard.css";
@@ -112,6 +113,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
 
     // set global var rowCount
     let rowCount = 1;
+    let rowTotals = 0;
 
     return (
         <div className="container">
@@ -122,8 +124,9 @@ function TimesheetApp ({apiKey, apiUrl}) {
                     <table className="table table-bordered table-hover table-dark table-sm">
                         <thead>
                             <tr>
-                                <td scope="col">#</td>
-                                <td colSpan="4"><h3>{isTimesheetsValid() ? timesheets[0].account.name : ""}</h3></td>
+                                <td colSpan="5">
+                                    <TimesheetData timesheet={timesheets[0]} data={isTimesheetsValid() ? timesheets[0].account.name : ""} />
+                                </td>
                                 <td colSpan="2">
                                     <input type="text" className="form-control form-control-sm" id="foreman" value={foreman} onChange={handleForemanChange} placeholder="foreman's name" />
                                 </td>
@@ -138,20 +141,19 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col" colSpan="4">Employee Name</th>
-                                <th scope="col" colSpan="2">Foreman Name</th>
-                                <th scope="col" colSpan="1">Week Ending</th>
+                                <th scope="col" colSpan="5"><TimesheetDataHeader data={"Employee Name"} /></th>
+                                <th scope="col" colSpan="2"><TimesheetDataHeader data={"Foreman Name"} /></th>
+                                <th scope="col" colSpan="1"><TimesheetDataHeader data={"Week Ending"} /></th>
                             </tr>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Building</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Type</th>
-                                <th scope="col">Subtype</th>
-                                <th scope="col">Task</th>
-                                <th scope="col">Subtask</th>
-                                <th scope="col" colSpan="1">HRS</th>
+                                <th scope="col"><TimesheetDataHeader data={"#"} /></th>
+                                <th scope="col"><TimesheetDataHeader data={"Building"} /></th>
+                                <th scope="col"><TimesheetDataHeader data={"Date"} /></th>
+                                <th scope="col"><TimesheetDataHeader data={"Type"} /></th>
+                                <th scope="col"><TimesheetDataHeader data={"Subtype"} /></th>
+                                <th scope="col"><TimesheetDataHeader data={"Task"} /></th>
+                                <th scope="col"><TimesheetDataHeader data={"Subtask"} /></th>
+                                <th scope="col" colSpan="1"><TimesheetDataHeader data={"Hours Worked"} /></th>
                                 <th scope="col" colSpan="1">
                                     <RecordModal
                                         apiUrl={apiUrl}
@@ -178,34 +180,36 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                         {timesheets.map((timesheet) => {
 
                                             let theDate = timesheet.date.split("-");
+                                            let dateStr = theDate[1]+"/"+theDate[2]+"/"+theDate[0];
+                                            let dayOfWeek = new Date(dateStr).toLocaleString('en-us', {  weekday: 'short' })
 
-                                            let dayOfWeek = new Date(theDate[1]+"-"+theDate[2]+"-"+theDate[0]).toLocaleString('en-us', {  weekday: 'short' })
+                                            rowTotals += parseFloat(timesheet.hours);
 
                                             return (
                                                 <tr key={timesheet.id}>
                                                     <th scope="row">
-                                                        <TimesheetData timesheet={timesheet} data={rowCount++} />
+                                                        <TimesheetData data={rowCount++} />
                                                     </th>
                                                     <td>
-                                                        <TimesheetData timesheet={timesheet} data={timesheet.building} />
+                                                        <TimesheetData data={timesheet.building} />
                                                     </td>
                                                     <td>
-                                                        <TimesheetData timesheet={timesheet} data={timesheet.date+" ("+dayOfWeek+")"} />
+                                                        <TimesheetData data={dateStr+" ("+dayOfWeek+")"} />
                                                     </td>
                                                     <td>
-                                                        <TimesheetData timesheet={timesheet} data={timesheet.jobtype.name} />
+                                                        <TimesheetData data={timesheet.jobtype.name} />
                                                     </td>
                                                     <td>
-                                                        <TimesheetData timesheet={timesheet} data={timesheet.subjob.name} />
+                                                        <TimesheetData data={timesheet.subjob.name} />
                                                     </td>
                                                     <td>
-                                                        <TimesheetData timesheet={timesheet} data={timesheet.tasktype.name} />
+                                                        <TimesheetData data={timesheet.tasktype.name} />
                                                     </td>
                                                     <td>
-                                                        <TimesheetData timesheet={timesheet} data={timesheet.subtask.name} />
+                                                        <TimesheetData data={timesheet.subtask.name} />
                                                     </td>
                                                     <td colSpan="1">
-                                                        <TimesheetData timesheet={timesheet} data={timesheet.hours} />
+                                                        <TimesheetData data={timesheet.hours} />
                                                     </td>
                                                     <td colSpan="1">
                                                         <RecordModal
@@ -225,7 +229,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
                         <thead>
                             <tr>
                                 <th colSpan="7" rowSpan="2">&nbsp;</th>
-                                <th colSpan="2">Totals for Week:</th>
+                                <th colSpan="2">Totals hours for Week: {rowTotals}</th>
                             </tr>
                             <tr>
                                 <th colSpan="2">&nbsp;</th>

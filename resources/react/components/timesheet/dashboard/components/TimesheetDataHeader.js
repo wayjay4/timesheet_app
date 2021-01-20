@@ -1,17 +1,17 @@
 import React from "react";
 
-const TimesheetData = ({
+const TimesheetDataHeader = ({
 	data
 }) => {
     return (
 		<div className="container">
 			<div className="row">
 				<div className="col-sm">
-					<p className="text-center">{data}</p>
+					<h5 className="text-center" style={{"color": "orange"}}>{data}</h5>
 				</div>
 			</div>
 		</div>
 	);
 };
 
-export default TimesheetData;
+export default TimesheetDataHeader;
