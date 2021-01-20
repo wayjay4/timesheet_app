@@ -70761,7 +70761,7 @@ function TimesheetApp(_ref) {
     }).then(function (response) {
       return response.json();
     }).then(function (response) {
-      response.sort(function (a, b) {
+      if (response.length > 0) response.sort(function (a, b) {
         var result = 0;
 
         if (a.date > b.date) {
@@ -70929,11 +70929,11 @@ function TimesheetApp(_ref) {
     timesheet: {
       "id": 0
     }
-  })))), !isTimesheetsValid() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "row"
-  }, "#"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+  })))), !isTimesheetsValid() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     colSpan: "9"
-  }, "There are no timesheets to display."))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    data: "There are no timesheet records to display."
+  })))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
     className: "table-striped"
   }, timesheets.map(function (timesheet) {
     var theDate = timesheet.date.split("-");
@@ -71581,25 +71581,25 @@ var RecordModal = function RecordModal(_ref) {
     className: "form-row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group col-md-3"
-  }, !isArrayValid(jobTypes) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "no jobTypes.") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_JobtypeList__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, !isArrayValid(jobTypes) ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_JobtypeList__WEBPACK_IMPORTED_MODULE_1__["default"], {
     jobTypes: jobTypes,
     handleJobtypeChange: handleJobtypeChange,
     timesheet: timesheet
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group col-md-3"
-  }, !isArrayValid(subJobs) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "no subJobs.") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubjobList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, !isArrayValid(subJobs) ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubjobList__WEBPACK_IMPORTED_MODULE_2__["default"], {
     subJobs: subJobs,
     handleSubjobChange: handleSubjobChange,
     timesheet: timesheet
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group col-md-3"
-  }, !isArrayValid(taskTypes) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "no taskTypes.") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TasktypeList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, !isArrayValid(taskTypes) ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TasktypeList__WEBPACK_IMPORTED_MODULE_3__["default"], {
     taskTypes: taskTypes,
     handleTasktypeChange: handleTasktypeChange,
     timesheet: timesheet
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group col-md-3"
-  }, !isArrayValid(subTasks) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "no subTasks.") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubtaskList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, !isArrayValid(subTasks) ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubtaskList__WEBPACK_IMPORTED_MODULE_4__["default"], {
     subTasks: subTasks,
     handleSubtasksChange: handleSubtasksChange,
     timesheet: timesheet

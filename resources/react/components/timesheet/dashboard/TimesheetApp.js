@@ -32,18 +32,20 @@ function TimesheetApp ({apiKey, apiUrl}) {
         })
         .then(response => response.json())
         .then(response => {
-            response.sort((a, b)=>{
-                let result = 0;
 
-                if(a.date > b.date){
-                    result = 1;
-                } 
-                else if(a.date < b.date){
-                    result = -1;
-                }
+            if(response.length > 0)
+                response.sort((a, b)=>{
+                    let result = 0;
 
-                return result;
-            });
+                    if(a.date > b.date){
+                        result = 1;
+                    } 
+                    else if(a.date < b.date){
+                        result = -1;
+                    }
+
+                    return result;
+                });
 
             setTimesheets(response);
         })
@@ -171,8 +173,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                     ? 
                                     <tbody>
                                         <tr>
-                                            <th scope="row">#</th>
-                                            <td colSpan="9">There are no timesheets to display.</td>
+                                            <td colSpan="9"><TimesheetData data={"There are no timesheet records to display."} /></td>
                                         </tr>
                                     </tbody>
                                     :

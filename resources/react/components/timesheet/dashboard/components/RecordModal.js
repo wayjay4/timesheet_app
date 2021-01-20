@@ -326,7 +326,7 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet, deleteRecordHand
 		                  	{
 		                  		!isArrayValid(jobTypes)
 		                  			?
-		                  			<div>no jobTypes.</div>
+		                  			""
 		                  			:
 		                  			<JobtypeList jobTypes={jobTypes} handleJobtypeChange={handleJobtypeChange} timesheet={timesheet} />
 		                  	}
@@ -336,7 +336,7 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet, deleteRecordHand
 		                  	{
 		                  		!isArrayValid(subJobs)
 		                  			?
-		                  			<div>no subJobs.</div>
+		                  			""
 		                  			:
 		                  			<SubjobList subJobs={subJobs} handleSubjobChange={handleSubjobChange} timesheet={timesheet} />
 		                  	}
@@ -346,7 +346,7 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet, deleteRecordHand
 		                  	{
 		                  		!isArrayValid(taskTypes)
 		                  			?
-		                  			<div>no taskTypes.</div>
+		                  			""
 		                  			:
 		                  			<TasktypeList taskTypes={taskTypes} handleTasktypeChange={handleTasktypeChange} timesheet={timesheet} />
 		                  	}
@@ -356,7 +356,7 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet, deleteRecordHand
 		                  	{
 		                  		!isArrayValid(subTasks)
 		                  			?
-		                  			<div>no subTasks.</div>
+		                  			""
 		                  			:
 		                  			<SubtaskList subTasks={subTasks} handleSubtasksChange={handleSubtasksChange} timesheet={timesheet} />
 		                  	}
