@@ -71001,7 +71001,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AddModalButton = function AddModalButton(_ref) {
-  var timesheet = _ref.timesheet;
+  var timesheet = _ref.timesheet,
+      validateTimesheetHeaderData = _ref.validateTimesheetHeaderData;
   var newButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "btn-group",
     role: "group"
@@ -71009,7 +71010,8 @@ var AddModalButton = function AddModalButton(_ref) {
     type: "button",
     className: "btn btn-primary btn-sm",
     "data-toggle": "modal",
-    "data-target": "#addTimeModal-" + timesheet.id
+    "data-target": "#addTimeModal-" + timesheet.id,
+    onClick: validateTimesheetHeaderData
   }, "Add Timesheet Record"));
   return newButton;
 };
@@ -71033,7 +71035,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var EditModalButton = function EditModalButton(_ref) {
   var timesheet = _ref.timesheet,
-      deleteRecordHandler = _ref.deleteRecordHandler;
+      deleteRecordHandler = _ref.deleteRecordHandler,
+      validateTimesheetHeaderData = _ref.validateTimesheetHeaderData;
   var newButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "btn-group",
     role: "group"
@@ -71041,7 +71044,8 @@ var EditModalButton = function EditModalButton(_ref) {
     type: "button",
     className: "btn btn-outline-warning btn-sm",
     "data-toggle": "modal",
-    "data-target": "#addTimeModal-" + timesheet.id
+    "data-target": "#addTimeModal-" + timesheet.id,
+    onClick: validateTimesheetHeaderData
   }, "Edit Timesheet Record"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
     className: "btn btn-outline-danger btn-sm",
@@ -71409,27 +71413,31 @@ var RecordModal = function RecordModal(_ref) {
     formValues['week_ending'] = week_ending;
     formValues['foreman_name'] = foreman;
     formValues['supervisor_id'] = 2;
-    setFormValues(formValues); // make connection
+    setFormValues(formValues);
 
-    fetch(apiUrl + "accounts/" + account + "/timesheets", {
-      "method": "POST",
-      "headers": {
-        "Authorization": "Bearer " + apiKey,
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "Referer": location.origin
-      },
-      "body": JSON.stringify(formValues)
-    }).then(function (response) {
-      return response.json();
-    }).then(function (response) {
-      console.log("response from timesheet STORE: ");
-      console.log(response);
-      getTimesheets();
-      $('#addTimeModal-' + timesheet.id).modal('hide');
-    })["catch"](function (err) {
-      console.log(err);
-    });
+    if (validateFormFields()) {
+      // make connection
+      fetch(apiUrl + "accounts/" + account + "/timesheets", {
+        "method": "POST",
+        "headers": {
+          "Authorization": "Bearer " + apiKey,
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          "Referer": location.origin
+        },
+        "body": JSON.stringify(formValues)
+      }).then(function (response) {
+        return response.json();
+      }).then(function (response) {
+        console.log("response from timesheet STORE: ");
+        console.log(response);
+        getTimesheets();
+        $('#addTimeModal-' + timesheet.id).modal('hide');
+        setFormValues({});
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
   };
 
   var handleSubmitEditForm = function handleSubmitEditForm(el) {
@@ -71439,25 +71447,124 @@ var RecordModal = function RecordModal(_ref) {
     formValues['week_ending'] = week_ending;
     formValues['foreman_name'] = foreman;
     formValues['supervisor_id'] = 2;
-    fetch(apiUrl + "accounts/" + account + "/timesheets/" + timesheet.id, {
-      "method": "PUT",
-      "headers": {
-        "Authorization": "Bearer " + apiKey,
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "Referer": location.origin
-      },
-      "body": JSON.stringify(formValues)
-    }).then(function (response) {
-      return response.json();
-    }).then(function (response) {
-      console.log("response from timesheet EDIT: ");
-      console.log(response);
-      getTimesheets();
-      $('#addTimeModal-' + timesheet.id).modal('hide');
-    })["catch"](function (err) {
-      console.log(err);
-    });
+    setFormValues(formValues);
+
+    if (validateFormFields()) {
+      fetch(apiUrl + "accounts/" + account + "/timesheets/" + timesheet.id, {
+        "method": "PUT",
+        "headers": {
+          "Authorization": "Bearer " + apiKey,
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          "Referer": location.origin
+        },
+        "body": JSON.stringify(formValues)
+      }).then(function (response) {
+        return response.json();
+      }).then(function (response) {
+        console.log("response from timesheet EDIT: ");
+        console.log(response);
+        getTimesheets();
+        $('#addTimeModal-' + timesheet.id).modal('hide');
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  };
+
+  var validateFormFields = function validateFormFields() {
+    if (formValues["foreman_name"].length < 1) {
+      displayErrorMessage("foreman_name");
+      return false;
+    }
+
+    if (formValues["supervisor_id"].length < 1) {
+      displayErrorMessage("supervisor_id");
+      return false;
+    }
+
+    if (formValues["week_ending"].length < 1) {
+      displayErrorMessage("week_ending");
+      return false;
+    }
+
+    if (formValues["building"].length < 1) {
+      displayErrorMessage("building");
+      return false;
+    }
+
+    if (formValues["date"].length < 1) {
+      displayErrorMessage("date");
+      return false;
+    }
+
+    if (typeof formValues["jobtype"] === 'undefined' || formValues["jobtype"].length < 1 || parseInt(formValues["jobtype"]) < 1) {
+      displayErrorMessage("jobtype");
+      return false;
+    }
+
+    if (typeof formValues["subjob"] === 'undefined' || formValues["subjob"].length < 1 || parseInt(formValues["subjob"]) < 1) {
+      displayErrorMessage("subjob");
+      return false;
+    }
+
+    if (typeof formValues["tasktype"] === 'undefined' || formValues["tasktype"].length < 1 || parseInt(formValues["tasktype"]) < 1) {
+      displayErrorMessage("tasktype");
+      return false;
+    }
+
+    if (typeof formValues["subtask"] === 'undefined' || formValues["subtask"].length < 1 || parseInt(formValues["subtask"]) < 1) {
+      displayErrorMessage("subtask");
+      return false;
+    }
+
+    if (formValues["hours"].length < 1) {
+      displayErrorMessage("hours");
+      return false;
+    }
+
+    return true;
+  };
+
+  var displayErrorMessage = function displayErrorMessage(msg) {
+    var theMessage = "Please provide a valid '" + msg + "' value.";
+    return alert(theMessage);
+  };
+
+  var validateTimesheetHeaderData = function validateTimesheetHeaderData(el) {
+    var modal_id = $(el.target).attr("data-target");
+    var foreman = $("#foreman").val();
+    var week_ending = $("#weekending").val();
+    console.log("el: ");
+    console.log(el);
+    console.log("el.target: ");
+    console.log(el.target);
+    console.log("modal_id: ");
+    console.log(modal_id);
+
+    if (typeof foreman === 'undefined' || foreman.length < 1) {
+      console.log("Errror: please provide a 'foreman_name'");
+      displayErrorMessage("foreman_name");
+      setTimeout(function () {
+        $("#addTimeModal-0").modal('hide');
+      }, 315);
+      return false;
+    } // if(formValues["supervisor_id"].length < 1){
+    // 	displayErrorMessage("supervisor_id");
+    // 	return false;
+    // }
+
+
+    if (typeof week_ending === 'undefined' || week_ending.length < 1) {
+      console.log("Errror: please provide a 'week_ending'");
+      displayErrorMessage("week_ending");
+      setTimeout(function () {
+        $("#addTimeModal-0").modal('hide');
+      }, 315);
+      return false;
+    }
+
+    return true;
   };
 
   var setFormDataDefaults = function setFormDataDefaults() {
@@ -71468,7 +71575,8 @@ var RecordModal = function RecordModal(_ref) {
     if (timesheet.id > 0) {
       modalOpenButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EditModalButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
         timesheet: timesheet,
-        deleteRecordHandler: deleteRecordHandler
+        deleteRecordHandler: deleteRecordHandler,
+        validateTimesheetHeaderData: validateTimesheetHeaderData
       });
       modalHeaderText = "Edit Record";
       submitButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -71478,7 +71586,8 @@ var RecordModal = function RecordModal(_ref) {
       }, "Submit");
     } else {
       modalOpenButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AddModalButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        timesheet: timesheet
+        timesheet: timesheet,
+        validateTimesheetHeaderData: validateTimesheetHeaderData
       });
       modalHeaderText = "Add Record";
       submitButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {

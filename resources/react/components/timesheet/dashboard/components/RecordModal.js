@@ -198,27 +198,32 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet, deleteRecordHand
 
 		setFormValues(formValues);
 
-		// make connection
-		fetch(apiUrl+"accounts/"+account+"/timesheets", {
-			"method": "POST",
-            "headers": {
-                "Authorization": "Bearer "+apiKey,
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "Referer": location.origin,
-            },
-            "body": JSON.stringify(formValues),
-		})
-		.then(response => response.json())
-		.then(response => {
-			console.log("response from timesheet STORE: ");
-			console.log(response);
-			getTimesheets();
-			$('#addTimeModal-'+timesheet.id).modal('hide');
-		})
-		.catch(err => {
-			console.log(err);
-		});
+		if(validateFormFields()){
+			// make connection
+			fetch(apiUrl+"accounts/"+account+"/timesheets", {
+				"method": "POST",
+	            "headers": {
+	                "Authorization": "Bearer "+apiKey,
+	                "Content-Type": "application/json",
+	                "Accept": "application/json",
+	                "Referer": location.origin,
+	            },
+	            "body": JSON.stringify(formValues),
+			})
+			.then(response => response.json())
+			.then(response => {
+				console.log("response from timesheet STORE: ");
+				console.log(response);
+
+				getTimesheets();
+				$('#addTimeModal-'+timesheet.id).modal('hide');
+
+				setFormValues({});
+			})
+			.catch(err => {
+				console.log(err);
+			});
+		}
 	};
 
 	const handleSubmitEditForm = (el) => {
@@ -231,26 +236,126 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet, deleteRecordHand
 		formValues['foreman_name'] = foreman;
 		formValues['supervisor_id'] = 2;
 
-		fetch(apiUrl+"accounts/"+account+"/timesheets/"+timesheet.id, {
-			"method": "PUT",
-            "headers": {
-                "Authorization": "Bearer "+apiKey,
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "Referer": location.origin,
-            },
-            "body": JSON.stringify(formValues),
-		})
-		.then(response => response.json())
-		.then(response => {
-			console.log("response from timesheet EDIT: ");
-			console.log(response);
-			getTimesheets();
-			$('#addTimeModal-'+timesheet.id).modal('hide');
-		})
-		.catch(err => {
-			console.log(err);
-		});
+		setFormValues(formValues);
+
+		if(validateFormFields()){
+			fetch(apiUrl+"accounts/"+account+"/timesheets/"+timesheet.id, {
+				"method": "PUT",
+	            "headers": {
+	                "Authorization": "Bearer "+apiKey,
+	                "Content-Type": "application/json",
+	                "Accept": "application/json",
+	                "Referer": location.origin,
+	            },
+	            "body": JSON.stringify(formValues),
+			})
+			.then(response => response.json())
+			.then(response => {
+				console.log("response from timesheet EDIT: ");
+				console.log(response);
+				getTimesheets();
+				$('#addTimeModal-'+timesheet.id).modal('hide');
+			})
+			.catch(err => {
+				console.log(err);
+			});
+		}
+	};
+
+	const validateFormFields = () => {
+		if(formValues["foreman_name"].length < 1){
+			displayErrorMessage("foreman_name");
+			return false;
+		}
+
+		if(formValues["supervisor_id"].length < 1){
+			displayErrorMessage("supervisor_id");
+			return false;
+		}
+
+		if(formValues["week_ending"].length < 1){
+			displayErrorMessage("week_ending");
+			return false;
+		}
+
+		if(formValues["building"].length < 1){
+			displayErrorMessage("building");
+			return false;
+		}
+
+		if(formValues["date"].length < 1){
+			displayErrorMessage("date");
+			return false;
+		}
+
+		if(typeof formValues["jobtype"] === 'undefined' || formValues["jobtype"].length < 1 || parseInt(formValues["jobtype"]) < 1){
+			displayErrorMessage("jobtype");
+			return false;
+		}
+
+		if(typeof formValues["subjob"] === 'undefined' || formValues["subjob"].length < 1 || parseInt(formValues["subjob"]) < 1){
+			displayErrorMessage("subjob");
+			return false;
+		}
+
+		if(typeof formValues["tasktype"] === 'undefined' || formValues["tasktype"].length < 1 || parseInt(formValues["tasktype"]) < 1){
+			displayErrorMessage("tasktype");
+			return false;
+		}
+
+		if(typeof formValues["subtask"] === 'undefined' || formValues["subtask"].length < 1 || parseInt(formValues["subtask"]) < 1){
+			displayErrorMessage("subtask");
+			return false;
+		}
+
+		if(formValues["hours"].length < 1){
+			displayErrorMessage("hours");
+			return false;
+		}
+
+		return true;
+	};
+
+	const displayErrorMessage = (msg) => {
+		let theMessage = "Please provide a valid '"+msg+"' value."
+
+		return alert(theMessage);
+	};
+
+	const validateTimesheetHeaderData = (el) => {
+		let modal_id = $(el.target).attr("data-target");
+		let foreman = $("#foreman").val();
+		let week_ending = $("#weekending").val();
+
+		console.log("el: ");
+		console.log(el);
+		console.log("el.target: ");
+		console.log(el.target);
+		console.log("modal_id: ");
+		console.log(modal_id);
+
+		if(typeof foreman === 'undefined' || foreman.length < 1){
+			console.log("Errror: please provide a 'foreman_name'");
+			displayErrorMessage("foreman_name");
+			setTimeout(function(){ $("#addTimeModal-0").modal('hide') }, 315);
+			
+			return false;
+		}
+
+		// if(formValues["supervisor_id"].length < 1){
+		// 	displayErrorMessage("supervisor_id");
+		// 	return false;
+		// }
+
+		if(typeof week_ending === 'undefined' || week_ending.length < 1){
+			console.log("Errror: please provide a 'week_ending'");
+			displayErrorMessage("week_ending");
+			setTimeout(function(){ $("#addTimeModal-0").modal('hide') }, 315);
+			
+			return false;
+		}
+
+		return true;
 	};
 
 	const setFormDataDefaults = () => {
@@ -259,12 +364,12 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet, deleteRecordHand
 		let submitButton;
 
 		if(timesheet.id > 0){
-			modalOpenButton = <EditModalButton timesheet={timesheet} deleteRecordHandler={deleteRecordHandler} />;
+			modalOpenButton = <EditModalButton timesheet={timesheet} deleteRecordHandler={deleteRecordHandler} validateTimesheetHeaderData={validateTimesheetHeaderData} />;
 			modalHeaderText = "Edit Record";
 			submitButton = <button type="button" className="btn btn-primary" onClick={handleSubmitEditForm}>Submit</button>;
 		}
 		else{
-			modalOpenButton = <AddModalButton timesheet={timesheet} />;
+			modalOpenButton = <AddModalButton timesheet={timesheet} validateTimesheetHeaderData={validateTimesheetHeaderData} />;
 			modalHeaderText = "Add Record";
 			submitButton = <button type="button" className="btn btn-primary" onClick={handleSubmitForm}>Submit</button>;
 		}
