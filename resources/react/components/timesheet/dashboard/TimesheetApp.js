@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RecordModal from "./components/RecordModal";
+import TimesheetData from "./components/TimesheetData";
 //import CRouter from "./components/shared/CRouter";
 import "./styles/composerDashboard.css";
 import logo from "./images/logo.png";
@@ -30,6 +31,19 @@ function TimesheetApp ({apiKey, apiUrl}) {
         })
         .then(response => response.json())
         .then(response => {
+            response.sort((a, b)=>{
+                let result = 0;
+
+                if(a.date > b.date){
+                    result = 1;
+                } 
+                else if(a.date < b.date){
+                    result = -1;
+                }
+
+                return result;
+            });
+
             setTimesheets(response);
         })
         .catch(err => {
@@ -96,6 +110,9 @@ function TimesheetApp ({apiKey, apiUrl}) {
 
     };
 
+    // set global var rowCount
+    let rowCount = 1;
+
     return (
         <div className="container">
             <h3>Timesheets Listing Container</h3>
@@ -161,22 +178,36 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                         {timesheets.map((timesheet) => {
 
                                             let theDate = timesheet.date.split("-");
-                                            timesheet.date = theDate[1]+"-"+theDate[2]+"-"+theDate[0];
 
-                                            let dayOfWeek = new Date(timesheet.date).toLocaleString('en-us', {  weekday: 'long' })
+                                            let dayOfWeek = new Date(theDate[1]+"-"+theDate[2]+"-"+theDate[0]).toLocaleString('en-us', {  weekday: 'short' })
 
                                             return (
                                                 <tr key={timesheet.id}>
-                                                    <th scope="row">{timesheet.id}</th>
-                                                    <td>{timesheet.building}</td>
-                                                    <td>{timesheet.date+" ("+dayOfWeek+")"}</td>
-                                                    <td>{timesheet.jobtype.name}</td>
-                                                    <td>{timesheet.subjob.name}</td>
-                                                    <td>{timesheet.tasktype.name}</td>
-                                                    <td>{timesheet.subtask.name}</td>
-                                                    <td colSpan="1">{timesheet.hours}</td>
+                                                    <th scope="row">
+                                                        <TimesheetData timesheet={timesheet} data={rowCount++} />
+                                                    </th>
+                                                    <td>
+                                                        <TimesheetData timesheet={timesheet} data={timesheet.building} />
+                                                    </td>
+                                                    <td>
+                                                        <TimesheetData timesheet={timesheet} data={timesheet.date+" ("+dayOfWeek+")"} />
+                                                    </td>
+                                                    <td>
+                                                        <TimesheetData timesheet={timesheet} data={timesheet.jobtype.name} />
+                                                    </td>
+                                                    <td>
+                                                        <TimesheetData timesheet={timesheet} data={timesheet.subjob.name} />
+                                                    </td>
+                                                    <td>
+                                                        <TimesheetData timesheet={timesheet} data={timesheet.tasktype.name} />
+                                                    </td>
+                                                    <td>
+                                                        <TimesheetData timesheet={timesheet} data={timesheet.subtask.name} />
+                                                    </td>
                                                     <td colSpan="1">
-                                                        
+                                                        <TimesheetData timesheet={timesheet} data={timesheet.hours} />
+                                                    </td>
+                                                    <td colSpan="1">
                                                         <RecordModal
                                                             apiUrl={apiUrl}
                                                             apiKey={apiKey}

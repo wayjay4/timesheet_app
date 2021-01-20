@@ -70651,10 +70651,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_RecordModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/RecordModal */ "./resources/react/components/timesheet/dashboard/components/RecordModal.js");
-/* harmony import */ var _styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/composerDashboard.css */ "./resources/react/components/timesheet/dashboard/styles/composerDashboard.css");
-/* harmony import */ var _styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./images/logo.png */ "./resources/react/components/timesheet/dashboard/images/logo.png");
-/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_images_logo_png__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_TimesheetData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/TimesheetData */ "./resources/react/components/timesheet/dashboard/components/TimesheetData.js");
+/* harmony import */ var _styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/composerDashboard.css */ "./resources/react/components/timesheet/dashboard/styles/composerDashboard.css");
+/* harmony import */ var _styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./images/logo.png */ "./resources/react/components/timesheet/dashboard/images/logo.png");
+/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_images_logo_png__WEBPACK_IMPORTED_MODULE_4__);
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
@@ -70714,6 +70715,7 @@ function _arrayWithHoles(arr) {
 }
 
 
+
  //import CRouter from "./components/shared/CRouter";
 
 
@@ -70757,6 +70759,17 @@ function TimesheetApp(_ref) {
     }).then(function (response) {
       return response.json();
     }).then(function (response) {
+      response.sort(function (a, b) {
+        var result = 0;
+
+        if (a.date > b.date) {
+          result = 1;
+        } else if (a.date < b.date) {
+          result = -1;
+        }
+
+        return result;
+      });
       setTimesheets(response);
     })["catch"](function (err) {
       console.log(err);
@@ -70814,8 +70827,10 @@ function TimesheetApp(_ref) {
     console.log(el.target.getAttribute("data-ts"));
     var account = 1;
     var timesheet_id = el.target.getAttribute("data-ts");
-  };
+  }; // set global var rowCount
 
+
+  var rowCount = 1;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Timesheets Listing Container"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -70850,7 +70865,7 @@ function TimesheetApp(_ref) {
     colSpan: "1",
     rowSpan: "2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _images_logo_png__WEBPACK_IMPORTED_MODULE_3___default.a,
+    src: _images_logo_png__WEBPACK_IMPORTED_MODULE_4___default.a,
     className: "img-fluid"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "VLL- New Mexico")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
@@ -70898,17 +70913,40 @@ function TimesheetApp(_ref) {
     className: "table-striped"
   }, timesheets.map(function (timesheet) {
     var theDate = timesheet.date.split("-");
-    timesheet.date = theDate[1] + "-" + theDate[2] + "-" + theDate[0];
-    var dayOfWeek = new Date(timesheet.date).toLocaleString('en-us', {
-      weekday: 'long'
+    var dayOfWeek = new Date(theDate[1] + "-" + theDate[2] + "-" + theDate[0]).toLocaleString('en-us', {
+      weekday: 'short'
     });
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: timesheet.id
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
       scope: "row"
-    }, timesheet.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.building), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.date + " (" + dayOfWeek + ")"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.jobtype.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.subjob.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.tasktype.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.subtask.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      timesheet: timesheet,
+      data: rowCount++
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      timesheet: timesheet,
+      data: timesheet.building
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      timesheet: timesheet,
+      data: timesheet.date + " (" + dayOfWeek + ")"
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      timesheet: timesheet,
+      data: timesheet.jobtype.name
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      timesheet: timesheet,
+      data: timesheet.subjob.name
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      timesheet: timesheet,
+      data: timesheet.tasktype.name
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      timesheet: timesheet,
+      data: timesheet.subtask.name
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       colSpan: "1"
-    }, timesheet.hours), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      timesheet: timesheet,
+      data: timesheet.hours
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       colSpan: "1"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_RecordModal__WEBPACK_IMPORTED_MODULE_1__["default"], {
       apiUrl: apiUrl,
@@ -71682,6 +71720,35 @@ var TasktypeList = function TasktypeList(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (TasktypeList);
+
+/***/ }),
+
+/***/ "./resources/react/components/timesheet/dashboard/components/TimesheetData.js":
+/*!************************************************************************************!*\
+  !*** ./resources/react/components/timesheet/dashboard/components/TimesheetData.js ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var TimesheetData = function TimesheetData(_ref) {
+  var timesheet = _ref.timesheet,
+      data = _ref.data;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-sm"
+  }, data)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (TimesheetData);
 
 /***/ }),
 
