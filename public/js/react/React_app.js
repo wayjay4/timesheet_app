@@ -70748,7 +70748,7 @@ function TimesheetApp(_ref) {
   }, []);
 
   var getTimesheets = function getTimesheets() {
-    var account = 1; // make connection
+    var account = $("#storage").attr("data-acct"); // make connection
 
     fetch(apiUrl + "accounts/" + account + "/timesheets", {
       "method": "GET",
@@ -70799,7 +70799,7 @@ function TimesheetApp(_ref) {
   };
 
   var deleteRecordHandler = function deleteRecordHandler(el) {
-    var account = 1;
+    var account = $("#storage").attr("data-acct");
     var timesheet_id = el.target.getAttribute("data-ts");
     var confirmResult = confirm("Are you sure you want to delete the timesheet record?");
 
@@ -70827,7 +70827,7 @@ function TimesheetApp(_ref) {
     console.log("editRecordHandler:");
     console.log(el.target);
     console.log(el.target.getAttribute("data-ts"));
-    var account = 1;
+    var account = $("#storage").attr("data-acct");
     var timesheet_id = el.target.getAttribute("data-ts");
   }; // set global var rowCount
 
@@ -71403,7 +71403,7 @@ var RecordModal = function RecordModal(_ref) {
   };
 
   var handleSubmitForm = function handleSubmitForm(el) {
-    var account = 1;
+    var account = $("#storage").attr("data-acct");
     var week_ending = $("#weekending").val();
     var foreman = $("#foreman").val();
     formValues['week_ending'] = week_ending;
@@ -71433,7 +71433,7 @@ var RecordModal = function RecordModal(_ref) {
   };
 
   var handleSubmitEditForm = function handleSubmitEditForm(el) {
-    var account = 1;
+    var account = $("#storage").attr("data-acct");
     var week_ending = $("#weekending").val();
     var foreman = $("#foreman").val();
     formValues['week_ending'] = week_ending;

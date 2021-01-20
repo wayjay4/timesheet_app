@@ -18,7 +18,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
     }, []);
 
     const getTimesheets = () => {
-        let account = 1;
+        let account = $("#storage").attr("data-acct");
 
         // make connection
         fetch(apiUrl+"accounts/"+account+"/timesheets", {
@@ -75,7 +75,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
     };
 
     const deleteRecordHandler = (el) => {
-        let account = 1;
+        let account = $("#storage").attr("data-acct");
         let timesheet_id = el.target.getAttribute("data-ts");
 
         let confirmResult = confirm("Are you sure you want to delete the timesheet record?");
@@ -107,7 +107,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
         console.log(el.target);
         console.log(el.target.getAttribute("data-ts"));
 
-        let account = 1;
+        let account = $("#storage").attr("data-acct");
         let timesheet_id = el.target.getAttribute("data-ts");
 
 

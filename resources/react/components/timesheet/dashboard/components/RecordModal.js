@@ -187,7 +187,7 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet, deleteRecordHand
 	};
 
 	const handleSubmitForm = (el) => {
-		let account = 1;
+		let account = $("#storage").attr("data-acct");
 
 		let week_ending = $("#weekending").val();
 		let foreman = $("#foreman").val();
@@ -222,7 +222,7 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet, deleteRecordHand
 	};
 
 	const handleSubmitEditForm = (el) => {
-		let account = 1;
+		let account = $("#storage").attr("data-acct");
 
 		let week_ending = $("#weekending").val();
 		let foreman = $("#foreman").val();

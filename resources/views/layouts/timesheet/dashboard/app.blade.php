@@ -28,6 +28,7 @@
 
   <!-- Scripts -->
   <script src="{{ asset('js/react/React_app.js') }}"></script>
+  <span hidden id="storage" data-acct="<?=$user->id?>">
 
   @yield('addtl_scripts')
 </body>
