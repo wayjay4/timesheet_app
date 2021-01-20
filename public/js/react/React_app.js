@@ -70758,7 +70758,6 @@ function TimesheetApp(_ref) {
       return response.json();
     }).then(function (response) {
       setTimesheets(response);
-      console.log(response);
     })["catch"](function (err) {
       console.log(err);
     });
@@ -70786,23 +70785,27 @@ function TimesheetApp(_ref) {
 
   var deleteRecordHandler = function deleteRecordHandler(el) {
     var account = 1;
-    var timesheet_id = el.target.getAttribute("data-ts"); // make connection
+    var timesheet_id = el.target.getAttribute("data-ts");
+    var confirmResult = confirm("Are you sure you want to delete the timesheet record?");
 
-    fetch(apiUrl + "accounts/" + account + "/timesheets/" + timesheet_id, {
-      "method": "DELETE",
-      "headers": {
-        "Authorization": "Bearer " + apiKey,
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "Referer": location.origin
-      }
-    }).then(function (response) {
-      return response.json();
-    }).then(function (response) {
-      getTimesheets();
-    })["catch"](function (err) {
-      console.log(err);
-    });
+    if (confirmResult) {
+      // make connection
+      fetch(apiUrl + "accounts/" + account + "/timesheets/" + timesheet_id, {
+        "method": "DELETE",
+        "headers": {
+          "Authorization": "Bearer " + apiKey,
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          "Referer": location.origin
+        }
+      }).then(function (response) {
+        return response.json();
+      }).then(function (response) {
+        getTimesheets();
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
   };
 
   var editRecordHandler = function editRecordHandler(el) {
@@ -70894,11 +70897,16 @@ function TimesheetApp(_ref) {
   }, "There are no timesheets to display."))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
     className: "table-striped"
   }, timesheets.map(function (timesheet) {
+    var theDate = timesheet.date.split("-");
+    timesheet.date = theDate[1] + "-" + theDate[2] + "-" + theDate[0];
+    var dayOfWeek = new Date(timesheet.date).toLocaleString('en-us', {
+      weekday: 'long'
+    });
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: timesheet.id
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
       scope: "row"
-    }, timesheet.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.building), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.date), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.jobtype.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.subjob.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.tasktype.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.subtask.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    }, timesheet.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.building), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.date + " (" + dayOfWeek + ")"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.jobtype.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.subjob.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.tasktype.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, timesheet.subtask.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       colSpan: "1"
     }, timesheet.hours), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       colSpan: "1"
@@ -70906,13 +70914,9 @@ function TimesheetApp(_ref) {
       apiUrl: apiUrl,
       apiKey: apiKey,
       getTimesheets: getTimesheets,
-      timesheet: timesheet
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      type: "button",
-      className: "btn btn-outline-danger btn-sm",
-      "data-ts": timesheet.id,
-      onClick: deleteRecordHandler
-    }, "Delete Timesheet Record")));
+      timesheet: timesheet,
+      deleteRecordHandler: deleteRecordHandler
+    })));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     colSpan: "7",
     rowSpan: "2"
@@ -70942,12 +70946,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var AddModalButton = function AddModalButton(_ref) {
   var timesheet = _ref.timesheet;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  var newButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "btn-group",
+    role: "group"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
     className: "btn btn-primary btn-sm",
     "data-toggle": "modal",
     "data-target": "#addTimeModal-" + timesheet.id
-  }, "Add Timesheet");
+  }, "Add Timesheet Record"));
+  return newButton;
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (AddModalButton);
@@ -70968,13 +70976,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var EditModalButton = function EditModalButton(_ref) {
-  var timesheet = _ref.timesheet;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  var timesheet = _ref.timesheet,
+      deleteRecordHandler = _ref.deleteRecordHandler;
+  var newButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "btn-group",
+    role: "group"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
     className: "btn btn-outline-warning btn-sm",
     "data-toggle": "modal",
     "data-target": "#addTimeModal-" + timesheet.id
-  }, "Edit Timesheet Record");
+  }, "Edit Timesheet Record"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "button",
+    className: "btn btn-outline-danger btn-sm",
+    "data-ts": timesheet.id,
+    onClick: deleteRecordHandler
+  }, "Delete Timesheet Record"));
+  return newButton;
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (EditModalButton);
@@ -71106,7 +71124,8 @@ var RecordModal = function RecordModal(_ref) {
   var apiUrl = _ref.apiUrl,
       apiKey = _ref.apiKey,
       getTimesheets = _ref.getTimesheets,
-      timesheet = _ref.timesheet; // state vars
+      timesheet = _ref.timesheet,
+      deleteRecordHandler = _ref.deleteRecordHandler; // state vars
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
@@ -71176,7 +71195,7 @@ var RecordModal = function RecordModal(_ref) {
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     getJobTypes();
-    setFormButton();
+    setFormDataDefaults();
   }, []);
 
   var isArrayValid = function isArrayValid(arr) {
@@ -71383,14 +71402,15 @@ var RecordModal = function RecordModal(_ref) {
     });
   };
 
-  var setFormButton = function setFormButton() {
-    var button;
+  var setFormDataDefaults = function setFormDataDefaults() {
+    var modalOpenButton;
     var modalHeaderText;
     var submitButton;
 
     if (timesheet.id > 0) {
-      button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EditModalButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        timesheet: timesheet
+      modalOpenButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EditModalButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        timesheet: timesheet,
+        deleteRecordHandler: deleteRecordHandler
       });
       modalHeaderText = "Edit Record";
       submitButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -71399,7 +71419,7 @@ var RecordModal = function RecordModal(_ref) {
         onClick: handleSubmitEditForm
       }, "Submit");
     } else {
-      button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AddModalButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      modalOpenButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AddModalButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
         timesheet: timesheet
       });
       modalHeaderText = "Add Record";
@@ -71410,7 +71430,7 @@ var RecordModal = function RecordModal(_ref) {
       }, "Submit");
     }
 
-    setModalButton(button);
+    setModalButton(modalOpenButton);
     setModalHeaderText(modalHeaderText);
     setModalSubmitButton(submitButton);
     $("#week_ending-" + timesheet.id).val(timesheet.date);

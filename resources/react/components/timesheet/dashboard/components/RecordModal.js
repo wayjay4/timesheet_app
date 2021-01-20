@@ -6,7 +6,7 @@ import SubtaskList from "./SubtaskList";
 import AddModalButton from "./AddModalButton";
 import EditModalButton from "./EditModalButton";
 
-const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
+const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet, deleteRecordHandler}) => {
 	// state vars
 	const [jobTypes, setJobtypes] = useState([]);
 	const [jobType, setJobtype] = useState();
@@ -32,7 +32,7 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 	useEffect(() => {
 		getJobTypes();
 
-		setFormButton();
+		setFormDataDefaults();
 	}, []);
 
 	const isArrayValid = (arr) => {
@@ -251,23 +251,23 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet}) => {
 		});
 	};
 
-	const setFormButton = () => {
-		let button;
+	const setFormDataDefaults = () => {
+		let modalOpenButton;
 		let modalHeaderText;
 		let submitButton;
 
 		if(timesheet.id > 0){
-			button = <EditModalButton timesheet={timesheet} />;
+			modalOpenButton = <EditModalButton timesheet={timesheet} deleteRecordHandler={deleteRecordHandler} />;
 			modalHeaderText = "Edit Record";
 			submitButton = <button type="button" className="btn btn-primary" onClick={handleSubmitEditForm}>Submit</button>;
 		}
 		else{
-			button = <AddModalButton timesheet={timesheet} />;
+			modalOpenButton = <AddModalButton timesheet={timesheet} />;
 			modalHeaderText = "Add Record";
 			submitButton = <button type="button" className="btn btn-primary" onClick={handleSubmitForm}>Submit</button>;
 		}
 
-		setModalButton(button);
+		setModalButton(modalOpenButton);
 		setModalHeaderText(modalHeaderText);
 		setModalSubmitButton(submitButton);
 

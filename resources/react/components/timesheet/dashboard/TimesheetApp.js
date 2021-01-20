@@ -31,7 +31,6 @@ function TimesheetApp ({apiKey, apiUrl}) {
         .then(response => response.json())
         .then(response => {
             setTimesheets(response);
-            console.log(response);
         })
         .catch(err => {
             console.log(err);
@@ -62,23 +61,28 @@ function TimesheetApp ({apiKey, apiUrl}) {
         let account = 1;
         let timesheet_id = el.target.getAttribute("data-ts");
 
-        // make connection
-        fetch(apiUrl+"accounts/"+account+"/timesheets/"+timesheet_id, {
-            "method": "DELETE",
-            "headers": {
-                "Authorization": "Bearer "+apiKey,
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "Referer": location.origin,
-            }
-        })
-        .then(response => response.json())
-        .then(response => {
-            getTimesheets();
-        })
-        .catch(err => {
-            console.log(err);
-        });
+        let confirmResult = confirm("Are you sure you want to delete the timesheet record?");
+
+       if(confirmResult){
+            // make connection
+            fetch(apiUrl+"accounts/"+account+"/timesheets/"+timesheet_id, {
+                "method": "DELETE",
+                "headers": {
+                    "Authorization": "Bearer "+apiKey,
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "Referer": location.origin,
+                }
+            })
+            .then(response => response.json())
+            .then(response => {
+                getTimesheets();
+            })
+            .catch(err => {
+                console.log(err);
+            });
+       }
+
     };
 
     const editRecordHandler = (el) => {
@@ -154,29 +158,35 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                     </tbody>
                                     :
                                     <tbody className="table-striped">
-                                        {timesheets.map((timesheet) => (
-                                            <tr key={timesheet.id}>
-                                                <th scope="row">{timesheet.id}</th>
-                                                <td>{timesheet.building}</td>
-                                                <td>{timesheet.date}</td>
-                                                <td>{timesheet.jobtype.name}</td>
-                                                <td>{timesheet.subjob.name}</td>
-                                                <td>{timesheet.tasktype.name}</td>
-                                                <td>{timesheet.subtask.name}</td>
-                                                <td colSpan="1">{timesheet.hours}</td>
-                                                <td colSpan="1">
-                                                    
-                                                    <RecordModal
-                                                        apiUrl={apiUrl}
-                                                        apiKey={apiKey}
-                                                        getTimesheets={getTimesheets}
-                                                        timesheet={timesheet}
-                                                    />
-                                                    <button type="button" className="btn btn-outline-danger btn-sm" data-ts={timesheet.id} onClick={deleteRecordHandler}>Delete Timesheet Record</button>
-                                                    
-                                                </td>
-                                            </tr>
-                                        ))}
+                                        {timesheets.map((timesheet) => {
+
+                                            let theDate = timesheet.date.split("-");
+                                            timesheet.date = theDate[1]+"-"+theDate[2]+"-"+theDate[0];
+
+                                            let dayOfWeek = new Date(timesheet.date).toLocaleString('en-us', {  weekday: 'long' })
+
+                                            return (
+                                                <tr key={timesheet.id}>
+                                                    <th scope="row">{timesheet.id}</th>
+                                                    <td>{timesheet.building}</td>
+                                                    <td>{timesheet.date+" ("+dayOfWeek+")"}</td>
+                                                    <td>{timesheet.jobtype.name}</td>
+                                                    <td>{timesheet.subjob.name}</td>
+                                                    <td>{timesheet.tasktype.name}</td>
+                                                    <td>{timesheet.subtask.name}</td>
+                                                    <td colSpan="1">{timesheet.hours}</td>
+                                                    <td colSpan="1">
+                                                        
+                                                        <RecordModal
+                                                            apiUrl={apiUrl}
+                                                            apiKey={apiKey}
+                                                            getTimesheets={getTimesheets}
+                                                            timesheet={timesheet}
+                                                            deleteRecordHandler={deleteRecordHandler}
+                                                        />
+                                                    </td>
+                                                </tr>
+                                            )})}
                                     </tbody>
                             }
 
