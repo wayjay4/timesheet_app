@@ -18,7 +18,7 @@ use Database\Seeders\RoleSeeder;
 use Database\Seeders\JobtypeSeeder;
 use Database\Seeders\SubjobSeeder;
 use Database\Seeders\TasktypeSeeder;
-use Database\Seeders\SubTaskSeeder;
+use Database\Seeders\SubtaskSeeder;
 
 class DatabaseSeeder extends Seeder
 {

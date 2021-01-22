@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Subjob;
 use App\Models\Tasktype;
 
-class SubjobTaskTypeController extends ApiController
+class SubjobTasktypeController extends ApiController
 {
     /**
      * Display a listing of the resource.
