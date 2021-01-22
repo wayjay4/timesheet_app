@@ -334,28 +334,28 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet, deleteRecordHand
 		console.log("modal_id: ");
 		console.log(modal_id);
 
-		$(modal_id).on('show.bs.modal', function (e) {
-			// $(e).modal('hide');
-			console.log("e: ");
-			console.log(e);
-		});
+		// $(modal_id).on('show.bs.modal', function (e) {
+		// 	// $(e).modal('hide');
+		// 	console.log("e: ");
+		// 	console.log(e);
+		// });
 
 		// $(modal_id).on('show.bs.modal', function (e) {
 		// 	$(modal_id).modal('show');
 		// });	
 
-		return el.preventDefault();
+		// return el.preventDefault();
 
 		if(typeof foreman === 'undefined' || foreman.length < 1){
 			console.log("Errror: please provide a 'foreman_name'");
 			displayErrorMessage("foreman_name");
-			//setTimeout(function(){ $("#addTimeModal-0").modal('hide') }, 315);
+			setTimeout(function(){ $("#addTimeModal-0").modal('hide') }, 315);
 
-			$(modal_id).on('show.bs.modal', function (e) {
-				$(modal_id).modal('hide');
-			});
+			// $(modal_id).on('show.bs.modal', function (e) {
+			// 	$(modal_id).modal('hide');
+			// });
 
-			$(modal_id).modal('hide');
+			// $(modal_id).modal('hide');
 			
 			return false;
 		}
@@ -368,22 +368,22 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet, deleteRecordHand
 		if(typeof week_ending === 'undefined' || week_ending.length < 1){
 			console.log("Errror: please provide a 'week_ending'");
 			displayErrorMessage("week_ending");
-			//setTimeout(function(){ $("#addTimeModal-0").modal('hide') }, 315);
+			setTimeout(function(){ $("#addTimeModal-0").modal('hide') }, 315);
 
-			$(modal_id).on('show.bs.modal', function (e) {
-				$(modal_id).modal('hide');
-			});
+			// $(modal_id).on('show.bs.modal', function (e) {
+			// 	$(modal_id).modal('hide');
+			// });
 
-			$(modal_id).modal('hide');
+			// $(modal_id).modal('hide');
 			
 			return false;
 		}
 
-		$(modal_id).on('show.bs.modal', function (e) {
-			$(modal_id).modal('show');
-		});
+		// $(modal_id).on('show.bs.modal', function (e) {
+		// 	$(modal_id).modal('show');
+		// });
 
-		$(modal_id).modal('show');
+		// $(modal_id).modal('show');
 
 		return true;
 	};

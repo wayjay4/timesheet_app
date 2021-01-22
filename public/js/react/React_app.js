@@ -71554,25 +71554,26 @@ var RecordModal = function RecordModal(_ref) {
     console.log("el.target: ");
     console.log(el.target);
     console.log("modal_id: ");
-    console.log(modal_id);
-    $(modal_id).on('show.bs.modal', function (e) {
-      // $(e).modal('hide');
-      console.log("e: ");
-      console.log(e);
-    }); // $(modal_id).on('show.bs.modal', function (e) {
+    console.log(modal_id); // $(modal_id).on('show.bs.modal', function (e) {
+    // 	// $(e).modal('hide');
+    // 	console.log("e: ");
+    // 	console.log(e);
+    // });
+    // $(modal_id).on('show.bs.modal', function (e) {
     // 	$(modal_id).modal('show');
     // });	
-
-    return el.preventDefault();
+    // return el.preventDefault();
 
     if (typeof foreman === 'undefined' || foreman.length < 1) {
       console.log("Errror: please provide a 'foreman_name'");
-      displayErrorMessage("foreman_name"); //setTimeout(function(){ $("#addTimeModal-0").modal('hide') }, 315);
+      displayErrorMessage("foreman_name");
+      setTimeout(function () {
+        $("#addTimeModal-0").modal('hide');
+      }, 315); // $(modal_id).on('show.bs.modal', function (e) {
+      // 	$(modal_id).modal('hide');
+      // });
+      // $(modal_id).modal('hide');
 
-      $(modal_id).on('show.bs.modal', function (e) {
-        $(modal_id).modal('hide');
-      });
-      $(modal_id).modal('hide');
       return false;
     } // if(formValues["supervisor_id"].length < 1){
     // 	displayErrorMessage("supervisor_id");
@@ -71582,19 +71583,21 @@ var RecordModal = function RecordModal(_ref) {
 
     if (typeof week_ending === 'undefined' || week_ending.length < 1) {
       console.log("Errror: please provide a 'week_ending'");
-      displayErrorMessage("week_ending"); //setTimeout(function(){ $("#addTimeModal-0").modal('hide') }, 315);
+      displayErrorMessage("week_ending");
+      setTimeout(function () {
+        $("#addTimeModal-0").modal('hide');
+      }, 315); // $(modal_id).on('show.bs.modal', function (e) {
+      // 	$(modal_id).modal('hide');
+      // });
+      // $(modal_id).modal('hide');
 
-      $(modal_id).on('show.bs.modal', function (e) {
-        $(modal_id).modal('hide');
-      });
-      $(modal_id).modal('hide');
       return false;
-    }
+    } // $(modal_id).on('show.bs.modal', function (e) {
+    // 	$(modal_id).modal('show');
+    // });
+    // $(modal_id).modal('show');
 
-    $(modal_id).on('show.bs.modal', function (e) {
-      $(modal_id).modal('show');
-    });
-    $(modal_id).modal('show');
+
     return true;
   };
 
