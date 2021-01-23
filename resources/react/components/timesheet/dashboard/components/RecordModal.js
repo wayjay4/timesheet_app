@@ -333,6 +333,7 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet, deleteRecordHand
 		console.log(el.target);
 		console.log("modal_id: ");
 		console.log(modal_id);
+		console.log("yo yo mtv raps!");
 
 		// $(modal_id).on('show.bs.modal', function (e) {
 		// 	// $(e).modal('hide');

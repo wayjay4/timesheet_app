@@ -71554,7 +71554,8 @@ var RecordModal = function RecordModal(_ref) {
     console.log("el.target: ");
     console.log(el.target);
     console.log("modal_id: ");
-    console.log(modal_id); // $(modal_id).on('show.bs.modal', function (e) {
+    console.log(modal_id);
+    console.log("yo yo mtv raps!"); // $(modal_id).on('show.bs.modal', function (e) {
     // 	// $(e).modal('hide');
     // 	console.log("e: ");
     // 	console.log(e);
