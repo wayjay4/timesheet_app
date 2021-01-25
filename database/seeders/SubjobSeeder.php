@@ -89,10 +89,13 @@ class SubjobSeeder extends Seeder
         ]);
 
         $subjob = Subjob::findOrFail($subjobID);
+        // dd($value);
 
-        $tasktypes = Tasktype::all()
-              ->random(mt_rand(1,40))
-              ->pluck('id');
+        // $tasktypes = Tasktype::all()
+        //       ->random(mt_rand(1,40))
+        //       ->pluck('id');
+
+        $tasktypes = $attachArray[$value];
 
         $subjob->tasktypes()->attach($tasktypes);
       }

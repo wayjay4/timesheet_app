@@ -60,9 +60,11 @@ class JobtypeSeeder extends Seeder
           'warehousing' => [30],
         );
 
-        $subjobs = Subjob::all()
-              ->random(mt_rand(1,4))
-              ->pluck('id');
+        // $subjobs = Subjob::all()
+        //       ->random(mt_rand(1,4))
+        //       ->pluck('id');
+
+        $subjobs = $attachArray[$value];
 
         $jobtype->subjobs()->attach($subjobs);
       }

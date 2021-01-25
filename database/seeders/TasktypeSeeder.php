@@ -410,9 +410,11 @@ class TasktypeSeeder extends Seeder
 
         $tasktype = Tasktype::findOrFail($tasktypeID);
 
-        $subtasks = Subtask::all()
-              ->random(mt_rand(1,16))
-              ->pluck('id');
+        // $subtasks = Subtask::all()
+        //       ->random(mt_rand(1,16))
+        //       ->pluck('id');
+
+        $subtasks = $attachArray[$value];
 
         $tasktype->subtasks()->attach($subtasks);
       }
