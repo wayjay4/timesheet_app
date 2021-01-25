@@ -64,7 +64,7 @@ class SubtaskSeeder extends Seeder
         'pull copper',
         'qa/qc',
         'rack',
-        'rack and stand',
+        'rack and stack',
         'rail kits',
         'safemeet &wrmup',
         'safety manager',
@@ -85,10 +85,11 @@ class SubtaskSeeder extends Seeder
         'unbill travel cost',
         'unbill travel hours',
         'unbillable training',
-        'unbillable equip rents',
+        'unbillbl equip rents',
         'unbillbl train hours',
         'unsch unprod time',
         'wall vertical ladder rak',
+        'project manager',
       );
       
       foreach($subtasks as $key=>$value){
