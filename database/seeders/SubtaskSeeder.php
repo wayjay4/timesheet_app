@@ -61,6 +61,7 @@ class SubtaskSeeder extends Seeder
         'p6 administrator',
         "pdu's",
         'project engineer',
+        'project manager',
         'pull copper',
         'qa/qc',
         'rack',
@@ -89,7 +90,6 @@ class SubtaskSeeder extends Seeder
         'unbillbl train hours',
         'unsch unprod time',
         'wall vertical ladder rak',
-        'project manager',
       );
       
       foreach($subtasks as $key=>$value){
