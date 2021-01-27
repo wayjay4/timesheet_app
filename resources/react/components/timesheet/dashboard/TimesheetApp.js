@@ -168,63 +168,63 @@ function TimesheetApp ({apiKey, apiUrl}) {
                         </thead>
 
                         
-                            {
-                                !isTimesheetsValid() 
-                                    ? 
-                                    <tbody>
-                                        <tr>
-                                            <td colSpan="9"><TimesheetData data={"There are no timesheet records to display."} /></td>
+                        {!isTimesheetsValid() 
+                            ? 
+                            <tbody>
+                                <tr>
+                                    <td colSpan="9"><TimesheetData data={"There are no timesheet records to display."} /></td>
+                                </tr>
+                            </tbody>
+                            :
+                            <tbody className="table-striped">
+                                {timesheets.map((timesheet) => {
+
+                                    let theDate = timesheet.date.split("-");
+                                    let dateStr = theDate[1]+"/"+theDate[2]+"/"+theDate[0];
+                                    let dayOfWeek = new Date(dateStr).toLocaleString('en-us', {  weekday: 'short' })
+
+                                    rowTotals += parseFloat(timesheet.hours);
+
+                                    return (
+                                        <tr key={timesheet.id}>
+                                            <th scope="row">
+                                                <TimesheetData data={rowCount++} />
+                                            </th>
+                                            <td>
+                                                <TimesheetData data={timesheet.building} />
+                                            </td>
+                                            <td>
+                                                <TimesheetData data={dateStr+" ("+dayOfWeek+")"} />
+                                            </td>
+                                            <td>
+                                                <TimesheetData data={timesheet.jobtype.name} />
+                                            </td>
+                                            <td>
+                                                <TimesheetData data={timesheet.subjob.name} />
+                                            </td>
+                                            <td>
+                                                <TimesheetData data={timesheet.tasktype.name} />
+                                            </td>
+                                            <td>
+                                                <TimesheetData data={timesheet.subtask.name} />
+                                            </td>
+                                            <td colSpan="1">
+                                                <TimesheetData data={timesheet.hours} />
+                                            </td>
+                                            <td colSpan="1">
+                                                <RecordModal
+                                                    apiUrl={apiUrl}
+                                                    apiKey={apiKey}
+                                                    getTimesheets={getTimesheets}
+                                                    timesheet={timesheet}
+                                                    deleteRecordHandler={deleteRecordHandler}
+                                                />
+                                            </td>
                                         </tr>
-                                    </tbody>
-                                    :
-                                    <tbody className="table-striped">
-                                        {timesheets.map((timesheet) => {
-
-                                            let theDate = timesheet.date.split("-");
-                                            let dateStr = theDate[1]+"/"+theDate[2]+"/"+theDate[0];
-                                            let dayOfWeek = new Date(dateStr).toLocaleString('en-us', {  weekday: 'short' })
-
-                                            rowTotals += parseFloat(timesheet.hours);
-
-                                            return (
-                                                <tr key={timesheet.id}>
-                                                    <th scope="row">
-                                                        <TimesheetData data={rowCount++} />
-                                                    </th>
-                                                    <td>
-                                                        <TimesheetData data={timesheet.building} />
-                                                    </td>
-                                                    <td>
-                                                        <TimesheetData data={dateStr+" ("+dayOfWeek+")"} />
-                                                    </td>
-                                                    <td>
-                                                        <TimesheetData data={timesheet.jobtype.name} />
-                                                    </td>
-                                                    <td>
-                                                        <TimesheetData data={timesheet.subjob.name} />
-                                                    </td>
-                                                    <td>
-                                                        <TimesheetData data={timesheet.tasktype.name} />
-                                                    </td>
-                                                    <td>
-                                                        <TimesheetData data={timesheet.subtask.name} />
-                                                    </td>
-                                                    <td colSpan="1">
-                                                        <TimesheetData data={timesheet.hours} />
-                                                    </td>
-                                                    <td colSpan="1">
-                                                        <RecordModal
-                                                            apiUrl={apiUrl}
-                                                            apiKey={apiKey}
-                                                            getTimesheets={getTimesheets}
-                                                            timesheet={timesheet}
-                                                            deleteRecordHandler={deleteRecordHandler}
-                                                        />
-                                                    </td>
-                                                </tr>
-                                            )})}
-                                    </tbody>
-                            }
+                                    )})
+                                }
+                            </tbody>
+                        }
 
 
                         <thead>
