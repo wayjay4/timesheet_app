@@ -11,10 +11,12 @@ function TimesheetApp ({apiKey, apiUrl}) {
     const [timesheets, setTimesheets] = useState({});
     const [foreman, setForeman] = useState('');
     const [weekending, setWeekending] = useState('');
+    const [userPhoto, setUserPhoto] = useState('');
 
     // use effect
     useEffect(() => {
         getTimesheets();
+        setUserPhoto($("#storage").attr("data-profilePhoto"));
     }, []);
 
     const getTimesheets = () => {
@@ -119,7 +121,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
 
     return (
         <div className="container">
-            <h3>Timesheets Listing Container</h3>
+            <h3>Timesheets Container</h3>
 
             <div className="content">
                 <div className="timesheet-container">
@@ -127,7 +129,15 @@ function TimesheetApp ({apiKey, apiUrl}) {
                         <thead>
                             <tr>
                                 <td colSpan="5">
-                                    <TimesheetData timesheet={timesheets[0]} data={isTimesheetsValid() ? timesheets[0].account.name : ""} />
+                                    <div className="container" style={{"display":"flex", "justifyContent":"flex-start"}}>
+
+                                        <img className="img-thumbnail" src={userPhoto} alt={''} style={{"borderRadius": "50px"}} />
+
+                                        <div style={{"display": "flex", "alignItems": "center", "marginLeft": "10px"}}>
+                                            {isTimesheetsValid() ? timesheets[0].account.name : ""}
+                                        </div>
+                                        
+                                    </div>
                                 </td>
                                 <td colSpan="2">
                                     <input type="text" className="form-control form-control-sm" id="foreman" value={foreman} onChange={handleForemanChange} placeholder="foreman's name" />

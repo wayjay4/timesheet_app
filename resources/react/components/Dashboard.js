@@ -17,7 +17,7 @@ function App(){
 
 	return(
 		<div className="container">
-			<h2>Dashboard API Container</h2>
+			<h2 hidden>Dashboard API Container</h2>
 
 			<Switch>
 				<Route path='/timesheet/dashboard/'>

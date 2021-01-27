@@ -28,7 +28,7 @@
 
   <!-- Scripts -->
   <script src="{{ asset('js/react/React_app.js') }}"></script>
-  <span hidden id="storage" data-acct="<?=$user->id?>">
+  <span hidden id="storage" data-acct="<?=$user->id?>" data-profilePhoto="<?=$user->profile_photo_url?>">
 
   @yield('addtl_scripts')
 </body>
