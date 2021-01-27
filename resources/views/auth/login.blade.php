@@ -39,6 +39,12 @@
                     </a>
                 @endif
 
+                <span style="margin-left: 10px;">
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                        {{ __('Need to register?') }}
+                    </a>
+                </span>
+
                 <x-jet-button class="ml-4">
                     {{ __('Login') }}
                 </x-jet-button>
