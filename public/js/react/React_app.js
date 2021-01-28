@@ -70887,6 +70887,12 @@ function TimesheetApp(_ref) {
     }
   }, isTimesheetsValid() ? timesheets[0].account.name : ""))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     colSpan: "2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container",
+    style: {
+      "display": "flex",
+      "justifyContent": "center"
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "text",
     className: "form-control form-control-sm",
@@ -70894,8 +70900,14 @@ function TimesheetApp(_ref) {
     value: foreman,
     onChange: handleForemanChange,
     placeholder: "foreman's name"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     colSpan: "1"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container",
+    style: {
+      "display": "flex",
+      "justifyContent": "center"
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "date",
     className: "form-control form-control-sm",
@@ -70903,10 +70915,17 @@ function TimesheetApp(_ref) {
     value: weekending,
     onChange: handleWeekendingChange,
     placeholder: "date"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     colSpan: "1",
     rowSpan: "2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container",
+    style: {
+      "display": "flex",
+      "flexDirection": "column",
+      "justifyContent": "center"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: _images_logo_png__WEBPACK_IMPORTED_MODULE_5___default.a,
     className: "img-fluid"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "VLL- New Mexico")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {

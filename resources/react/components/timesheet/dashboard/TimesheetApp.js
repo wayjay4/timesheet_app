@@ -133,20 +133,24 @@ function TimesheetApp ({apiKey, apiUrl}) {
 
                                         <img className="img-thumbnail" src={userPhoto} alt={''} style={{"borderRadius": "50px"}} />
 
-                                        <div style={{"display": "flex", "alignItems": "center", "marginLeft": "10px"}}>
+                                        <div style={{"display":"flex", "alignItems":"center", "marginLeft":"10px"}}>
                                             {isTimesheetsValid() ? timesheets[0].account.name : ""}
                                         </div>
                                         
                                     </div>
                                 </td>
                                 <td colSpan="2">
-                                    <input type="text" className="form-control form-control-sm" id="foreman" value={foreman} onChange={handleForemanChange} placeholder="foreman's name" />
+                                    <div className="container" style={{"display":"flex", "justifyContent":"center"}}>
+                                        <input type="text" className="form-control form-control-sm" id="foreman" value={foreman} onChange={handleForemanChange} placeholder="foreman's name" />
+                                    </div>
                                 </td>
                                 <td colSpan="1">
+                                    <div className="container" style={{"display":"flex", "justifyContent":"center"}}>
                                     <input type="date" className="form-control form-control-sm" id="weekending" value={weekending} onChange={handleWeekendingChange} placeholder="date" />
+                                    </div>
                                 </td>
                                 <td colSpan="1" rowSpan="2">
-                                    <div>
+                                    <div className="container" style={{"display":"flex", "flexDirection":"column", "justifyContent":"center"}}>
                                         <div><img src={logo} className="img-fluid" /></div>
                                         <div>VLL- New Mexico</div>
                                     </div>
