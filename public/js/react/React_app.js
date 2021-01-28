@@ -71612,7 +71612,7 @@ var RecordModal = function RecordModal(_ref) {
       console.log("Errror: please provide a 'foreman_name'");
       displayErrorMessage("foreman_name");
       setTimeout(function () {
-        $("#addTimeModal-0").modal('hide');
+        $(modal_id).modal('hide');
       }, 315); // $(modal_id).on('show.bs.modal', function (e) {
       // 	$(modal_id).modal('hide');
       // });
@@ -71629,7 +71629,7 @@ var RecordModal = function RecordModal(_ref) {
       console.log("Errror: please provide a 'week_ending'");
       displayErrorMessage("week_ending");
       setTimeout(function () {
-        $("#addTimeModal-0").modal('hide');
+        $(modal_id).modal('hide');
       }, 315); // $(modal_id).on('show.bs.modal', function (e) {
       // 	$(modal_id).modal('hide');
       // });

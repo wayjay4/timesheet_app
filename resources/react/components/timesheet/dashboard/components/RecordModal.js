@@ -350,7 +350,7 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet, deleteRecordHand
 		if(typeof foreman === 'undefined' || foreman.length < 1){
 			console.log("Errror: please provide a 'foreman_name'");
 			displayErrorMessage("foreman_name");
-			setTimeout(function(){ $("#addTimeModal-0").modal('hide') }, 315);
+			setTimeout(function(){ $(modal_id).modal('hide') }, 315);
 
 			// $(modal_id).on('show.bs.modal', function (e) {
 			// 	$(modal_id).modal('hide');
@@ -369,7 +369,7 @@ const RecordModal = ({apiUrl, apiKey, getTimesheets, timesheet, deleteRecordHand
 		if(typeof week_ending === 'undefined' || week_ending.length < 1){
 			console.log("Errror: please provide a 'week_ending'");
 			displayErrorMessage("week_ending");
-			setTimeout(function(){ $("#addTimeModal-0").modal('hide') }, 315);
+			setTimeout(function(){ $(modal_id).modal('hide') }, 315);
 
 			// $(modal_id).on('show.bs.modal', function (e) {
 			// 	$(modal_id).modal('hide');
