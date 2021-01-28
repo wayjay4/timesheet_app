@@ -70666,13 +70666,14 @@ if (document.getElementById('timesheet-dashboard')) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_RecordModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/RecordModal */ "./resources/react/components/timesheet/dashboard/components/RecordModal.js");
-/* harmony import */ var _components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/TimesheetDataHeader */ "./resources/react/components/timesheet/dashboard/components/TimesheetDataHeader.js");
-/* harmony import */ var _components_TimesheetData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/TimesheetData */ "./resources/react/components/timesheet/dashboard/components/TimesheetData.js");
-/* harmony import */ var _styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/composerDashboard.css */ "./resources/react/components/timesheet/dashboard/styles/composerDashboard.css");
-/* harmony import */ var _styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./images/logo.png */ "./resources/react/components/timesheet/dashboard/images/logo.png");
-/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_images_logo_png__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _components_FormModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/FormModal */ "./resources/react/components/timesheet/dashboard/components/FormModal.js");
+/* harmony import */ var _components_RecordModal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/RecordModal */ "./resources/react/components/timesheet/dashboard/components/RecordModal.js");
+/* harmony import */ var _components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/TimesheetDataHeader */ "./resources/react/components/timesheet/dashboard/components/TimesheetDataHeader.js");
+/* harmony import */ var _components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/TimesheetData */ "./resources/react/components/timesheet/dashboard/components/TimesheetData.js");
+/* harmony import */ var _styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/composerDashboard.css */ "./resources/react/components/timesheet/dashboard/styles/composerDashboard.css");
+/* harmony import */ var _styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./images/logo.png */ "./resources/react/components/timesheet/dashboard/images/logo.png");
+/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_images_logo_png__WEBPACK_IMPORTED_MODULE_6__);
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
@@ -70734,7 +70735,7 @@ function _arrayWithHoles(arr) {
 
 
 
- //import CRouter from "./components/shared/CRouter";
+
 
 
 
@@ -70761,7 +70762,24 @@ function TimesheetApp(_ref) {
   var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       _useState8 = _slicedToArray(_useState7, 2),
       userPhoto = _useState8[0],
-      setUserPhoto = _useState8[1]; // use effect
+      setUserPhoto = _useState8[1];
+
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    'timesheet_id': 0,
+    'foreman_name': '',
+    'supervisor_id': '',
+    'week_ending': '',
+    'building': '',
+    'date': '',
+    'jobtype': '',
+    'subjob': '',
+    'tasktype': '',
+    'subtask': '',
+    'hours': ''
+  }),
+      _useState10 = _slicedToArray(_useState9, 2),
+      timesheetData = _useState10[0],
+      setTimesheetData = _useState10[1]; // use effect
 
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
@@ -70800,26 +70818,6 @@ function TimesheetApp(_ref) {
     });
   };
 
-  var clickHandler = function clickHandler(el) {
-    //console.log("clickHandler:");
-    //console.log(el.target);
-    console.log("hello world, button was clicked!");
-  };
-
-  var handleForemanChange = function handleForemanChange(el) {
-    console.log(el.target.value);
-    setForeman(el.target.value);
-  };
-
-  var handleWeekendingChange = function handleWeekendingChange(el) {
-    console.log(el.target.value);
-    setWeekending(el.target.value);
-  };
-
-  var isTimesheetsValid = function isTimesheetsValid() {
-    return timesheets.length > 0;
-  };
-
   var deleteRecordHandler = function deleteRecordHandler(el) {
     var account = $("#storage").attr("data-acct");
     var timesheet_id = el.target.getAttribute("data-ts");
@@ -70845,12 +70843,18 @@ function TimesheetApp(_ref) {
     }
   };
 
-  var editRecordHandler = function editRecordHandler(el) {
-    console.log("editRecordHandler:");
-    console.log(el.target);
-    console.log(el.target.getAttribute("data-ts"));
-    var account = $("#storage").attr("data-acct");
-    var timesheet_id = el.target.getAttribute("data-ts");
+  var handleForemanChange = function handleForemanChange(el) {
+    console.log(el.target.value);
+    setForeman(el.target.value);
+  };
+
+  var handleWeekendingChange = function handleWeekendingChange(el) {
+    console.log(el.target.value);
+    setWeekending(el.target.value);
+  };
+
+  var isTimesheetsValid = function isTimesheetsValid() {
+    return timesheets.length > 0;
   }; // set global var rowCount
 
 
@@ -70858,7 +70862,16 @@ function TimesheetApp(_ref) {
   var rowTotals = 0;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Timesheets Container"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Timesheets Container"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "button",
+    "class": "btn btn-primary",
+    "data-toggle": "modal",
+    "data-target": "#addTimeModal"
+  }, "Launch demo modal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FormModal__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    apiUrl: apiUrl,
+    apiKey: apiKey,
+    timesheetData: timesheetData
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "timesheet-container"
@@ -70926,60 +70939,60 @@ function TimesheetApp(_ref) {
       "justifyContent": "center"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _images_logo_png__WEBPACK_IMPORTED_MODULE_5___default.a,
+    src: _images_logo_png__WEBPACK_IMPORTED_MODULE_6___default.a,
     className: "img-fluid"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "VLL- New Mexico")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col",
     colSpan: "5"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
     data: "Employee Name"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col",
     colSpan: "2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
     data: "Foreman Name"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col",
     colSpan: "1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
     data: "Week Ending"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
     data: "#"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
     data: "Building"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
     data: "Date"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
     data: "Type"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
     data: "Subtype"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
     data: "Task"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
     data: "Subtask"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col",
     colSpan: "1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
     data: "Hours Worked"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col",
     colSpan: "1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_RecordModal__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_RecordModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
     apiUrl: apiUrl,
     apiKey: apiKey,
     getTimesheets: getTimesheets,
@@ -70988,7 +71001,7 @@ function TimesheetApp(_ref) {
     }
   })))), !isTimesheetsValid() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     colSpan: "9"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
     data: "There are no timesheet records to display."
   })))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
     className: "table-striped"
@@ -71005,27 +71018,27 @@ function TimesheetApp(_ref) {
       key: timesheet.id
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
       scope: "row"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
       data: rowCount++
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
       data: timesheet.building
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
       data: dateStr + " (" + dayOfWeek + ")"
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
       data: timesheet.jobtype.name
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
       data: subjobName[1]
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
       data: tasktypeName[2]
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
       data: timesheet.subtask.name
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       colSpan: "1"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
       data: timesheet.hours
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       colSpan: "1"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_RecordModal__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_RecordModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
       apiUrl: apiUrl,
       apiKey: apiKey,
       getTimesheets: getTimesheets,
@@ -71115,6 +71128,136 @@ var EditModalButton = function EditModalButton(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (EditModalButton);
+
+/***/ }),
+
+/***/ "./resources/react/components/timesheet/dashboard/components/FormModal.js":
+/*!********************************************************************************!*\
+  !*** ./resources/react/components/timesheet/dashboard/components/FormModal.js ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var FormModal = function FormModal(_ref) {
+  var apiUrl = _ref.apiUrl,
+      apiKey = _ref.apiKey,
+      timesheetData = _ref.timesheetData; // state vars
+  // use effect
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {// do something
+  }, []);
+
+  var handleFormChange = function handleFormChange() {
+    // do something
+    console.log("handleFormChange was clicked");
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal fade",
+    id: "addTimeModal",
+    "data-backdrop": "static",
+    "data-keyboard": "false",
+    tabIndex: "-1",
+    "aria-labelledby": "addTimeModalLabel",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal-dialog modal-dialog-centered modal-xl"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal-content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+    className: "modal-title",
+    id: "addTimeModalLabel"
+  }, "Modal Header Text Here"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "button",
+    className: "close",
+    "data-dismiss": "modal",
+    "aria-label": "Close"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    "aria-hidden": "true"
+  }, "\xD7"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal-body"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    id: "timesheet_form"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    hidden: true,
+    className: "form-group col-md-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: "week_ending"
+  }, "Week Ending"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "date",
+    className: "form-control form-control-sm",
+    id: "week_ending",
+    name: "week_ending",
+    onChange: handleFormChange,
+    placeholder: "date"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group col-md-6"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: "building"
+  }, "Building"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    className: "form-control form-control-sm",
+    id: "building",
+    name: "building",
+    onChange: handleFormChange,
+    placeholder: "bldg #"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group col-md-6"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: "date"
+  }, "Date"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "date",
+    className: "form-control form-control-sm",
+    id: "date",
+    name: "date",
+    onChange: handleFormChange,
+    placeholder: "date"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group col-md-3"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group col-md-3"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group col-md-3"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group col-md-3"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: "hours"
+  }, "Hours"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    className: "form-control form-control-sm",
+    id: "hours",
+    name: "hours",
+    onChange: handleFormChange,
+    placeholder: "hours worked"
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal-footer"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "button",
+    className: "btn btn-secondary",
+    "data-dismiss": "modal"
+  }, "Close"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "button",
+    className: "btn btn-primary"
+  }, "Submit"))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (FormModal);
 
 /***/ }),
 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import FormModal from './components/FormModal';
 import RecordModal from "./components/RecordModal";
 import TimesheetDataHeader from "./components/TimesheetDataHeader";
 import TimesheetData from "./components/TimesheetData";
-//import CRouter from "./components/shared/CRouter";
 import "./styles/composerDashboard.css";
 import logo from "./images/logo.png";
 
@@ -12,6 +12,20 @@ function TimesheetApp ({apiKey, apiUrl}) {
     const [foreman, setForeman] = useState('');
     const [weekending, setWeekending] = useState('');
     const [userPhoto, setUserPhoto] = useState('');
+
+    const [timesheetData, setTimesheetData] = useState({
+        'timesheet_id': 0,
+        'foreman_name': '',
+        'supervisor_id': '',
+        'week_ending': '',
+        'building': '',
+        'date': '',
+        'jobtype': '',
+        'subjob': '',
+        'tasktype': '',
+        'subtask': '',
+        'hours': '',
+    });
 
     // use effect
     useEffect(() => {
@@ -56,26 +70,6 @@ function TimesheetApp ({apiKey, apiUrl}) {
         });
     };
 
-    const clickHandler = (el) => {
-        //console.log("clickHandler:");
-        //console.log(el.target);
-        console.log("hello world, button was clicked!");
-    };
-
-    const handleForemanChange = (el) => {
-        console.log(el.target.value);
-        setForeman(el.target.value);
-    };
-
-    const handleWeekendingChange = (el) => {
-        console.log(el.target.value);
-        setWeekending(el.target.value);
-    };
-
-    const isTimesheetsValid = () => {
-        return (timesheets.length > 0);
-    };
-
     const deleteRecordHandler = (el) => {
         let account = $("#storage").attr("data-acct");
         let timesheet_id = el.target.getAttribute("data-ts");
@@ -101,18 +95,20 @@ function TimesheetApp ({apiKey, apiUrl}) {
                 console.log(err);
             });
        }
-
     };
 
-    const editRecordHandler = (el) => {
-        console.log("editRecordHandler:");
-        console.log(el.target);
-        console.log(el.target.getAttribute("data-ts"));
+    const handleForemanChange = (el) => {
+        console.log(el.target.value);
+        setForeman(el.target.value);
+    };
 
-        let account = $("#storage").attr("data-acct");
-        let timesheet_id = el.target.getAttribute("data-ts");
+    const handleWeekendingChange = (el) => {
+        console.log(el.target.value);
+        setWeekending(el.target.value);
+    };
 
-
+    const isTimesheetsValid = () => {
+        return (timesheets.length > 0);
     };
 
     // set global var rowCount
@@ -122,6 +118,16 @@ function TimesheetApp ({apiKey, apiUrl}) {
     return (
         <div className="container">
             <h3>Timesheets Container</h3>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target={"#addTimeModal"}>
+                Launch demo modal
+            </button>
+
+            <FormModal
+                apiUrl={apiUrl}
+                apiKey={apiKey}
+                timesheetData={timesheetData}
+            />
 
             <div className="content">
                 <div className="timesheet-container">
