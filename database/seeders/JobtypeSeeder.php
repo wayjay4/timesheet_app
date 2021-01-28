@@ -16,6 +16,29 @@ class JobtypeSeeder extends Seeder
   */
   public function run()
   {
+    // $list_01 = [2,3,5];
+    // $list_02 = [4,6];
+    // $list_03 = [4];
+    // $list_04 = [1];
+
+    // $jobTypes = array(
+    //   'core' =>                               $list_01,
+    //   'data hall a' =>                        $list_01,
+    //   'data hall b' =>                        $list_01,
+    //   'data hall c' =>                        $list_01,
+    //   'data hall d' =>                        $list_01,
+    //   'equipment and rentals' =>              $list_02,
+    //   'freight' =>                            $list_03,
+    //   'general systems' =>                    $list_01,
+    //   'indirect staffing' =>                  $list_04,
+    //   'non-scheduled non productive time' =>  $list_03,
+    //   'safety meetings and warm-up' =>        $list_03,
+    //   'scheduled non productive time' =>      $list_03,
+    //   'training' =>                           $list_02,
+    //   'travel' =>                             $list_02,
+    //   'warehousing' =>                        $list_03,
+    // );
+    
     $jobTypes = array(
       'core' =>                               [1,2,3],
       'data hall a' =>                        [4,5,6],

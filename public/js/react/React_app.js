@@ -70999,6 +70999,8 @@ function TimesheetApp(_ref) {
       weekday: 'short'
     });
     rowTotals += parseFloat(timesheet.hours);
+    var subjobName = timesheet.subjob.name.split("-");
+    var tasktypeName = timesheet.tasktype.name.split("-");
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: timesheet.id
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
@@ -71012,9 +71014,9 @@ function TimesheetApp(_ref) {
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_3__["default"], {
       data: timesheet.jobtype.name
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      data: timesheet.subjob.name
+      data: subjobName[1]
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      data: timesheet.tasktype.name
+      data: tasktypeName[2]
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_3__["default"], {
       data: timesheet.subtask.name
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
@@ -71843,10 +71845,11 @@ var SubjobList = function SubjobList(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "0"
   }, "\xA0"), subJobs.map(function (subJob) {
+    var name = subJob.name.split("-");
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
       key: subJob.id,
       value: subJob.id
-    }, subJob.name);
+    }, name[1]);
   })));
 };
 
@@ -71919,10 +71922,12 @@ var TasktypeList = function TasktypeList(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "0"
   }, "\xA0"), taskTypes.map(function (taskType) {
+    var name = taskType.name.split("-");
+    console.log(name[2]);
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
       key: taskType.id,
       value: taskType.id
-    }, taskType.name);
+    }, name[2]);
   })));
 };
 

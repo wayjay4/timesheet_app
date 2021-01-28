@@ -199,6 +199,9 @@ function TimesheetApp ({apiKey, apiUrl}) {
 
                                     rowTotals += parseFloat(timesheet.hours);
 
+                                    let subjobName = timesheet.subjob.name.split("-");
+                                    let tasktypeName = timesheet.tasktype.name.split("-");
+
                                     return (
                                         <tr key={timesheet.id}>
                                             <th scope="row">
@@ -214,10 +217,10 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                                 <TimesheetData data={timesheet.jobtype.name} />
                                             </td>
                                             <td>
-                                                <TimesheetData data={timesheet.subjob.name} />
+                                                <TimesheetData data={subjobName[1]} />
                                             </td>
                                             <td>
-                                                <TimesheetData data={timesheet.tasktype.name} />
+                                                <TimesheetData data={tasktypeName[2]} />
                                             </td>
                                             <td>
                                                 <TimesheetData data={timesheet.subtask.name} />
@@ -235,8 +238,8 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                                 />
                                             </td>
                                         </tr>
-                                    )})
-                                }
+                                    );
+                                })}
                             </tbody>
                         }
 

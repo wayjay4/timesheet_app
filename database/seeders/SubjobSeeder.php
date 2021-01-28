@@ -16,6 +16,15 @@ class SubjobSeeder extends Seeder
     */
     public function run()
     {
+        // $subjobs = array(
+        //     'admin' => [],
+        //     'cabl' => [],
+        //     'infra' => [],
+        //     'misc' => [],
+        //     'netw' => [],
+        //     'unbill' => [],
+        // );
+
         $subjobs = array(
             'core-cable-' =>            [1,2,3,4],
             'core-infra-' =>            [5,6,7,8],

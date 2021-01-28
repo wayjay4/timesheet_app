@@ -8,9 +8,13 @@ const TasktypeList = ({
 			<label htmlFor={"tasktype-"+timesheet.id}>TaskType</label>
 			<select className="form-control form-control-sm" id={"tasktype-"+timesheet.id} name="tasktype" onChange={handleTasktypeChange}>
 			    <option value="0">&nbsp;</option>
-			    {taskTypes.map((taskType) => (
-		            <option key={taskType.id} value={taskType.id}>{taskType.name}</option>
-	            ))}
+			    {taskTypes.map((taskType) => {
+			    	var name = taskType.name.split("-");
+			    	console.log(name[2]);
+			    	return (
+			            <option key={taskType.id} value={taskType.id}>{name[2]}</option>
+		            );
+				})}
             </select>
 		</div>
 	);

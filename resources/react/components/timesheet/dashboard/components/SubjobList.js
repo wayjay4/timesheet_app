@@ -8,9 +8,12 @@ const SubjobList = ({
 			<label htmlFor={"subjob-"+timesheet.id}>SubType</label>
 			<select className="form-control form-control-sm" id={"subjob-"+timesheet.id} name="subjob" onChange={handleSubjobChange}>
 			    <option value="0">&nbsp;</option>
-			    {subJobs.map((subJob) => (
-		            <option key={subJob.id} value={subJob.id}>{subJob.name}</option>
-	            ))}
+			    {subJobs.map((subJob) => {
+			    	var name = subJob.name.split("-");
+				    return (
+			            <option key={subJob.id} value={subJob.id}>{name[1]}</option>
+		            );
+				})}
             </select>
 		</div>
 	);
