@@ -1,17 +1,27 @@
 import React from "react";
 
-const JobtypeList = ({
-	jobTypes, handleJobtypeChange, timesheet
-}) => {
+const isListValid = (arr) => {
+	return (arr.length > 0);
+};
+
+const JobtypeList = ({jobTypes, handleJobtypeChange}) => {
     return (
 		<div>
-			<label htmlFor={"jobtype-"+timesheet.id}>Type</label>
-			<select className="form-control form-control-sm" id={"jobtype-"+timesheet.id} name="jobtype" onChange={handleJobtypeChange}>
-			    <option value="0">&nbsp;</option>
-			    {jobTypes.map((jobType) => (
-		            <option key={jobType.id} value={jobType.id}>{jobType.name}</option>
-	            ))}
-            </select>
+			<label htmlFor={"jobtype"}>Type</label>
+			{
+				!isListValid(jobTypes)
+				?
+				<select className="form-control form-control-sm" id={"jobtype"} name="jobtype" onChange={handleJobtypeChange}>
+				    <option value="0"></option>
+	            </select>
+				:
+				<select className="form-control form-control-sm" id={"jobtype"} name="jobtype" onChange={handleJobtypeChange}>
+				    <option value="0">&nbsp;</option>
+				    {jobTypes.map((jobType) => (
+			            <option key={jobType.id} value={jobType.id}>{jobType.name}</option>
+		            ))}
+	            </select>
+			}
 		</div>
 	);
 };

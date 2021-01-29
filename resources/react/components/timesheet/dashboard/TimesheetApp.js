@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import FormModal from './components/FormModal';
-import RecordModal from "./components/RecordModal";
+import AddModalButton from "./components/AddModalButton";
+import EditModalButton from "./components/EditModalButton";
 import TimesheetDataHeader from "./components/TimesheetDataHeader";
 import TimesheetData from "./components/TimesheetData";
 import "./styles/composerDashboard.css";
@@ -14,7 +15,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
     const [userPhoto, setUserPhoto] = useState('');
 
     const [timesheetData, setTimesheetData] = useState({
-        'timesheet_id': 0,
+        'timesheet_id': -1,
         'foreman_name': '',
         'supervisor_id': '',
         'week_ending': '',
@@ -111,6 +112,63 @@ function TimesheetApp ({apiKey, apiUrl}) {
         return (timesheets.length > 0);
     };
 
+    const handleModalButtonClick = (e) => {
+        let timesheet_id = $(e.target).data('targettimesheet');
+
+        if(timesheet_id >= 0){
+            let mytime = timesheets[timesheet_id];
+
+            timesheetData.timesheet_id = mytime.id;
+            timesheetData.foreman_name = mytime.foreman_name;
+            timesheetData.supervisor_id = mytime.supervisor_id;
+            timesheetData.week_ending = mytime.week_ending;
+            timesheetData.building = mytime.building;
+            timesheetData.date = mytime.date;
+            timesheetData.jobtype = mytime.jobtype;
+            timesheetData.subjob = mytime.subjob;
+            timesheetData.tasktype = mytime.tasktype;
+            timesheetData.subtask = mytime.subtask;
+            timesheetData.hours = mytime.hours;
+            setTimesheetData(timesheetData);
+
+        }
+        else{
+            timesheetData.timesheet_id = -1;
+            timesheetData.foreman_name = '';
+            timesheetData.supervisor_id = '';
+            timesheetData.week_ending = '';
+            timesheetData.building = '';
+            timesheetData.date = '';
+            timesheetData.jobtype = '';
+            timesheetData.subjob = '';
+            timesheetData.tasktype = '';
+            timesheetData.subtask = '';
+            timesheetData.hours = '';
+            setTimesheetData(timesheetData);
+        }
+
+        $("#week_ending").val(timesheetData.week_ending);
+        $("#building").val(timesheetData.building);
+        $("#date").val(timesheetData.date);
+        $("#hours").val(timesheetData.hours);
+
+        // 'timesheet_id': 0,
+        // 'foreman_name': '',
+        // 'supervisor_id': '',
+        // 'week_ending': '',
+        // 'building': '',
+        // 'date': '',
+        // 'jobtype': '',
+        // 'subjob': '',
+        // 'tasktype': '',
+        // 'subtask': '',
+        // 'hours': '',
+    };
+
+    const getTimesheetData = () => {
+        return timesheetData;
+    };
+
     // set global var rowCount
     let rowCount = 1;
     let rowTotals = 0;
@@ -119,14 +177,9 @@ function TimesheetApp ({apiKey, apiUrl}) {
         <div className="container">
             <h3>Timesheets Container</h3>
 
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target={"#addTimeModal"}>
-                Launch demo modal
-            </button>
-
             <FormModal
                 apiUrl={apiUrl}
                 apiKey={apiKey}
-                timesheetData={timesheetData}
             />
 
             <div className="content">
@@ -177,11 +230,10 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                 <th scope="col"><TimesheetDataHeader data={"Subtask"} /></th>
                                 <th scope="col" colSpan="1"><TimesheetDataHeader data={"Hours Worked"} /></th>
                                 <th scope="col" colSpan="1">
-                                    <RecordModal
-                                        apiUrl={apiUrl}
-                                        apiKey={apiKey}
-                                        getTimesheets={getTimesheets}
-                                        timesheet={{"id":0}}
+                                    
+                                    <AddModalButton 
+                                        targettimesheet={-1} 
+                                        handleModalButtonClick={handleModalButtonClick}
                                     />
                                 </th>
                             </tr>
@@ -211,7 +263,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                     return (
                                         <tr key={timesheet.id}>
                                             <th scope="row">
-                                                <TimesheetData data={rowCount++} />
+                                                <TimesheetData data={rowCount} />
                                             </th>
                                             <td>
                                                 <TimesheetData data={timesheet.building} />
@@ -235,12 +287,11 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                                 <TimesheetData data={timesheet.hours} />
                                             </td>
                                             <td colSpan="1">
-                                                <RecordModal
-                                                    apiUrl={apiUrl}
-                                                    apiKey={apiKey}
-                                                    getTimesheets={getTimesheets}
-                                                    timesheet={timesheet}
-                                                    deleteRecordHandler={deleteRecordHandler}
+                                                <EditModalButton 
+                                                    timesheet={timesheet} 
+                                                    deleteRecordHandler={deleteRecordHandler} 
+                                                    targettimesheet={(rowCount++)-1}
+                                                    handleModalButtonClick={handleModalButtonClick}
                                                 />
                                             </td>
                                         </tr>

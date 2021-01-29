@@ -6475,7 +6475,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, "* {\n  /*margin: 0;\r\n  padding: 0;*/\n  box-sizing: border-box;\n}\n\n:root {\n  --siteColor-darkgrey: #2B2D3C;\n  --siteColor-magenta: #61063F;\n  --siteColor-red: #E70342;\n  --siteColor-lightmagenta: #A60744;\n  --siteColor-lightgrey: #8A83AB;\n  --siteColor-white: #F1F1F1;\n  --devs-border-size: 0px;  /* use 0 for 'off' and 1 for 'on'*/\n  --siteColor-cyan: rgba(0,255,255,.6);\n  --siteColor-lightcyan: rgba(0,255,255,.2);\n  font-size: 16px;\n}\n\nhtml {\n  background-color: var(--siteColor-darkgrey, gray);\n}\n\nbody {\n  line-height: 1.5;\n  font-family: \"Poppins\", sans-serif;\n  color: #CEC7C6;\n  min-height: 100vh;\n  background: url(/images/backgrounds/blueblackhue_bground.jpg) no-repeat center center fixed;\n  background-size: cover;\n}\n\n.composer-item a {\n  color: inherit;\n}\n\n.composer-item a:hover {\n  text-decoration: none;\n}\n\n/* Main Outer Container/Content Divs */\n\n.container,\r\n.content {\n  min-width: 98%;\n  padding: 0.5em;\n}\n\n.container {\n  border: var(--devs-border-size, 0px) solid white;\n}\n\n.column-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n\n.row-container {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n}\n\n.baseline {\n  align-items: baseline;\n}\n\n.center-vertical {\n  align-items: center;\n}\n\n.list-disc {\n  padding-left: 1.3em;\n  list-style: disc outside none;\n}\n\n.list-disc li {\n  margin-bottom: 0.5em;\n}\n\n.content {\n  border: var(--devs-border-size, 0px) solid yellow;\n}\n\n/* Composer Dashboard Main Container/Content Divs */\n\n#composer-dashboard  {\n  min-width: 100%;\n  border: var(--devs-border-size, 0px) solid red;\n}\n\n#composer-dashboard div.container {\n  border: var(--devs-border-size, 0px) solid white;\n}\n\n#composer-dashboard div.content {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 1px solid var(--siteColor-cyan, cyan);\n  transition: all 1s ease;\n}\n\n/* Composer Dashboard Styling for Inner Content */\n\n.composer-items-list {\n  min-width: 100%;\n  margin:0.5em;\n  padding: 0.5em;\n  /*\r\n\t// default settings for small phone\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tflex-wrap: nowrap;\r\n\tjustify-content: flex-start;\r\n\talign-items: stretch;\r\n\ttransition: all 1s ease;\r\n\t*/\n}\n\n.composer-item {\n  background: rgba(0,0,0,0.75);\n  margin:0.25em;\n  border-radius: 5px;\n  flex-grow: 1;\n  flex-shrink: 1;\n  transition: all 1s ease;\n  /*\r\n\t// default settings for small phone\r\n\twidth: 100%;\r\n\t*/\n}\n\n.composer-item:hover {\n  background: rgba(0,0,0, 0.60);\n  position: relative;\n  bottom: 0px;\n  left: 0px;\n}\n\n.composer-item div.container {\n  height: 100%;\n}\n\n.composer-card {\n  width:100%;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: stretch;\n  transition: all 0s ease;\n}\n\n.composer-body {\n  padding: 0.5em;\n  border: var(--devs-border-size, 0px) solid yellow;\n  transition: all 0s ease;\n  /*\r\n\t// default settings for small phone\r\n\tdisplay: flex;\r\n\tflex-direction: row;\r\n\tjustify-content: flex-start;\r\n\talign-items: flex-start;\r\n\tflex-wrap: wrap;\r\n\t*/\n}\n\n.composer-img {\n  width: 5em;\n  height: 5em;\n  border-radius: 9999px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  margin: 0.5rem;\n  border: 1px solid yellow;\n}\n\n.composer-data {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin: 0.5em;\n  padding: 0.5em;\n  border: var(--devs-border-size, 0px) solid lightgreen;\n  flex: 1 1;\n  transition: all 0s ease;\n  font-size: 0.9rem;\n}\n\n.composer-data ul {\n  width: 100%;\n}\n\n.track-name {\n  text-transform: capitalize;\n}\n\n.item-label {\n  font-weight: 500;\n  color: var(--siteColor-cyan, cyan);\n  font-size: 1.10em;\n  text-transform: capitalize;\n  margin-right: 0.2em;\n}\n\n.list-group-item {\n  background-color: transparent;\n  border: 1px solid var(--siteColor-lightcyan, cyan);\n}\n\ndiv.audio-player-container {\n  width: 100%;\n}\n\ndiv.audio-player-container audio {\n  display: block;\n  width: 100%;\n}\n\n.btn-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: stretch;\n  transition: all 1s ease;\n  border: var(--devs-border-size, 0px) solid purple;\n}\n\n.btn-group {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 1s ease;\n}\n\n.btn-group button {\n  margin:0em 0em 0.25em 0em;\n}\n\n.box-shadow {\n  box-shadow: 3px 3px 1px 0px var(--siteColor-lightcyan, cyan);\n}\n\n/* Extra small devices (phones, 600px and down) */\n\n@media only screen and (max-width: 600px) {\n  .composer-items-list {\n    display: flex;\n    flex-direction: column;\n    flex-wrap: nowrap;\n    justify-content: flex-start;\n    align-items: stretch;\n    transition: all 1s ease;\n  }\n\n  .composer-item {\n    width: 100%;\n  }\n\n  .composer-body {\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-wrap: wrap;\n  }\n}\n\n/* Small devices (portrait tablets and large phones, 600px and up) */\n\n@media only screen and (min-width: 601px) {\n  .composer-items-list {\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    justify-content: space-around;\n    align-items: stretch;\n    transition: all 1s ease;\n  }\n\n  .composer-item {\n    width: 48%;\n  }\n\n  .composer-body {\n    display: flex;\n    flex-direction: column;\n    justify-content: flex-start;\n    align-items: stretch;\n    flex-wrap: wrap;\n  }\n}\n\n/* Medium devices (landscape tablets, 768px and up) */\n\n@media only screen and (min-width: 768px) {\n  .composer-item {\n    width: 48%;\n  }\n}\n\n/* Large devices (laptops/desktops, 992px and up) */\n\n@media only screen and (min-width: 992px) {\n  .composer-item {\n    width: 25%;\n  }\n}\n\n/* Extra large devices (large laptops and desktops, 1200px and up) */\n\n@media only screen and (min-width: 1200px) {\n  .composer-item {\n    width: 20%;\n  }\n}\n\n/* Composition Dashboard Styling for Inner Content */\n\n.composition-list-container {\n  display: none;\n  border: 1px solid yellow;\n}\n\n.composition-main-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 1px solid red;\n  background-color: var(--siteColor-white, white);\n  margin: 1rem;\n}\n\n.composition-list {\n  min-width: 95%;\n  list-style: none;\n}\n\n.composition-container {\n  margin: 0.5rem 0.5rem 1.0rem 0.5rem;\n  font-size: 1.15rem;\n  color: black;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 1s ease;\n  border-bottom: 2px solid var(--siteColor-lightmagenta, green);\n  box-shadow: 0px 0px 0px 0px var(--siteColor-lightgrey, lightgrey);\n  padding: 1rem 1rem;\n}\n\n.composition {\n  position: relative;\n  width: 100%;\n}\n\n.audiotrack-list-container {\n  display: none;\n}\n\n.audiotrack-main-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 1px solid orange;\n  background-color: var(--siteColor-white, white);\n  margin: 1rem;\n}\n\n.audiotrack-container {\n  margin: 0.5rem;\n  font-size: 0.9rem;\n  color: black;\n  border-bottom: 2px solid purple;\n  box-shadow: 0px 0px 0px 0px var(--siteColor-lightgrey, lightgrey);\n  min-width: 95%;\n}\n\n.audiotrack {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: stretch;\n  flex-wrap: wrap;\n  min-width: 100%;\n}\n\n.trackdata-info {\n  display: flex;\n  align-items: stretch;\n  flex: 1 1 15%;\n  margin: 0.1rem;\n  margin-bottom: 1rem;\n  padding: 0.1rem;\n  border: 0px solid black;\n}\n\n.trackdata-info img {\n  /*\r\n\twidth: 200px;\r\n\theight: 200px;\r\n\t*/\n}\n\n.trackdata-btn-group {\n  display:flex;\n  justify-content: center;\n  align-items: flex-end;\n}\r\n", ""]);
+exports.push([module.i, "* {\n  /*margin: 0;\n  padding: 0;*/\n  box-sizing: border-box;\n}\n\n:root {\n  --siteColor-darkgrey: #2B2D3C;\n  --siteColor-magenta: #61063F;\n  --siteColor-red: #E70342;\n  --siteColor-lightmagenta: #A60744;\n  --siteColor-lightgrey: #8A83AB;\n  --siteColor-white: #F1F1F1;\n  --devs-border-size: 0px;  /* use 0 for 'off' and 1 for 'on'*/\n  --siteColor-cyan: rgba(0,255,255,.6);\n  --siteColor-lightcyan: rgba(0,255,255,.2);\n  font-size: 16px;\n}\n\nhtml {\n  background-color: var(--siteColor-darkgrey, gray);\n}\n\nbody {\n  line-height: 1.5;\n  font-family: \"Poppins\", sans-serif;\n  color: #CEC7C6;\n  min-height: 100vh;\n  background: url(/images/backgrounds/blueblackhue_bground.jpg) no-repeat center center fixed;\n  background-size: cover;\n}\n\n.composer-item a {\n  color: inherit;\n}\n\n.composer-item a:hover {\n  text-decoration: none;\n}\n\n/* Main Outer Container/Content Divs */\n\n.container,\n.content {\n  min-width: 98%;\n  padding: 0.5em;\n}\n\n.container {\n  border: var(--devs-border-size, 0px) solid white;\n}\n\n.column-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n\n.row-container {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n}\n\n.baseline {\n  align-items: baseline;\n}\n\n.center-vertical {\n  align-items: center;\n}\n\n.list-disc {\n  padding-left: 1.3em;\n  list-style: disc outside none;\n}\n\n.list-disc li {\n  margin-bottom: 0.5em;\n}\n\n.content {\n  border: var(--devs-border-size, 0px) solid yellow;\n}\n\n/* Composer Dashboard Main Container/Content Divs */\n\n#composer-dashboard  {\n  min-width: 100%;\n  border: var(--devs-border-size, 0px) solid red;\n}\n\n#composer-dashboard div.container {\n  border: var(--devs-border-size, 0px) solid white;\n}\n\n#composer-dashboard div.content {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 1px solid var(--siteColor-cyan, cyan);\n  transition: all 1s ease;\n}\n\n/* Composer Dashboard Styling for Inner Content */\n\n.composer-items-list {\n  min-width: 100%;\n  margin:0.5em;\n  padding: 0.5em;\n  /*\n\t// default settings for small phone\n\tdisplay: flex;\n\tflex-direction: column;\n\tflex-wrap: nowrap;\n\tjustify-content: flex-start;\n\talign-items: stretch;\n\ttransition: all 1s ease;\n\t*/\n}\n\n.composer-item {\n  background: rgba(0,0,0,0.75);\n  margin:0.25em;\n  border-radius: 5px;\n  flex-grow: 1;\n  flex-shrink: 1;\n  transition: all 1s ease;\n  /*\n\t// default settings for small phone\n\twidth: 100%;\n\t*/\n}\n\n.composer-item:hover {\n  background: rgba(0,0,0, 0.60);\n  position: relative;\n  bottom: 0px;\n  left: 0px;\n}\n\n.composer-item div.container {\n  height: 100%;\n}\n\n.composer-card {\n  width:100%;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: stretch;\n  transition: all 0s ease;\n}\n\n.composer-body {\n  padding: 0.5em;\n  border: var(--devs-border-size, 0px) solid yellow;\n  transition: all 0s ease;\n  /*\n\t// default settings for small phone\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: flex-start;\n\talign-items: flex-start;\n\tflex-wrap: wrap;\n\t*/\n}\n\n.composer-img {\n  width: 5em;\n  height: 5em;\n  border-radius: 9999px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  margin: 0.5rem;\n  border: 1px solid yellow;\n}\n\n.composer-data {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin: 0.5em;\n  padding: 0.5em;\n  border: var(--devs-border-size, 0px) solid lightgreen;\n  flex: 1 1;\n  transition: all 0s ease;\n  font-size: 0.9rem;\n}\n\n.composer-data ul {\n  width: 100%;\n}\n\n.track-name {\n  text-transform: capitalize;\n}\n\n.item-label {\n  font-weight: 500;\n  color: var(--siteColor-cyan, cyan);\n  font-size: 1.10em;\n  text-transform: capitalize;\n  margin-right: 0.2em;\n}\n\n.list-group-item {\n  background-color: transparent;\n  border: 1px solid var(--siteColor-lightcyan, cyan);\n}\n\ndiv.audio-player-container {\n  width: 100%;\n}\n\ndiv.audio-player-container audio {\n  display: block;\n  width: 100%;\n}\n\n.btn-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: stretch;\n  transition: all 1s ease;\n  border: var(--devs-border-size, 0px) solid purple;\n}\n\n.btn-group {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 1s ease;\n}\n\n.btn-group button {\n  margin:0em 0em 0.25em 0em;\n}\n\n.box-shadow {\n  box-shadow: 3px 3px 1px 0px var(--siteColor-lightcyan, cyan);\n}\n\n/* Extra small devices (phones, 600px and down) */\n\n@media only screen and (max-width: 600px) {\n  .composer-items-list {\n    display: flex;\n    flex-direction: column;\n    flex-wrap: nowrap;\n    justify-content: flex-start;\n    align-items: stretch;\n    transition: all 1s ease;\n  }\n\n  .composer-item {\n    width: 100%;\n  }\n\n  .composer-body {\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-wrap: wrap;\n  }\n}\n\n/* Small devices (portrait tablets and large phones, 600px and up) */\n\n@media only screen and (min-width: 601px) {\n  .composer-items-list {\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    justify-content: space-around;\n    align-items: stretch;\n    transition: all 1s ease;\n  }\n\n  .composer-item {\n    width: 48%;\n  }\n\n  .composer-body {\n    display: flex;\n    flex-direction: column;\n    justify-content: flex-start;\n    align-items: stretch;\n    flex-wrap: wrap;\n  }\n}\n\n/* Medium devices (landscape tablets, 768px and up) */\n\n@media only screen and (min-width: 768px) {\n  .composer-item {\n    width: 48%;\n  }\n}\n\n/* Large devices (laptops/desktops, 992px and up) */\n\n@media only screen and (min-width: 992px) {\n  .composer-item {\n    width: 25%;\n  }\n}\n\n/* Extra large devices (large laptops and desktops, 1200px and up) */\n\n@media only screen and (min-width: 1200px) {\n  .composer-item {\n    width: 20%;\n  }\n}\n\n/* Composition Dashboard Styling for Inner Content */\n\n.composition-list-container {\n  display: none;\n  border: 1px solid yellow;\n}\n\n.composition-main-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 1px solid red;\n  background-color: var(--siteColor-white, white);\n  margin: 1rem;\n}\n\n.composition-list {\n  min-width: 95%;\n  list-style: none;\n}\n\n.composition-container {\n  margin: 0.5rem 0.5rem 1.0rem 0.5rem;\n  font-size: 1.15rem;\n  color: black;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 1s ease;\n  border-bottom: 2px solid var(--siteColor-lightmagenta, green);\n  box-shadow: 0px 0px 0px 0px var(--siteColor-lightgrey, lightgrey);\n  padding: 1rem 1rem;\n}\n\n.composition {\n  position: relative;\n  width: 100%;\n}\n\n.audiotrack-list-container {\n  display: none;\n}\n\n.audiotrack-main-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 1px solid orange;\n  background-color: var(--siteColor-white, white);\n  margin: 1rem;\n}\n\n.audiotrack-container {\n  margin: 0.5rem;\n  font-size: 0.9rem;\n  color: black;\n  border-bottom: 2px solid purple;\n  box-shadow: 0px 0px 0px 0px var(--siteColor-lightgrey, lightgrey);\n  min-width: 95%;\n}\n\n.audiotrack {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: stretch;\n  flex-wrap: wrap;\n  min-width: 100%;\n}\n\n.trackdata-info {\n  display: flex;\n  align-items: stretch;\n  flex: 1 1 15%;\n  margin: 0.1rem;\n  margin-bottom: 1rem;\n  padding: 0.1rem;\n  border: 0px solid black;\n}\n\n.trackdata-info img {\n  /*\n\twidth: 200px;\n\theight: 200px;\n\t*/\n}\n\n.trackdata-btn-group {\n  display:flex;\n  justify-content: center;\n  align-items: flex-end;\n}\n", ""]);
 
 // exports
 
@@ -70667,13 +70667,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_FormModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/FormModal */ "./resources/react/components/timesheet/dashboard/components/FormModal.js");
-/* harmony import */ var _components_RecordModal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/RecordModal */ "./resources/react/components/timesheet/dashboard/components/RecordModal.js");
-/* harmony import */ var _components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/TimesheetDataHeader */ "./resources/react/components/timesheet/dashboard/components/TimesheetDataHeader.js");
-/* harmony import */ var _components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/TimesheetData */ "./resources/react/components/timesheet/dashboard/components/TimesheetData.js");
-/* harmony import */ var _styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/composerDashboard.css */ "./resources/react/components/timesheet/dashboard/styles/composerDashboard.css");
-/* harmony import */ var _styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./images/logo.png */ "./resources/react/components/timesheet/dashboard/images/logo.png");
-/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_images_logo_png__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _components_AddModalButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/AddModalButton */ "./resources/react/components/timesheet/dashboard/components/AddModalButton.js");
+/* harmony import */ var _components_EditModalButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/EditModalButton */ "./resources/react/components/timesheet/dashboard/components/EditModalButton.js");
+/* harmony import */ var _components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/TimesheetDataHeader */ "./resources/react/components/timesheet/dashboard/components/TimesheetDataHeader.js");
+/* harmony import */ var _components_TimesheetData__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/TimesheetData */ "./resources/react/components/timesheet/dashboard/components/TimesheetData.js");
+/* harmony import */ var _styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/composerDashboard.css */ "./resources/react/components/timesheet/dashboard/styles/composerDashboard.css");
+/* harmony import */ var _styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_styles_composerDashboard_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./images/logo.png */ "./resources/react/components/timesheet/dashboard/images/logo.png");
+/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_images_logo_png__WEBPACK_IMPORTED_MODULE_7__);
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
@@ -70740,6 +70741,7 @@ function _arrayWithHoles(arr) {
 
 
 
+
 function TimesheetApp(_ref) {
   var apiKey = _ref.apiKey,
       apiUrl = _ref.apiUrl; // state vars
@@ -70765,7 +70767,7 @@ function TimesheetApp(_ref) {
       setUserPhoto = _useState8[1];
 
   var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
-    'timesheet_id': 0,
+    'timesheet_id': -1,
     'foreman_name': '',
     'supervisor_id': '',
     'week_ending': '',
@@ -70855,6 +70857,58 @@ function TimesheetApp(_ref) {
 
   var isTimesheetsValid = function isTimesheetsValid() {
     return timesheets.length > 0;
+  };
+
+  var handleModalButtonClick = function handleModalButtonClick(e) {
+    var timesheet_id = $(e.target).data('targettimesheet');
+
+    if (timesheet_id >= 0) {
+      var mytime = timesheets[timesheet_id];
+      timesheetData.timesheet_id = mytime.id;
+      timesheetData.foreman_name = mytime.foreman_name;
+      timesheetData.supervisor_id = mytime.supervisor_id;
+      timesheetData.week_ending = mytime.week_ending;
+      timesheetData.building = mytime.building;
+      timesheetData.date = mytime.date;
+      timesheetData.jobtype = mytime.jobtype;
+      timesheetData.subjob = mytime.subjob;
+      timesheetData.tasktype = mytime.tasktype;
+      timesheetData.subtask = mytime.subtask;
+      timesheetData.hours = mytime.hours;
+      setTimesheetData(timesheetData);
+    } else {
+      timesheetData.timesheet_id = -1;
+      timesheetData.foreman_name = '';
+      timesheetData.supervisor_id = '';
+      timesheetData.week_ending = '';
+      timesheetData.building = '';
+      timesheetData.date = '';
+      timesheetData.jobtype = '';
+      timesheetData.subjob = '';
+      timesheetData.tasktype = '';
+      timesheetData.subtask = '';
+      timesheetData.hours = '';
+      setTimesheetData(timesheetData);
+    }
+
+    $("#week_ending").val(timesheetData.week_ending);
+    $("#building").val(timesheetData.building);
+    $("#date").val(timesheetData.date);
+    $("#hours").val(timesheetData.hours); // 'timesheet_id': 0,
+    // 'foreman_name': '',
+    // 'supervisor_id': '',
+    // 'week_ending': '',
+    // 'building': '',
+    // 'date': '',
+    // 'jobtype': '',
+    // 'subjob': '',
+    // 'tasktype': '',
+    // 'subtask': '',
+    // 'hours': '',
+  };
+
+  var getTimesheetData = function getTimesheetData() {
+    return timesheetData;
   }; // set global var rowCount
 
 
@@ -70862,15 +70916,9 @@ function TimesheetApp(_ref) {
   var rowTotals = 0;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Timesheets Container"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    type: "button",
-    "class": "btn btn-primary",
-    "data-toggle": "modal",
-    "data-target": "#addTimeModal"
-  }, "Launch demo modal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FormModal__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Timesheets Container"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FormModal__WEBPACK_IMPORTED_MODULE_1__["default"], {
     apiUrl: apiUrl,
-    apiKey: apiKey,
-    timesheetData: timesheetData
+    apiKey: apiKey
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -70939,69 +70987,65 @@ function TimesheetApp(_ref) {
       "justifyContent": "center"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _images_logo_png__WEBPACK_IMPORTED_MODULE_6___default.a,
+    src: _images_logo_png__WEBPACK_IMPORTED_MODULE_7___default.a,
     className: "img-fluid"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "VLL- New Mexico")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col",
     colSpan: "5"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
     data: "Employee Name"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col",
     colSpan: "2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
     data: "Foreman Name"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col",
     colSpan: "1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
     data: "Week Ending"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
     data: "#"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
     data: "Building"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
     data: "Date"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
     data: "Type"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
     data: "Subtype"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
     data: "Task"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
     data: "Subtask"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col",
     colSpan: "1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetDataHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
     data: "Hours Worked"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col",
     colSpan: "1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_RecordModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    apiUrl: apiUrl,
-    apiKey: apiKey,
-    getTimesheets: getTimesheets,
-    timesheet: {
-      "id": 0
-    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddModalButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    targettimesheet: -1,
+    handleModalButtonClick: handleModalButtonClick
   })))), !isTimesheetsValid() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     colSpan: "9"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_5__["default"], {
     data: "There are no timesheet records to display."
   })))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
     className: "table-striped"
@@ -71018,32 +71062,31 @@ function TimesheetApp(_ref) {
       key: timesheet.id
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
       scope: "row"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      data: rowCount++
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      data: rowCount
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_5__["default"], {
       data: timesheet.building
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_5__["default"], {
       data: dateStr + " (" + dayOfWeek + ")"
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_5__["default"], {
       data: timesheet.jobtype.name
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_5__["default"], {
       data: subjobName[1]
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_5__["default"], {
       data: tasktypeName[2]
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_5__["default"], {
       data: timesheet.subtask.name
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       colSpan: "1"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TimesheetData__WEBPACK_IMPORTED_MODULE_5__["default"], {
       data: timesheet.hours
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       colSpan: "1"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_RecordModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      apiUrl: apiUrl,
-      apiKey: apiKey,
-      getTimesheets: getTimesheets,
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EditModalButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
       timesheet: timesheet,
-      deleteRecordHandler: deleteRecordHandler
+      deleteRecordHandler: deleteRecordHandler,
+      targettimesheet: rowCount++ - 1,
+      handleModalButtonClick: handleModalButtonClick
     })));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     colSpan: "7",
@@ -71073,8 +71116,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AddModalButton = function AddModalButton(_ref) {
-  var timesheet = _ref.timesheet,
-      validateTimesheetHeaderData = _ref.validateTimesheetHeaderData;
+  var targettimesheet = _ref.targettimesheet,
+      handleModalButtonClick = _ref.handleModalButtonClick;
   var newButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "btn-group",
     role: "group"
@@ -71082,8 +71125,9 @@ var AddModalButton = function AddModalButton(_ref) {
     type: "button",
     className: "btn btn-primary btn-sm",
     "data-toggle": "modal",
-    "data-target": "#addTimeModal-" + timesheet.id,
-    onClick: validateTimesheetHeaderData
+    "data-target": "#addTimeModal",
+    "data-targettimesheet": targettimesheet,
+    onClick: handleModalButtonClick
   }, "Add Timesheet Record"));
   return newButton;
 };
@@ -71108,7 +71152,8 @@ __webpack_require__.r(__webpack_exports__);
 var EditModalButton = function EditModalButton(_ref) {
   var timesheet = _ref.timesheet,
       deleteRecordHandler = _ref.deleteRecordHandler,
-      validateTimesheetHeaderData = _ref.validateTimesheetHeaderData;
+      targettimesheet = _ref.targettimesheet,
+      handleModalButtonClick = _ref.handleModalButtonClick;
   var newButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "btn-group",
     role: "group"
@@ -71116,14 +71161,15 @@ var EditModalButton = function EditModalButton(_ref) {
     type: "button",
     className: "btn btn-outline-warning btn-sm",
     "data-toggle": "modal",
-    "data-target": "#addTimeModal-" + timesheet.id,
-    onClick: validateTimesheetHeaderData
-  }, "Edit Timesheet Record"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    "data-target": "#addTimeModal",
+    "data-targettimesheet": targettimesheet,
+    onClick: handleModalButtonClick
+  }, "Edit Record"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
     className: "btn btn-outline-danger btn-sm",
     "data-ts": timesheet.id,
     onClick: deleteRecordHandler
-  }, "Delete Timesheet Record"));
+  }, "Delete Record"));
   return newButton;
 };
 
@@ -71142,16 +71188,252 @@ var EditModalButton = function EditModalButton(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _JobtypeList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./JobtypeList */ "./resources/react/components/timesheet/dashboard/components/JobtypeList.js");
+/* harmony import */ var _SubjobList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SubjobList */ "./resources/react/components/timesheet/dashboard/components/SubjobList.js");
+/* harmony import */ var _TasktypeList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TasktypeList */ "./resources/react/components/timesheet/dashboard/components/TasktypeList.js");
+/* harmony import */ var _SubtaskList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SubtaskList */ "./resources/react/components/timesheet/dashboard/components/SubtaskList.js");
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+function _iterableToArrayLimit(arr, i) {
+  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+
+
+
+
 
 
 var FormModal = function FormModal(_ref) {
   var apiUrl = _ref.apiUrl,
-      apiKey = _ref.apiKey,
-      timesheetData = _ref.timesheetData; // state vars
-  // use effect
+      apiKey = _ref.apiKey; // state vars
 
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {// do something
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      jobTypes = _useState2[0],
+      setJobtypes = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState4 = _slicedToArray(_useState3, 2),
+      jobType = _useState4[0],
+      setJobtype = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      subJobs = _useState6[0],
+      setSubjobs = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState8 = _slicedToArray(_useState7, 2),
+      subJob = _useState8[0],
+      setSubjob = _useState8[1];
+
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState10 = _slicedToArray(_useState9, 2),
+      taskTypes = _useState10[0],
+      setTasktypes = _useState10[1];
+
+  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState12 = _slicedToArray(_useState11, 2),
+      taskType = _useState12[0],
+      setTasktype = _useState12[1];
+
+  var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState14 = _slicedToArray(_useState13, 2),
+      subTasks = _useState14[0],
+      setSubtasks = _useState14[1];
+
+  var _useState15 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState16 = _slicedToArray(_useState15, 2),
+      subTask = _useState16[0],
+      setSubtask = _useState16[1]; // use effect
+
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    // do something
+    getJobTypes();
   }, []);
+
+  var isListValid = function isListValid(arr) {
+    return arr.length > 0;
+  };
+
+  var getJobTypes = function getJobTypes() {
+    // api connection and send request
+    fetch(apiUrl + "jobtypes", {
+      "method": "GET",
+      "headers": {
+        "Authorization": "Bearer " + apiKey,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Referer": location.origin
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (response) {
+      setJobtypes(response); // if(timesheet.id > 0 && !isEditFormReady){
+      // 	$("#jobtype-"+timesheet.id).val(timesheet.jobtype_id);
+      // 	handleJobtypeChange({"target": $("#jobtype-"+timesheet.id)[0]});
+      // }
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  };
+
+  var handleJobtypeChange = function handleJobtypeChange(el) {
+    setJobtype(el.target.value); // reset data and lists in chain
+
+    setSubjob(0);
+    setTasktype(0);
+    setSubtask(0);
+    setSubjobs({});
+    setTasktypes({});
+    setSubtasks({}); // get next list in chain
+
+    getSubjobs(el.target.value); // handleFormChange(el);
+  };
+
+  var getSubjobs = function getSubjobs(jobType) {
+    // api connection and send request
+    fetch(apiUrl + "jobtypes/" + jobType + "/subjobs", {
+      "method": "GET",
+      "headers": {
+        "Authorization": "Bearer " + apiKey,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Referer": location.origin
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (response) {
+      setSubjobs(response); // if(timesheet.id > 0 && !isEditFormReady){
+      // 	$("#subjob-"+timesheet.id).val(timesheet.subjob_id);
+      // 	handleSubjobChange({"target": $("#subjob-"+timesheet.id)[0]});
+      // }
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  };
+
+  var handleSubjobChange = function handleSubjobChange(el) {
+    setSubjob(el.target.value); // reset data and lists in chain
+
+    setTasktype(0);
+    setSubtask(0);
+    setTasktypes({});
+    setSubtasks({}); // get next list in chain
+
+    getTasktypes(el.target.value); // handleFormChange(el);
+  };
+
+  var getTasktypes = function getTasktypes(subJob) {
+    // api connection and send request
+    fetch(apiUrl + "subjobs/" + subJob + "/tasktypes", {
+      "method": "GET",
+      "headers": {
+        "Authorization": "Bearer " + apiKey,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Referer": location.origin
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (response) {
+      setTasktypes(response); // if(timesheet.id > 0 && !isEditFormReady){
+      // 	$("#tasktype-"+timesheet.id).val(timesheet.tasktype_id);
+      // 	handleTasktypeChange({"target": $("#tasktype-"+timesheet.id)[0]});
+      // }
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  };
+
+  var handleTasktypeChange = function handleTasktypeChange(el) {
+    setTasktype(el.target.value); // reset data and lists in chain
+
+    setSubtask(0);
+    setSubtasks({}); // get next list in chain
+
+    getSubtasks(el.target.value); // handleFormChange(el);
+  };
+
+  var getSubtasks = function getSubtasks(taskType) {
+    // api connection and send request
+    fetch(apiUrl + "tasktypes/" + taskType + "/subtasks", {
+      "method": "GET",
+      "headers": {
+        "Authorization": "Bearer " + apiKey,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Referer": location.origin
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (response) {
+      setSubtasks(response); // if(timesheet.id > 0 && !isEditFormReady){
+      // 	$("#subtask-"+timesheet.id).val(timesheet.subtask_id);
+      // 	handleSubtasksChange({"target": $("#subtask-"+timesheet.id)[0]});
+      // }
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  };
+
+  var handleSubtasksChange = function handleSubtasksChange(el) {
+    setSubtask(el.target.value); // handleFormChange(el);
+  };
 
   var handleFormChange = function handleFormChange() {
     // do something
@@ -71228,13 +71510,25 @@ var FormModal = function FormModal(_ref) {
     className: "form-row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group col-md-3"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group col-md-3"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group col-md-3"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group col-md-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_JobtypeList__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    jobTypes: jobTypes,
+    handleJobtypeChange: handleJobtypeChange
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group col-md-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubjobList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    subJobs: subJobs,
+    handleSubjobChange: handleSubjobChange
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group col-md-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TasktypeList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    taskTypes: taskTypes,
+    handleTasktypeChange: handleTasktypeChange
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group col-md-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubtaskList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    subTasks: subTasks,
+    handleSubtasksChange: handleSubtasksChange
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     htmlFor: "hours"
@@ -71274,15 +71568,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
+var isListValid = function isListValid(arr) {
+  return arr.length > 0;
+};
+
 var JobtypeList = function JobtypeList(_ref) {
   var jobTypes = _ref.jobTypes,
-      handleJobtypeChange = _ref.handleJobtypeChange,
-      timesheet = _ref.timesheet;
+      handleJobtypeChange = _ref.handleJobtypeChange;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "jobtype-" + timesheet.id
-  }, "Type"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    htmlFor: "jobtype"
+  }, "Type"), !isListValid(jobTypes) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     className: "form-control form-control-sm",
-    id: "jobtype-" + timesheet.id,
+    id: "jobtype",
+    name: "jobtype",
+    onChange: handleJobtypeChange
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "0"
+  })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    className: "form-control form-control-sm",
+    id: "jobtype",
     name: "jobtype",
     onChange: handleJobtypeChange
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -71299,668 +71603,6 @@ var JobtypeList = function JobtypeList(_ref) {
 
 /***/ }),
 
-/***/ "./resources/react/components/timesheet/dashboard/components/RecordModal.js":
-/*!**********************************************************************************!*\
-  !*** ./resources/react/components/timesheet/dashboard/components/RecordModal.js ***!
-  \**********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _JobtypeList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./JobtypeList */ "./resources/react/components/timesheet/dashboard/components/JobtypeList.js");
-/* harmony import */ var _SubjobList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SubjobList */ "./resources/react/components/timesheet/dashboard/components/SubjobList.js");
-/* harmony import */ var _TasktypeList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TasktypeList */ "./resources/react/components/timesheet/dashboard/components/TasktypeList.js");
-/* harmony import */ var _SubtaskList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SubtaskList */ "./resources/react/components/timesheet/dashboard/components/SubtaskList.js");
-/* harmony import */ var _AddModalButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddModalButton */ "./resources/react/components/timesheet/dashboard/components/AddModalButton.js");
-/* harmony import */ var _EditModalButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./EditModalButton */ "./resources/react/components/timesheet/dashboard/components/EditModalButton.js");
-function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
-}
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
-}
-
-function _iterableToArrayLimit(arr, i) {
-  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-
-
-
-
-
-
-
-
-var RecordModal = function RecordModal(_ref) {
-  var apiUrl = _ref.apiUrl,
-      apiKey = _ref.apiKey,
-      getTimesheets = _ref.getTimesheets,
-      timesheet = _ref.timesheet,
-      deleteRecordHandler = _ref.deleteRecordHandler; // state vars
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      jobTypes = _useState2[0],
-      setJobtypes = _useState2[1];
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
-      _useState4 = _slicedToArray(_useState3, 2),
-      jobType = _useState4[0],
-      setJobtype = _useState4[1];
-
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
-      _useState6 = _slicedToArray(_useState5, 2),
-      subJobs = _useState6[0],
-      setSubjobs = _useState6[1];
-
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
-      _useState8 = _slicedToArray(_useState7, 2),
-      subJob = _useState8[0],
-      setSubjob = _useState8[1];
-
-  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
-      _useState10 = _slicedToArray(_useState9, 2),
-      taskTypes = _useState10[0],
-      setTasktypes = _useState10[1];
-
-  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
-      _useState12 = _slicedToArray(_useState11, 2),
-      taskType = _useState12[0],
-      setTasktype = _useState12[1];
-
-  var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
-      _useState14 = _slicedToArray(_useState13, 2),
-      subTasks = _useState14[0],
-      setSubtasks = _useState14[1];
-
-  var _useState15 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
-      _useState16 = _slicedToArray(_useState15, 2),
-      subTask = _useState16[0],
-      setSubtask = _useState16[1];
-
-  var _useState17 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
-      _useState18 = _slicedToArray(_useState17, 2),
-      formValues = _useState18[0],
-      setFormValues = _useState18[1];
-
-  var _useState19 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("nbsp;"),
-      _useState20 = _slicedToArray(_useState19, 2),
-      modalButton = _useState20[0],
-      setModalButton = _useState20[1];
-
-  var _useState21 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("nbsp;"),
-      _useState22 = _slicedToArray(_useState21, 2),
-      modalHeaderText = _useState22[0],
-      setModalHeaderText = _useState22[1];
-
-  var _useState23 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("nbsp;"),
-      _useState24 = _slicedToArray(_useState23, 2),
-      modalSubmitButton = _useState24[0],
-      setModalSubmitButton = _useState24[1];
-
-  var _useState25 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState26 = _slicedToArray(_useState25, 2),
-      isEditFormReady = _useState26[0],
-      setIsEditFormReady = _useState26[1]; // use effect
-
-
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    getJobTypes();
-    setFormDataDefaults();
-  }, []);
-
-  var isArrayValid = function isArrayValid(arr) {
-    return arr.length > 0;
-  };
-
-  var getJobTypes = function getJobTypes() {
-    // api connection and send request
-    fetch(apiUrl + "jobtypes", {
-      "method": "GET",
-      "headers": {
-        "Authorization": "Bearer " + apiKey,
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "Referer": location.origin
-      }
-    }).then(function (response) {
-      return response.json();
-    }).then(function (response) {
-      setJobtypes(response);
-
-      if (timesheet.id > 0 && !isEditFormReady) {
-        $("#jobtype-" + timesheet.id).val(timesheet.jobtype_id);
-        handleJobtypeChange({
-          "target": $("#jobtype-" + timesheet.id)[0]
-        });
-      }
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  };
-
-  var handleJobtypeChange = function handleJobtypeChange(el) {
-    setJobtype(el.target.value);
-    setSubjob(0);
-    setTasktype(0);
-    setSubtask(0);
-    setSubjobs({});
-    setTasktypes({});
-    setSubtasks({});
-    getSubjobs(el.target.value);
-    handleFormChange(el);
-  };
-
-  var getSubjobs = function getSubjobs(jobType) {
-    // api connection and send request
-    fetch(apiUrl + "jobtypes/" + jobType + "/subjobs", {
-      "method": "GET",
-      "headers": {
-        "Authorization": "Bearer " + apiKey,
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "Referer": location.origin
-      }
-    }).then(function (response) {
-      return response.json();
-    }).then(function (response) {
-      setSubjobs(response);
-
-      if (timesheet.id > 0 && !isEditFormReady) {
-        $("#subjob-" + timesheet.id).val(timesheet.subjob_id);
-        handleSubjobChange({
-          "target": $("#subjob-" + timesheet.id)[0]
-        });
-      }
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  };
-
-  var handleSubjobChange = function handleSubjobChange(el) {
-    setSubjob(el.target.value);
-    setTasktype(0);
-    setSubtask(0);
-    setTasktypes({});
-    setSubtasks({});
-    getTasktypes(el.target.value);
-    handleFormChange(el);
-  };
-
-  var getTasktypes = function getTasktypes(subJob) {
-    // api connection and send request
-    fetch(apiUrl + "subjobs/" + subJob + "/tasktypes", {
-      "method": "GET",
-      "headers": {
-        "Authorization": "Bearer " + apiKey,
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "Referer": location.origin
-      }
-    }).then(function (response) {
-      return response.json();
-    }).then(function (response) {
-      setTasktypes(response);
-
-      if (timesheet.id > 0 && !isEditFormReady) {
-        $("#tasktype-" + timesheet.id).val(timesheet.tasktype_id);
-        handleTasktypeChange({
-          "target": $("#tasktype-" + timesheet.id)[0]
-        });
-      }
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  };
-
-  var handleTasktypeChange = function handleTasktypeChange(el) {
-    setTasktype(el.target.value);
-    setSubtask(0);
-    setSubtasks({});
-    getSubtasks(el.target.value);
-    handleFormChange(el);
-  };
-
-  var getSubtasks = function getSubtasks(taskType) {
-    // api connection and send request
-    fetch(apiUrl + "tasktypes/" + taskType + "/subtasks", {
-      "method": "GET",
-      "headers": {
-        "Authorization": "Bearer " + apiKey,
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "Referer": location.origin
-      }
-    }).then(function (response) {
-      return response.json();
-    }).then(function (response) {
-      setSubtasks(response);
-
-      if (timesheet.id > 0 && !isEditFormReady) {
-        $("#subtask-" + timesheet.id).val(timesheet.subtask_id);
-        handleSubtasksChange({
-          "target": $("#subtask-" + timesheet.id)[0]
-        });
-      }
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  };
-
-  var handleSubtasksChange = function handleSubtasksChange(el) {
-    setSubtask(el.target.value);
-    handleFormChange(el);
-  };
-
-  var handleFormChange = function handleFormChange(el) {
-    formValues[el.target.name] = el.target.value;
-    setFormValues(formValues);
-  };
-
-  var handleSubmitForm = function handleSubmitForm(el) {
-    var account = $("#storage").attr("data-acct");
-    var week_ending = $("#weekending").val();
-    var foreman = $("#foreman").val();
-    formValues['week_ending'] = week_ending;
-    formValues['foreman_name'] = foreman;
-    formValues['supervisor_id'] = 2;
-    setFormValues(formValues);
-
-    if (validateFormFields()) {
-      // make connection
-      fetch(apiUrl + "accounts/" + account + "/timesheets", {
-        "method": "POST",
-        "headers": {
-          "Authorization": "Bearer " + apiKey,
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-          "Referer": location.origin
-        },
-        "body": JSON.stringify(formValues)
-      }).then(function (response) {
-        return response.json();
-      }).then(function (response) {
-        console.log("response from timesheet STORE: ");
-        console.log(response);
-        getTimesheets();
-        $('#addTimeModal-' + timesheet.id).modal('hide');
-        setFormValues({});
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    }
-  };
-
-  var handleSubmitEditForm = function handleSubmitEditForm(el) {
-    var account = $("#storage").attr("data-acct");
-    var week_ending = $("#weekending").val();
-    var foreman = $("#foreman").val();
-    formValues['week_ending'] = week_ending;
-    formValues['foreman_name'] = foreman;
-    formValues['supervisor_id'] = 2;
-    setFormValues(formValues);
-
-    if (validateFormFields()) {
-      fetch(apiUrl + "accounts/" + account + "/timesheets/" + timesheet.id, {
-        "method": "PUT",
-        "headers": {
-          "Authorization": "Bearer " + apiKey,
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-          "Referer": location.origin
-        },
-        "body": JSON.stringify(formValues)
-      }).then(function (response) {
-        return response.json();
-      }).then(function (response) {
-        console.log("response from timesheet EDIT: ");
-        console.log(response);
-        getTimesheets();
-        $('#addTimeModal-' + timesheet.id).modal('hide');
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    }
-  };
-
-  var validateFormFields = function validateFormFields() {
-    if (formValues["foreman_name"].length < 1) {
-      displayErrorMessage("foreman_name");
-      return false;
-    }
-
-    if (formValues["supervisor_id"].length < 1) {
-      displayErrorMessage("supervisor_id");
-      return false;
-    }
-
-    if (formValues["week_ending"].length < 1) {
-      displayErrorMessage("week_ending");
-      return false;
-    }
-
-    if (formValues["building"].length < 1) {
-      displayErrorMessage("building");
-      return false;
-    }
-
-    if (formValues["date"].length < 1) {
-      displayErrorMessage("date");
-      return false;
-    }
-
-    if (typeof formValues["jobtype"] === 'undefined' || formValues["jobtype"].length < 1 || parseInt(formValues["jobtype"]) < 1) {
-      displayErrorMessage("jobtype");
-      return false;
-    }
-
-    if (typeof formValues["subjob"] === 'undefined' || formValues["subjob"].length < 1 || parseInt(formValues["subjob"]) < 1) {
-      displayErrorMessage("subjob");
-      return false;
-    }
-
-    if (typeof formValues["tasktype"] === 'undefined' || formValues["tasktype"].length < 1 || parseInt(formValues["tasktype"]) < 1) {
-      displayErrorMessage("tasktype");
-      return false;
-    }
-
-    if (typeof formValues["subtask"] === 'undefined' || formValues["subtask"].length < 1 || parseInt(formValues["subtask"]) < 1) {
-      displayErrorMessage("subtask");
-      return false;
-    }
-
-    if (formValues["hours"].length < 1) {
-      displayErrorMessage("hours");
-      return false;
-    }
-
-    return true;
-  };
-
-  var displayErrorMessage = function displayErrorMessage(msg) {
-    var theMessage = "Please provide a valid '" + msg + "' value.";
-    return alert(theMessage);
-  };
-
-  var validateTimesheetHeaderData = function validateTimesheetHeaderData(el) {
-    var modal_id = $(el.target).attr("data-target");
-    var foreman = $("#foreman").val();
-    var week_ending = $("#weekending").val();
-    console.log("el: ");
-    console.log(el);
-    console.log("el.target: ");
-    console.log(el.target);
-    console.log("modal_id: ");
-    console.log(modal_id);
-    console.log("yo yo mtv raps!"); // $(modal_id).on('show.bs.modal', function (e) {
-    // 	// $(e).modal('hide');
-    // 	console.log("e: ");
-    // 	console.log(e);
-    // });
-    // $(modal_id).on('show.bs.modal', function (e) {
-    // 	$(modal_id).modal('show');
-    // });	
-    // return el.preventDefault();
-
-    if (typeof foreman === 'undefined' || foreman.length < 1) {
-      console.log("Errror: please provide a 'foreman_name'");
-      displayErrorMessage("foreman_name");
-      setTimeout(function () {
-        $(modal_id).modal('hide');
-      }, 315); // $(modal_id).on('show.bs.modal', function (e) {
-      // 	$(modal_id).modal('hide');
-      // });
-      // $(modal_id).modal('hide');
-
-      return false;
-    } // if(formValues["supervisor_id"].length < 1){
-    // 	displayErrorMessage("supervisor_id");
-    // 	return false;
-    // }
-
-
-    if (typeof week_ending === 'undefined' || week_ending.length < 1) {
-      console.log("Errror: please provide a 'week_ending'");
-      displayErrorMessage("week_ending");
-      setTimeout(function () {
-        $(modal_id).modal('hide');
-      }, 315); // $(modal_id).on('show.bs.modal', function (e) {
-      // 	$(modal_id).modal('hide');
-      // });
-      // $(modal_id).modal('hide');
-
-      return false;
-    } // $(modal_id).on('show.bs.modal', function (e) {
-    // 	$(modal_id).modal('show');
-    // });
-    // $(modal_id).modal('show');
-
-
-    return true;
-  };
-
-  var setFormDataDefaults = function setFormDataDefaults() {
-    var modalOpenButton;
-    var modalHeaderText;
-    var submitButton;
-
-    if (timesheet.id > 0) {
-      modalOpenButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EditModalButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        timesheet: timesheet,
-        deleteRecordHandler: deleteRecordHandler,
-        validateTimesheetHeaderData: validateTimesheetHeaderData
-      });
-      modalHeaderText = "Edit Record";
-      submitButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "button",
-        className: "btn btn-primary",
-        onClick: handleSubmitEditForm
-      }, "Submit");
-    } else {
-      modalOpenButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AddModalButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        timesheet: timesheet,
-        validateTimesheetHeaderData: validateTimesheetHeaderData
-      });
-      modalHeaderText = "Add Record";
-      submitButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "button",
-        className: "btn btn-primary",
-        onClick: handleSubmitForm
-      }, "Submit");
-    }
-
-    setModalButton(modalOpenButton);
-    setModalHeaderText(modalHeaderText);
-    setModalSubmitButton(submitButton);
-    $("#week_ending-" + timesheet.id).val(timesheet.date);
-    $("#building-" + timesheet.id).val(timesheet.building);
-    $("#date-" + timesheet.id).val(timesheet.date);
-    $("#hours-" + timesheet.id).val(timesheet.hours);
-    handleFormChange({
-      "target": $("#week_ending-" + timesheet.id)[0]
-    });
-    handleFormChange({
-      "target": $("#building-" + timesheet.id)[0]
-    });
-    handleFormChange({
-      "target": $("#date-" + timesheet.id)[0]
-    });
-    handleFormChange({
-      "target": $("#hours-" + timesheet.id)[0]
-    });
-    setIsEditFormReady(true);
-  };
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "container",
-    style: {
-      color: "black"
-    }
-  }, modalButton, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "modal fade",
-    id: "addTimeModal-" + timesheet.id,
-    "data-backdrop": "static",
-    "data-keyboard": "false",
-    tabIndex: "-1",
-    "aria-labelledby": "addTimeModalLabel-" + timesheet.id,
-    "aria-hidden": "true"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "modal-dialog modal-dialog-centered modal-xl"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "modal-content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "modal-header"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-    className: "modal-title",
-    id: "addTimeModalLabel-" + timesheet.id
-  }, modalHeaderText), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    type: "button",
-    className: "close",
-    "data-dismiss": "modal",
-    "aria-label": "Close"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    "aria-hidden": "true"
-  }, "\xD7"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "modal-body"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    id: "timesheet_form-" + timesheet.id
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    hidden: true,
-    className: "form-group col-md-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "week_ending-" + timesheet.id
-  }, "Week Ending"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "date",
-    className: "form-control form-control-sm",
-    id: "week_ending-" + timesheet.id,
-    name: "week_ending",
-    onChange: handleFormChange,
-    placeholder: "date"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group col-md-6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "building-" + timesheet.id
-  }, "Building"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
-    className: "form-control form-control-sm",
-    id: "building-" + timesheet.id,
-    name: "building",
-    onChange: handleFormChange,
-    placeholder: "bldg #"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group col-md-6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "date-" + timesheet.id
-  }, "Date"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "date",
-    className: "form-control form-control-sm",
-    id: "date-" + timesheet.id,
-    name: "date",
-    onChange: handleFormChange,
-    placeholder: "date"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group col-md-3"
-  }, !isArrayValid(jobTypes) ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_JobtypeList__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    jobTypes: jobTypes,
-    handleJobtypeChange: handleJobtypeChange,
-    timesheet: timesheet
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group col-md-3"
-  }, !isArrayValid(subJobs) ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubjobList__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    subJobs: subJobs,
-    handleSubjobChange: handleSubjobChange,
-    timesheet: timesheet
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group col-md-3"
-  }, !isArrayValid(taskTypes) ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TasktypeList__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    taskTypes: taskTypes,
-    handleTasktypeChange: handleTasktypeChange,
-    timesheet: timesheet
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group col-md-3"
-  }, !isArrayValid(subTasks) ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubtaskList__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    subTasks: subTasks,
-    handleSubtasksChange: handleSubtasksChange,
-    timesheet: timesheet
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "hours-" + timesheet.id
-  }, "Hours"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
-    className: "form-control form-control-sm",
-    id: "hours-" + timesheet.id,
-    name: "hours",
-    onChange: handleFormChange,
-    placeholder: "hours worked"
-  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "modal-footer"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    type: "button",
-    className: "btn btn-secondary",
-    "data-dismiss": "modal"
-  }, "Close"), modalSubmitButton)))));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (RecordModal);
-
-/***/ }),
-
 /***/ "./resources/react/components/timesheet/dashboard/components/SubjobList.js":
 /*!*********************************************************************************!*\
   !*** ./resources/react/components/timesheet/dashboard/components/SubjobList.js ***!
@@ -71974,15 +71616,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
+var isListValid = function isListValid(arr) {
+  return arr.length > 0;
+};
+
 var SubjobList = function SubjobList(_ref) {
   var subJobs = _ref.subJobs,
-      handleSubjobChange = _ref.handleSubjobChange,
-      timesheet = _ref.timesheet;
+      handleSubjobChange = _ref.handleSubjobChange;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "subjob-" + timesheet.id
-  }, "SubType"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    htmlFor: "subjob"
+  }, "SubType"), !isListValid(subJobs) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     className: "form-control form-control-sm",
-    id: "subjob-" + timesheet.id,
+    id: "subjob",
+    name: "subjob",
+    onChange: handleSubjobChange
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "0"
+  })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    className: "form-control form-control-sm",
+    id: "subjob",
     name: "subjob",
     onChange: handleSubjobChange
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -72013,15 +71665,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
+var isListValid = function isListValid(arr) {
+  return arr.length > 0;
+};
+
 var SubtaskList = function SubtaskList(_ref) {
   var subTasks = _ref.subTasks,
-      handleSubtasksChange = _ref.handleSubtasksChange,
-      timesheet = _ref.timesheet;
+      handleSubtasksChange = _ref.handleSubtasksChange;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "subtask-" + timesheet.id
-  }, "SubTask"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    htmlFor: "subtask"
+  }, "SubTask"), !isListValid(subTasks) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     className: "form-control form-control-sm",
-    id: "subtask-" + timesheet.id,
+    id: "subtask",
+    name: "subtask",
+    onChange: handleSubtasksChange
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "0"
+  })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    className: "form-control form-control-sm",
+    id: "subtask",
     name: "subtask",
     onChange: handleSubtasksChange
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -72051,22 +71713,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
+var isListValid = function isListValid(arr) {
+  return arr.length > 0;
+};
+
 var TasktypeList = function TasktypeList(_ref) {
   var taskTypes = _ref.taskTypes,
-      handleTasktypeChange = _ref.handleTasktypeChange,
-      timesheet = _ref.timesheet;
+      handleTasktypeChange = _ref.handleTasktypeChange;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "tasktype-" + timesheet.id
-  }, "TaskType"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    htmlFor: "tasktype"
+  }, "TaskType"), !isListValid(taskTypes) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     className: "form-control form-control-sm",
-    id: "tasktype-" + timesheet.id,
+    id: "tasktype",
+    name: "tasktype",
+    onChange: handleTasktypeChange
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "0"
+  })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    className: "form-control form-control-sm",
+    id: "tasktype",
     name: "tasktype",
     onChange: handleTasktypeChange
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "0"
   }, "\xA0"), taskTypes.map(function (taskType) {
     var name = taskType.name.split("-");
-    console.log(name[2]);
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
       key: taskType.id,
       value: taskType.id
@@ -72189,7 +71860,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Waylon\Workbench\homestead\timesheet_app\resources\react\App.js */"./resources/react/App.js");
+module.exports = __webpack_require__(/*! /Users/karma/Workbench/homestead/timesheet_app/resources/react/App.js */"./resources/react/App.js");
 
 
 /***/ })

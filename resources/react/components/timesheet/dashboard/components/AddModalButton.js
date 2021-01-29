@@ -1,16 +1,17 @@
 import React from "react";
 
-const AddModalButton = ({timesheet, validateTimesheetHeaderData}) => {
+const AddModalButton = ({targettimesheet, handleModalButtonClick}) => {
 	let newButton = <div className="btn-group" role="group">
 					    <button 
-					    	type="button" 
-					    	className="btn btn-primary btn-sm" 
-					    	data-toggle="modal" 
-					    	data-target={"#addTimeModal-"+timesheet.id}
-					    	onClick={validateTimesheetHeaderData}
+					    	type="button"
+					    	className="btn btn-primary btn-sm"
+					    	data-toggle="modal"
+					    	data-target={"#addTimeModal"}
+					    	data-targettimesheet={targettimesheet} 
+					    	onClick={handleModalButtonClick}
 					    >
-					      Add Timesheet Record
-					    </button>
+			                Add Timesheet Record
+			            </button>
 				    </div>;
 
     return (newButton);
