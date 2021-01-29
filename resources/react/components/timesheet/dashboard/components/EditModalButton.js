@@ -6,7 +6,7 @@ const EditModalButton = ({timesheet, deleteRecordHandler, targettimesheet, handl
 					    	type="button"
 					    	className="btn btn-outline-warning btn-sm"
 					    	data-toggle="modal"
-					    	data-target={"#addTimeModal"}
+					    	data-target={"#addTimeModal-fake"}
 					    	data-targettimesheet={targettimesheet} 
 					    	onClick={handleModalButtonClick}
 					    >

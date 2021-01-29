@@ -6,7 +6,7 @@ const AddModalButton = ({targettimesheet, handleModalButtonClick}) => {
 					    	type="button"
 					    	className="btn btn-primary btn-sm"
 					    	data-toggle="modal"
-					    	data-target={"#addTimeModal"}
+					    	data-target={"#addTimeModal-fake"}
 					    	data-targettimesheet={targettimesheet} 
 					    	onClick={handleModalButtonClick}
 					    >

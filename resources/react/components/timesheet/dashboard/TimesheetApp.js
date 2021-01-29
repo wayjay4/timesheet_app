@@ -366,6 +366,8 @@ function TimesheetApp ({apiKey, apiUrl}) {
             return false;
         }
 
+        $("#addTimeModal").modal('show');
+
         return true;
     };
 
