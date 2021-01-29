@@ -70773,21 +70773,208 @@ function TimesheetApp(_ref) {
     'week_ending': '',
     'building': '',
     'date': '',
-    'jobtype': '',
-    'subjob': '',
-    'tasktype': '',
-    'subtask': '',
+    'jobtype': 0,
+    'subjob': 0,
+    'tasktype': 0,
+    'subtask': 0,
     'hours': ''
   }),
       _useState10 = _slicedToArray(_useState9, 2),
       timesheetData = _useState10[0],
-      setTimesheetData = _useState10[1]; // use effect
+      setTimesheetData = _useState10[1];
+
+  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState12 = _slicedToArray(_useState11, 2),
+      jobTypes = _useState12[0],
+      setJobtypes = _useState12[1];
+
+  var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState14 = _slicedToArray(_useState13, 2),
+      jobType = _useState14[0],
+      setJobtype = _useState14[1];
+
+  var _useState15 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState16 = _slicedToArray(_useState15, 2),
+      subJobs = _useState16[0],
+      setSubjobs = _useState16[1];
+
+  var _useState17 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState18 = _slicedToArray(_useState17, 2),
+      subJob = _useState18[0],
+      setSubjob = _useState18[1];
+
+  var _useState19 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState20 = _slicedToArray(_useState19, 2),
+      taskTypes = _useState20[0],
+      setTasktypes = _useState20[1];
+
+  var _useState21 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState22 = _slicedToArray(_useState21, 2),
+      taskType = _useState22[0],
+      setTasktype = _useState22[1];
+
+  var _useState23 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState24 = _slicedToArray(_useState23, 2),
+      subTasks = _useState24[0],
+      setSubtasks = _useState24[1];
+
+  var _useState25 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState26 = _slicedToArray(_useState25, 2),
+      subTask = _useState26[0],
+      setSubtask = _useState26[1];
+
+  var _useState27 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
+      _useState28 = _slicedToArray(_useState27, 2),
+      formValues = _useState28[0],
+      setFormValues = _useState28[1]; // use effect
 
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     getTimesheets();
     setUserPhoto($("#storage").attr("data-profilePhoto"));
+    getJobTypes();
   }, []);
+
+  var getJobTypes = function getJobTypes() {
+    // api connection and send request
+    fetch(apiUrl + "jobtypes", {
+      "method": "GET",
+      "headers": {
+        "Authorization": "Bearer " + apiKey,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Referer": location.origin
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (response) {
+      setJobtypes(response);
+
+      if (timesheetData.jobtype > 0) {
+        $("#jobtype").val(timesheetData.jobtype);
+        handleJobtypeChange({
+          "target": $("#jobtype")[0]
+        });
+      }
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  };
+
+  var handleJobtypeChange = function handleJobtypeChange(el) {
+    setJobtype(el.target.value); // reset data and lists in chain
+
+    setSubjob(0);
+    setTasktype(0);
+    setSubtask(0);
+    setSubjobs({});
+    setTasktypes({});
+    setSubtasks({}); // get next list in chain
+
+    getSubjobs(el.target.value); // handleFormChange(el);
+  };
+
+  var getSubjobs = function getSubjobs(jobType) {
+    // api connection and send request
+    fetch(apiUrl + "jobtypes/" + jobType + "/subjobs", {
+      "method": "GET",
+      "headers": {
+        "Authorization": "Bearer " + apiKey,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Referer": location.origin
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (response) {
+      setSubjobs(response);
+
+      if (timesheetData.subjob >= 0) {
+        $("#subjob").val(timesheetData.subjob);
+        handleSubjobChange({
+          "target": $("#subjob")[0]
+        });
+      }
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  };
+
+  var handleSubjobChange = function handleSubjobChange(el) {
+    setSubjob(el.target.value); // reset data and lists in chain
+
+    setTasktype(0);
+    setSubtask(0);
+    setTasktypes({});
+    setSubtasks({}); // get next list in chain
+
+    getTasktypes(el.target.value); // handleFormChange(el);
+  };
+
+  var getTasktypes = function getTasktypes(subJob) {
+    // api connection and send request
+    fetch(apiUrl + "subjobs/" + subJob + "/tasktypes", {
+      "method": "GET",
+      "headers": {
+        "Authorization": "Bearer " + apiKey,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Referer": location.origin
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (response) {
+      setTasktypes(response);
+
+      if (timesheetData.tasktype >= 0) {
+        $("#tasktype").val(timesheetData.tasktype);
+        handleTasktypeChange({
+          "target": $("#tasktype")[0]
+        });
+      }
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  };
+
+  var handleTasktypeChange = function handleTasktypeChange(el) {
+    setTasktype(el.target.value); // reset data and lists in chain
+
+    setSubtask(0);
+    setSubtasks({}); // get next list in chain
+
+    getSubtasks(el.target.value); // handleFormChange(el);
+  };
+
+  var getSubtasks = function getSubtasks(taskType) {
+    // api connection and send request
+    fetch(apiUrl + "tasktypes/" + taskType + "/subtasks", {
+      "method": "GET",
+      "headers": {
+        "Authorization": "Bearer " + apiKey,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Referer": location.origin
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (response) {
+      setSubtasks(response);
+
+      if (timesheetData.subtask >= 0) {
+        $("#subtask").val(timesheetData.subtask);
+        handleSubtasksChange({
+          "target": $("#subtask")[0]
+        });
+      }
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  };
+
+  var handleSubtasksChange = function handleSubtasksChange(el) {
+    setSubtask(el.target.value); // handleFormChange(el);
+  };
 
   var getTimesheets = function getTimesheets() {
     var account = $("#storage").attr("data-acct"); // make connection
@@ -70860,51 +71047,193 @@ function TimesheetApp(_ref) {
   };
 
   var handleModalButtonClick = function handleModalButtonClick(e) {
-    var timesheet_id = $(e.target).data('targettimesheet');
+    if (validateTimesheetHeaderData(e)) {
+      var timesheet_id = $(e.target).data('targettimesheet');
 
-    if (timesheet_id >= 0) {
-      var mytime = timesheets[timesheet_id];
-      timesheetData.timesheet_id = mytime.id;
-      timesheetData.foreman_name = mytime.foreman_name;
-      timesheetData.supervisor_id = mytime.supervisor_id;
-      timesheetData.week_ending = mytime.week_ending;
-      timesheetData.building = mytime.building;
-      timesheetData.date = mytime.date;
-      timesheetData.jobtype = mytime.jobtype;
-      timesheetData.subjob = mytime.subjob;
-      timesheetData.tasktype = mytime.tasktype;
-      timesheetData.subtask = mytime.subtask;
-      timesheetData.hours = mytime.hours;
-      setTimesheetData(timesheetData);
-    } else {
-      timesheetData.timesheet_id = -1;
-      timesheetData.foreman_name = '';
-      timesheetData.supervisor_id = '';
-      timesheetData.week_ending = '';
-      timesheetData.building = '';
-      timesheetData.date = '';
-      timesheetData.jobtype = '';
-      timesheetData.subjob = '';
-      timesheetData.tasktype = '';
-      timesheetData.subtask = '';
-      timesheetData.hours = '';
-      setTimesheetData(timesheetData);
+      if (timesheet_id >= 0) {
+        var mytime = timesheets[timesheet_id];
+        timesheetData.timesheet_id = mytime.id;
+        timesheetData.foreman_name = mytime.foreman_name;
+        timesheetData.supervisor_id = mytime.supervisor_id;
+        timesheetData.week_ending = mytime.week_ending;
+        timesheetData.building = mytime.building;
+        timesheetData.date = mytime.date;
+        timesheetData.jobtype = mytime.jobtype.id;
+        timesheetData.subjob = mytime.subjob.id;
+        timesheetData.tasktype = mytime.tasktype.id;
+        timesheetData.subtask = mytime.subtask.id;
+        timesheetData.hours = mytime.hours;
+        setTimesheetData(timesheetData);
+        getJobTypes();
+      } else {
+        timesheetData.timesheet_id = -1;
+        timesheetData.foreman_name = '';
+        timesheetData.supervisor_id = '';
+        timesheetData.week_ending = '';
+        timesheetData.building = '';
+        timesheetData.date = '';
+        timesheetData.jobtype = 0;
+        timesheetData.subjob = 0;
+        timesheetData.tasktype = 0;
+        timesheetData.subtask = 0;
+        timesheetData.hours = '';
+        setTimesheetData(timesheetData);
+        getJobTypes();
+      }
+
+      $("#week_ending").val(timesheetData.week_ending);
+      $("#building").val(timesheetData.building);
+      $("#date").val(timesheetData.date);
+      $("#jobtype").val(timesheetData.jobtype);
+      $("#subjob").val(timesheetData.subjob);
+      $("#tasktype").val(timesheetData.tasktype);
+      $("#subtask").val(timesheetData.subtask);
+      $("#hours").val(timesheetData.hours); // 'timesheet_id': 0,
+      // 'foreman_name': '',
+      // 'supervisor_id': '',
+      // 'week_ending': '',
+      // 'building': '',
+      // 'date': '',
+      // 'jobtype': '',
+      // 'subjob': '',
+      // 'tasktype': '',
+      // 'subtask': '',
+      // 'hours': '',
+    }
+  };
+
+  var validateTimesheetHeaderData = function validateTimesheetHeaderData(el) {
+    var foreman = $("#foreman").val();
+    var week_ending = $("#weekending").val(); // console.log("el: ");
+    // console.log(el);
+
+    if (typeof foreman === 'undefined' || foreman.length < 1) {
+      console.log("Errror: please provide a 'foreman_name'");
+      displayErrorMessage("foreman_name");
+      setTimeout(function () {
+        $("#addTimeModal").modal('hide');
+      }, 315);
+      return false;
     }
 
-    $("#week_ending").val(timesheetData.week_ending);
-    $("#building").val(timesheetData.building);
-    $("#date").val(timesheetData.date);
-    $("#hours").val(timesheetData.hours); // 'timesheet_id': 0,
-    // 'foreman_name': '',
-    // 'supervisor_id': '',
-    // 'week_ending': '',
-    // 'building': '',
-    // 'date': '',
-    // 'jobtype': '',
-    // 'subjob': '',
-    // 'tasktype': '',
-    // 'subtask': '',
-    // 'hours': '',
+    if (typeof week_ending === 'undefined' || week_ending.length < 1) {
+      console.log("Errror: please provide a 'week_ending'");
+      displayErrorMessage("week_ending");
+      setTimeout(function () {
+        $("#addTimeModal").modal('hide');
+      }, 315);
+      return false;
+    }
+
+    return true;
+  };
+
+  var displayErrorMessage = function displayErrorMessage(msg) {
+    var theMessage = "Please provide a valid '" + msg + "' value.";
+    alert(theMessage);
+  };
+
+  var handleSubmitForm = function handleSubmitForm(el) {
+    var account = $("#storage").attr("data-acct");
+    formValues['week_ending'] = $("#weekending").val();
+    formValues['foreman_name'] = $("#foreman").val();
+    formValues['supervisor_id'] = 2;
+    formValues['building'] = $("#building").val();
+    formValues['date'] = $("#date").val();
+    formValues['jobtype'] = $("#jobtype").val();
+    formValues['subjob'] = $("#subjob").val();
+    formValues['tasktype'] = $("#tasktype").val();
+    formValues['subtask'] = $("#subtask").val();
+    formValues['hours'] = $("#hours").val();
+    setFormValues(formValues);
+
+    if (validateFormFields()) {
+      var thisUrl = "";
+      var thisMethod = ""; // if no timesheet_id, then add a timesheet record
+      // else, edit an existing timesheet record
+
+      if (timesheetData.timesheet_id <= 0) {
+        thisUrl = apiUrl + "accounts/" + account + "/timesheets";
+        thisMethod = "POST";
+      } else {
+        thisUrl = apiUrl + "accounts/" + account + "/timesheets/" + timesheetData.timesheet_id;
+        thisMethod = "PUT";
+      } // make connection
+
+
+      fetch(thisUrl, {
+        "method": thisMethod,
+        "headers": {
+          "Authorization": "Bearer " + apiKey,
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          "Referer": location.origin
+        },
+        "body": JSON.stringify(formValues)
+      }).then(function (response) {
+        return response.json();
+      }).then(function (response) {
+        getTimesheets();
+        $('#addTimeModal').modal('hide');
+        setFormValues({});
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  };
+
+  var validateFormFields = function validateFormFields() {
+    if (formValues["foreman_name"].length < 1) {
+      displayErrorMessage("foreman_name");
+      return false;
+    }
+
+    if (formValues["supervisor_id"].length < 1) {
+      displayErrorMessage("supervisor_id");
+      return false;
+    }
+
+    if (formValues["week_ending"].length < 1) {
+      displayErrorMessage("week_ending");
+      return false;
+    }
+
+    if (formValues["building"].length < 1) {
+      displayErrorMessage("building");
+      return false;
+    }
+
+    if (formValues["date"].length < 1) {
+      displayErrorMessage("date");
+      return false;
+    }
+
+    if (typeof formValues["jobtype"] === 'undefined' || formValues["jobtype"].length < 1 || parseInt(formValues["jobtype"]) < 1) {
+      displayErrorMessage("jobtype");
+      return false;
+    }
+
+    if (typeof formValues["subjob"] === 'undefined' || formValues["subjob"].length < 1 || parseInt(formValues["subjob"]) < 1) {
+      displayErrorMessage("subjob");
+      return false;
+    }
+
+    if (typeof formValues["tasktype"] === 'undefined' || formValues["tasktype"].length < 1 || parseInt(formValues["tasktype"]) < 1) {
+      displayErrorMessage("tasktype");
+      return false;
+    }
+
+    if (typeof formValues["subtask"] === 'undefined' || formValues["subtask"].length < 1 || parseInt(formValues["subtask"]) < 1) {
+      displayErrorMessage("subtask");
+      return false;
+    }
+
+    if (formValues["hours"].length < 1) {
+      displayErrorMessage("hours");
+      return false;
+    }
+
+    return true;
   };
 
   var getTimesheetData = function getTimesheetData() {
@@ -70918,7 +71247,16 @@ function TimesheetApp(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Timesheets Container"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FormModal__WEBPACK_IMPORTED_MODULE_1__["default"], {
     apiUrl: apiUrl,
-    apiKey: apiKey
+    apiKey: apiKey,
+    jobTypes: jobTypes,
+    handleJobtypeChange: handleJobtypeChange,
+    subJobs: subJobs,
+    handleSubjobChange: handleSubjobChange,
+    taskTypes: taskTypes,
+    handleTasktypeChange: handleTasktypeChange,
+    subTasks: subTasks,
+    handleSubtasksChange: handleSubtasksChange,
+    handleSubmitForm: handleSubmitForm
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -71192,64 +71530,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SubjobList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SubjobList */ "./resources/react/components/timesheet/dashboard/components/SubjobList.js");
 /* harmony import */ var _TasktypeList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TasktypeList */ "./resources/react/components/timesheet/dashboard/components/TasktypeList.js");
 /* harmony import */ var _SubtaskList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SubtaskList */ "./resources/react/components/timesheet/dashboard/components/SubtaskList.js");
-function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
-}
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
-}
-
-function _iterableToArrayLimit(arr, i) {
-  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
 
 
 
@@ -71258,182 +71538,16 @@ function _arrayWithHoles(arr) {
 
 var FormModal = function FormModal(_ref) {
   var apiUrl = _ref.apiUrl,
-      apiKey = _ref.apiKey; // state vars
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      jobTypes = _useState2[0],
-      setJobtypes = _useState2[1];
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
-      _useState4 = _slicedToArray(_useState3, 2),
-      jobType = _useState4[0],
-      setJobtype = _useState4[1];
-
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
-      _useState6 = _slicedToArray(_useState5, 2),
-      subJobs = _useState6[0],
-      setSubjobs = _useState6[1];
-
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
-      _useState8 = _slicedToArray(_useState7, 2),
-      subJob = _useState8[0],
-      setSubjob = _useState8[1];
-
-  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
-      _useState10 = _slicedToArray(_useState9, 2),
-      taskTypes = _useState10[0],
-      setTasktypes = _useState10[1];
-
-  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
-      _useState12 = _slicedToArray(_useState11, 2),
-      taskType = _useState12[0],
-      setTasktype = _useState12[1];
-
-  var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
-      _useState14 = _slicedToArray(_useState13, 2),
-      subTasks = _useState14[0],
-      setSubtasks = _useState14[1];
-
-  var _useState15 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
-      _useState16 = _slicedToArray(_useState15, 2),
-      subTask = _useState16[0],
-      setSubtask = _useState16[1]; // use effect
-
-
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    // do something
-    getJobTypes();
-  }, []);
-
-  var isListValid = function isListValid(arr) {
-    return arr.length > 0;
-  };
-
-  var getJobTypes = function getJobTypes() {
-    // api connection and send request
-    fetch(apiUrl + "jobtypes", {
-      "method": "GET",
-      "headers": {
-        "Authorization": "Bearer " + apiKey,
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "Referer": location.origin
-      }
-    }).then(function (response) {
-      return response.json();
-    }).then(function (response) {
-      setJobtypes(response); // if(timesheet.id > 0 && !isEditFormReady){
-      // 	$("#jobtype-"+timesheet.id).val(timesheet.jobtype_id);
-      // 	handleJobtypeChange({"target": $("#jobtype-"+timesheet.id)[0]});
-      // }
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  };
-
-  var handleJobtypeChange = function handleJobtypeChange(el) {
-    setJobtype(el.target.value); // reset data and lists in chain
-
-    setSubjob(0);
-    setTasktype(0);
-    setSubtask(0);
-    setSubjobs({});
-    setTasktypes({});
-    setSubtasks({}); // get next list in chain
-
-    getSubjobs(el.target.value); // handleFormChange(el);
-  };
-
-  var getSubjobs = function getSubjobs(jobType) {
-    // api connection and send request
-    fetch(apiUrl + "jobtypes/" + jobType + "/subjobs", {
-      "method": "GET",
-      "headers": {
-        "Authorization": "Bearer " + apiKey,
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "Referer": location.origin
-      }
-    }).then(function (response) {
-      return response.json();
-    }).then(function (response) {
-      setSubjobs(response); // if(timesheet.id > 0 && !isEditFormReady){
-      // 	$("#subjob-"+timesheet.id).val(timesheet.subjob_id);
-      // 	handleSubjobChange({"target": $("#subjob-"+timesheet.id)[0]});
-      // }
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  };
-
-  var handleSubjobChange = function handleSubjobChange(el) {
-    setSubjob(el.target.value); // reset data and lists in chain
-
-    setTasktype(0);
-    setSubtask(0);
-    setTasktypes({});
-    setSubtasks({}); // get next list in chain
-
-    getTasktypes(el.target.value); // handleFormChange(el);
-  };
-
-  var getTasktypes = function getTasktypes(subJob) {
-    // api connection and send request
-    fetch(apiUrl + "subjobs/" + subJob + "/tasktypes", {
-      "method": "GET",
-      "headers": {
-        "Authorization": "Bearer " + apiKey,
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "Referer": location.origin
-      }
-    }).then(function (response) {
-      return response.json();
-    }).then(function (response) {
-      setTasktypes(response); // if(timesheet.id > 0 && !isEditFormReady){
-      // 	$("#tasktype-"+timesheet.id).val(timesheet.tasktype_id);
-      // 	handleTasktypeChange({"target": $("#tasktype-"+timesheet.id)[0]});
-      // }
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  };
-
-  var handleTasktypeChange = function handleTasktypeChange(el) {
-    setTasktype(el.target.value); // reset data and lists in chain
-
-    setSubtask(0);
-    setSubtasks({}); // get next list in chain
-
-    getSubtasks(el.target.value); // handleFormChange(el);
-  };
-
-  var getSubtasks = function getSubtasks(taskType) {
-    // api connection and send request
-    fetch(apiUrl + "tasktypes/" + taskType + "/subtasks", {
-      "method": "GET",
-      "headers": {
-        "Authorization": "Bearer " + apiKey,
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "Referer": location.origin
-      }
-    }).then(function (response) {
-      return response.json();
-    }).then(function (response) {
-      setSubtasks(response); // if(timesheet.id > 0 && !isEditFormReady){
-      // 	$("#subtask-"+timesheet.id).val(timesheet.subtask_id);
-      // 	handleSubtasksChange({"target": $("#subtask-"+timesheet.id)[0]});
-      // }
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  };
-
-  var handleSubtasksChange = function handleSubtasksChange(el) {
-    setSubtask(el.target.value); // handleFormChange(el);
-  };
+      apiKey = _ref.apiKey,
+      jobTypes = _ref.jobTypes,
+      handleJobtypeChange = _ref.handleJobtypeChange,
+      subJobs = _ref.subJobs,
+      handleSubjobChange = _ref.handleSubjobChange,
+      taskTypes = _ref.taskTypes,
+      handleTasktypeChange = _ref.handleTasktypeChange,
+      subTasks = _ref.subTasks,
+      handleSubtasksChange = _ref.handleSubtasksChange,
+      handleSubmitForm = _ref.handleSubmitForm;
 
   var handleFormChange = function handleFormChange() {
     // do something
@@ -71547,7 +71661,8 @@ var FormModal = function FormModal(_ref) {
     "data-dismiss": "modal"
   }, "Close"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
-    className: "btn btn-primary"
+    className: "btn btn-primary",
+    onClick: handleSubmitForm
   }, "Submit"))))));
 };
 

@@ -21,18 +21,189 @@ function TimesheetApp ({apiKey, apiUrl}) {
         'week_ending': '',
         'building': '',
         'date': '',
-        'jobtype': '',
-        'subjob': '',
-        'tasktype': '',
-        'subtask': '',
+        'jobtype': 0,
+        'subjob': 0,
+        'tasktype': 0,
+        'subtask': 0,
         'hours': '',
     });
+
+    const [jobTypes, setJobtypes] = useState([]);
+    const [jobType, setJobtype] = useState();
+
+    const [subJobs, setSubjobs] = useState([]);
+    const [subJob, setSubjob] = useState();
+
+    const [taskTypes, setTasktypes] = useState([]);
+    const [taskType, setTasktype] = useState();
+
+    const [subTasks, setSubtasks] = useState([]);
+    const [subTask, setSubtask] = useState();
+
+    const [formValues, setFormValues] = useState({});
 
     // use effect
     useEffect(() => {
         getTimesheets();
         setUserPhoto($("#storage").attr("data-profilePhoto"));
+        getJobTypes();
     }, []);
+
+    const getJobTypes = () => {
+        // api connection and send request
+        fetch(apiUrl+"jobtypes", {
+            "method": "GET",
+            "headers": {
+                "Authorization": "Bearer "+apiKey,
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Referer": location.origin,
+            }
+        })
+        .then(response => response.json())
+        .then(response => {
+            setJobtypes(response);
+
+            if(timesheetData.jobtype > 0){
+                $("#jobtype").val(timesheetData.jobtype);
+                handleJobtypeChange({"target": $("#jobtype")[0]});
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    };
+
+    const handleJobtypeChange = (el) => {
+        setJobtype(el.target.value);
+
+        // reset data and lists in chain
+        setSubjob(0);
+        setTasktype(0);
+        setSubtask(0);
+
+        setSubjobs({});
+        setTasktypes({});
+        setSubtasks({});
+
+        // get next list in chain
+        getSubjobs(el.target.value);
+
+        // handleFormChange(el);
+    };
+
+    const getSubjobs = (jobType) => {
+        // api connection and send request
+        fetch(apiUrl+"jobtypes/"+jobType+"/subjobs", {
+            "method": "GET",
+            "headers": {
+                "Authorization": "Bearer "+apiKey,
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Referer": location.origin,
+            }
+        })
+        .then(response => response.json())
+        .then(response => {
+            setSubjobs(response);
+
+            if(timesheetData.subjob >= 0){
+                $("#subjob").val(timesheetData.subjob);
+                handleSubjobChange({"target": $("#subjob")[0]});
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    };
+
+    const handleSubjobChange = (el) => {
+        setSubjob(el.target.value);
+
+        // reset data and lists in chain
+        setTasktype(0);
+        setSubtask(0);
+
+        setTasktypes({});
+        setSubtasks({});
+
+        // get next list in chain
+        getTasktypes(el.target.value);
+
+        // handleFormChange(el);
+    };
+
+    const getTasktypes = (subJob) => {
+        // api connection and send request
+        fetch(apiUrl+"subjobs/"+subJob+"/tasktypes", {
+            "method": "GET",
+            "headers": {
+                "Authorization": "Bearer "+apiKey,
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Referer": location.origin,
+            }
+        })
+        .then(response => response.json())
+        .then(response => {
+            setTasktypes(response);
+
+            if(timesheetData.tasktype >= 0){
+                $("#tasktype").val(timesheetData.tasktype);
+                handleTasktypeChange({"target": $("#tasktype")[0]});
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    };
+
+    const handleTasktypeChange = (el) => {
+        setTasktype(el.target.value);
+
+        // reset data and lists in chain
+        setSubtask(0);
+
+        setSubtasks({});
+
+        // get next list in chain
+        getSubtasks(el.target.value);
+
+        // handleFormChange(el);
+    };
+
+    const getSubtasks = (taskType) => {
+        // api connection and send request
+        fetch(apiUrl+"tasktypes/"+taskType+"/subtasks", {
+            "method": "GET",
+            "headers": {
+                "Authorization": "Bearer "+apiKey,
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Referer": location.origin,
+            }
+        })
+        .then(response => response.json())
+        .then(response => {
+            setSubtasks(response);
+
+            if(timesheetData.subtask >= 0){
+                $("#subtask").val(timesheetData.subtask);
+                handleSubtasksChange({"target": $("#subtask")[0]});
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    };
+
+    const handleSubtasksChange = (el) => {
+        setSubtask(el.target.value);
+
+        // handleFormChange(el);
+    };
+
+
 
     const getTimesheets = () => {
         let account = $("#storage").attr("data-acct");
@@ -113,57 +284,207 @@ function TimesheetApp ({apiKey, apiUrl}) {
     };
 
     const handleModalButtonClick = (e) => {
-        let timesheet_id = $(e.target).data('targettimesheet');
+        if(validateTimesheetHeaderData(e)){
+            let timesheet_id = $(e.target).data('targettimesheet');
 
-        if(timesheet_id >= 0){
-            let mytime = timesheets[timesheet_id];
+            if(timesheet_id >= 0){
+                let mytime = timesheets[timesheet_id];
 
-            timesheetData.timesheet_id = mytime.id;
-            timesheetData.foreman_name = mytime.foreman_name;
-            timesheetData.supervisor_id = mytime.supervisor_id;
-            timesheetData.week_ending = mytime.week_ending;
-            timesheetData.building = mytime.building;
-            timesheetData.date = mytime.date;
-            timesheetData.jobtype = mytime.jobtype;
-            timesheetData.subjob = mytime.subjob;
-            timesheetData.tasktype = mytime.tasktype;
-            timesheetData.subtask = mytime.subtask;
-            timesheetData.hours = mytime.hours;
-            setTimesheetData(timesheetData);
+                timesheetData.timesheet_id = mytime.id;
+                timesheetData.foreman_name = mytime.foreman_name;
+                timesheetData.supervisor_id = mytime.supervisor_id;
+                timesheetData.week_ending = mytime.week_ending;
+                timesheetData.building = mytime.building;
+                timesheetData.date = mytime.date;
+                timesheetData.jobtype = mytime.jobtype.id;
+                timesheetData.subjob = mytime.subjob.id;
+                timesheetData.tasktype = mytime.tasktype.id;
+                timesheetData.subtask = mytime.subtask.id;
+                timesheetData.hours = mytime.hours;
+                setTimesheetData(timesheetData);
 
+                getJobTypes();
+            }
+            else{
+                timesheetData.timesheet_id = -1;
+                timesheetData.foreman_name = '';
+                timesheetData.supervisor_id = '';
+                timesheetData.week_ending = '';
+                timesheetData.building = '';
+                timesheetData.date = '';
+                timesheetData.jobtype = 0;
+                timesheetData.subjob = 0;
+                timesheetData.tasktype = 0;
+                timesheetData.subtask = 0;
+                timesheetData.hours = '';
+                setTimesheetData(timesheetData);
+
+                getJobTypes();
+            }
+
+            $("#week_ending").val(timesheetData.week_ending);
+            $("#building").val(timesheetData.building);
+            $("#date").val(timesheetData.date);
+            $("#jobtype").val(timesheetData.jobtype);
+            $("#subjob").val(timesheetData.subjob);
+            $("#tasktype").val(timesheetData.tasktype);
+            $("#subtask").val(timesheetData.subtask);
+            $("#hours").val(timesheetData.hours);
+
+            // 'timesheet_id': 0,
+            // 'foreman_name': '',
+            // 'supervisor_id': '',
+            // 'week_ending': '',
+            // 'building': '',
+            // 'date': '',
+            // 'jobtype': '',
+            // 'subjob': '',
+            // 'tasktype': '',
+            // 'subtask': '',
+            // 'hours': '',
         }
-        else{
-            timesheetData.timesheet_id = -1;
-            timesheetData.foreman_name = '';
-            timesheetData.supervisor_id = '';
-            timesheetData.week_ending = '';
-            timesheetData.building = '';
-            timesheetData.date = '';
-            timesheetData.jobtype = '';
-            timesheetData.subjob = '';
-            timesheetData.tasktype = '';
-            timesheetData.subtask = '';
-            timesheetData.hours = '';
-            setTimesheetData(timesheetData);
-        }
-
-        $("#week_ending").val(timesheetData.week_ending);
-        $("#building").val(timesheetData.building);
-        $("#date").val(timesheetData.date);
-        $("#hours").val(timesheetData.hours);
-
-        // 'timesheet_id': 0,
-        // 'foreman_name': '',
-        // 'supervisor_id': '',
-        // 'week_ending': '',
-        // 'building': '',
-        // 'date': '',
-        // 'jobtype': '',
-        // 'subjob': '',
-        // 'tasktype': '',
-        // 'subtask': '',
-        // 'hours': '',
     };
+
+    const validateTimesheetHeaderData = (el) => {
+        let foreman = $("#foreman").val();
+        let week_ending = $("#weekending").val();
+
+        // console.log("el: ");
+        // console.log(el);
+
+        if(typeof foreman === 'undefined' || foreman.length < 1){
+            console.log("Errror: please provide a 'foreman_name'");
+            displayErrorMessage("foreman_name");
+            setTimeout(function(){ $("#addTimeModal").modal('hide') }, 315);
+            return false;
+        }
+
+        if(typeof week_ending === 'undefined' || week_ending.length < 1){
+            console.log("Errror: please provide a 'week_ending'");
+            displayErrorMessage("week_ending");
+            setTimeout(function(){ $("#addTimeModal").modal('hide') }, 315);
+            return false;
+        }
+
+        return true;
+    };
+
+    const displayErrorMessage = (msg) => {
+        let theMessage = "Please provide a valid '"+msg+"' value."
+        alert(theMessage);
+    };
+
+    const handleSubmitForm = (el) => {
+        let account = $("#storage").attr("data-acct");
+
+        formValues['week_ending'] = $("#weekending").val();
+        formValues['foreman_name'] = $("#foreman").val();
+        formValues['supervisor_id'] = 2;
+        formValues['building'] = $("#building").val();
+        formValues['date'] = $("#date").val();
+        formValues['jobtype'] = $("#jobtype").val();
+        formValues['subjob'] = $("#subjob").val();
+        formValues['tasktype'] = $("#tasktype").val();
+        formValues['subtask'] = $("#subtask").val();
+        formValues['hours'] = $("#hours").val();
+
+        setFormValues(formValues);
+
+        if(validateFormFields()){
+            let thisUrl = "";
+            let thisMethod = "";
+
+            // if no timesheet_id, then add a timesheet record
+            // else, edit an existing timesheet record
+            if(timesheetData.timesheet_id <=0){
+                thisUrl = apiUrl+"accounts/"+account+"/timesheets";
+                thisMethod = "POST";
+            }
+            else{
+                thisUrl = apiUrl+"accounts/"+account+"/timesheets/"+timesheetData.timesheet_id;
+                thisMethod = "PUT";
+            }
+
+            // make connection
+            fetch(thisUrl, {
+                "method": thisMethod,
+                "headers": {
+                    "Authorization": "Bearer "+apiKey,
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "Referer": location.origin,
+                },
+                "body": JSON.stringify(formValues),
+            })
+            .then(response => response.json())
+            .then(response => {
+                getTimesheets();
+                $('#addTimeModal').modal('hide');
+
+                setFormValues({});
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        }
+    };
+
+    const validateFormFields = () => {
+        if(formValues["foreman_name"].length < 1){
+            displayErrorMessage("foreman_name");
+            return false;
+        }
+
+        if(formValues["supervisor_id"].length < 1){
+            displayErrorMessage("supervisor_id");
+            return false;
+        }
+
+        if(formValues["week_ending"].length < 1){
+            displayErrorMessage("week_ending");
+            return false;
+        }
+
+        if(formValues["building"].length < 1){
+            displayErrorMessage("building");
+            return false;
+        }
+
+        if(formValues["date"].length < 1){
+            displayErrorMessage("date");
+            return false;
+        }
+
+        if(typeof formValues["jobtype"] === 'undefined' || formValues["jobtype"].length < 1 || parseInt(formValues["jobtype"]) < 1){
+            displayErrorMessage("jobtype");
+            return false;
+        }
+
+        if(typeof formValues["subjob"] === 'undefined' || formValues["subjob"].length < 1 || parseInt(formValues["subjob"]) < 1){
+            displayErrorMessage("subjob");
+            return false;
+        }
+
+        if(typeof formValues["tasktype"] === 'undefined' || formValues["tasktype"].length < 1 || parseInt(formValues["tasktype"]) < 1){
+            displayErrorMessage("tasktype");
+            return false;
+        }
+
+        if(typeof formValues["subtask"] === 'undefined' || formValues["subtask"].length < 1 || parseInt(formValues["subtask"]) < 1){
+            displayErrorMessage("subtask");
+            return false;
+        }
+
+        if(formValues["hours"].length < 1){
+            displayErrorMessage("hours");
+            return false;
+        }
+
+        return true;
+    };
+
+
+
 
     const getTimesheetData = () => {
         return timesheetData;
@@ -180,6 +501,15 @@ function TimesheetApp ({apiKey, apiUrl}) {
             <FormModal
                 apiUrl={apiUrl}
                 apiKey={apiKey}
+                jobTypes={jobTypes}
+                handleJobtypeChange={handleJobtypeChange}
+                subJobs={subJobs}
+                handleSubjobChange={handleSubjobChange}
+                taskTypes={taskTypes}
+                handleTasktypeChange={handleTasktypeChange}
+                subTasks={subTasks}
+                handleSubtasksChange={handleSubtasksChange}
+                handleSubmitForm={handleSubmitForm}
             />
 
             <div className="content">
