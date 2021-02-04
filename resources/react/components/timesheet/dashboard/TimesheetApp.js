@@ -10,8 +10,6 @@ import logo from "./images/logo.png";
 function TimesheetApp ({apiKey, apiUrl}) {
     // state vars
     const [timesheets, setTimesheets] = useState({});
-    const [foreman, setForeman] = useState('');
-    const [weekending, setWeekending] = useState('');
     const [userPhoto, setUserPhoto] = useState('');
 
     const [timesheetData, setTimesheetData] = useState({
@@ -89,7 +87,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
         // get next list in chain
         getSubjobs(el.target.value);
 
-        // handleFormChange(el);
+        handleFormChange(el);
     };
 
     const getSubjobs = (jobType) => {
@@ -130,7 +128,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
         // get next list in chain
         getTasktypes(el.target.value);
 
-        // handleFormChange(el);
+        handleFormChange(el);
     };
 
     const getTasktypes = (subJob) => {
@@ -169,7 +167,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
         // get next list in chain
         getSubtasks(el.target.value);
 
-        // handleFormChange(el);
+        handleFormChange(el);
     };
 
     const getSubtasks = (taskType) => {
@@ -200,7 +198,14 @@ function TimesheetApp ({apiKey, apiUrl}) {
     const handleSubtasksChange = (el) => {
         setSubtask(el.target.value);
 
-        // handleFormChange(el);
+        handleFormChange(el);
+    };
+
+    const handleFormChange = (event) => {
+        formValues[event.target.name] = event.target.value;
+        setFormValues(formValues);
+        console.log("formValues: ");
+        console.log(formValues);
     };
 
 
@@ -269,16 +274,6 @@ function TimesheetApp ({apiKey, apiUrl}) {
        }
     };
 
-    const handleForemanChange = (el) => {
-        console.log(el.target.value);
-        setForeman(el.target.value);
-    };
-
-    const handleWeekendingChange = (el) => {
-        console.log(el.target.value);
-        setWeekending(el.target.value);
-    };
-
     const isTimesheetsValid = () => {
         return (timesheets.length > 0);
     };
@@ -322,7 +317,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
                 getJobTypes();
             }
 
-            $("#week_ending").val(timesheetData.week_ending);
+            $("#week_ending_OLD").val(timesheetData.week_ending);
             $("#building").val(timesheetData.building);
             $("#date").val(timesheetData.date);
             $("#jobtype").val(timesheetData.jobtype);
@@ -346,23 +341,16 @@ function TimesheetApp ({apiKey, apiUrl}) {
     };
 
     const validateTimesheetHeaderData = (el) => {
-        let foreman = $("#foreman").val();
-        let week_ending = $("#weekending").val();
+        let foreman_name = $("#foreman_name").val();
+        let week_ending = $("#week_ending").val();
 
-        // console.log("el: ");
-        // console.log(el);
-
-        if(typeof foreman === 'undefined' || foreman.length < 1){
-            console.log("Errror: please provide a 'foreman_name'");
+        if(typeof foreman_name === 'undefined' || foreman_name.length < 1){
             displayErrorMessage("foreman_name");
-            setTimeout(function(){ $("#addTimeModal").modal('hide') }, 315);
             return false;
         }
 
         if(typeof week_ending === 'undefined' || week_ending.length < 1){
-            console.log("Errror: please provide a 'week_ending'");
             displayErrorMessage("week_ending");
-            setTimeout(function(){ $("#addTimeModal").modal('hide') }, 315);
             return false;
         }
 
@@ -379,8 +367,8 @@ function TimesheetApp ({apiKey, apiUrl}) {
     const handleSubmitForm = (el) => {
         let account = $("#storage").attr("data-acct");
 
-        formValues['week_ending'] = $("#weekending").val();
-        formValues['foreman_name'] = $("#foreman").val();
+        formValues['week_ending'] = $("#week_ending").val();
+        formValues['foreman_name'] = $("#foreman_name").val();
         formValues['supervisor_id'] = 2;
         formValues['building'] = $("#building").val();
         formValues['date'] = $("#date").val();
@@ -511,6 +499,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
                 handleTasktypeChange={handleTasktypeChange}
                 subTasks={subTasks}
                 handleSubtasksChange={handleSubtasksChange}
+                handleFormChange={handleFormChange}
                 handleSubmitForm={handleSubmitForm}
             />
 
@@ -532,12 +521,12 @@ function TimesheetApp ({apiKey, apiUrl}) {
                                 </td>
                                 <td colSpan="2">
                                     <div className="container" style={{"display":"flex", "justifyContent":"center"}}>
-                                        <input type="text" className="form-control form-control-sm" id="foreman" value={foreman} onChange={handleForemanChange} placeholder="foreman's name" />
+                                        <input type="text" className="form-control form-control-sm" id="foreman_name" name="foreman_name" onChange={handleFormChange} placeholder="foreman's name" />
                                     </div>
                                 </td>
                                 <td colSpan="1">
                                     <div className="container" style={{"display":"flex", "justifyContent":"center"}}>
-                                    <input type="date" className="form-control form-control-sm" id="weekending" value={weekending} onChange={handleWeekendingChange} placeholder="date" />
+                                    <input type="date" className="form-control form-control-sm" id="week_ending" name="week_ending" onChange={handleFormChange} placeholder="date" />
                                     </div>
                                 </td>
                                 <td colSpan="1" rowSpan="2">

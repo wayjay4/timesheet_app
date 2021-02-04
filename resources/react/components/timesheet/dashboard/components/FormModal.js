@@ -4,12 +4,7 @@ import SubjobList from "./SubjobList";
 import TasktypeList from "./TasktypeList";
 import SubtaskList from "./SubtaskList";
 
-const FormModal = ({apiUrl, apiKey, jobTypes, handleJobtypeChange, subJobs, handleSubjobChange, taskTypes, handleTasktypeChange, subTasks, handleSubtasksChange, handleSubmitForm}) => {
-	const handleFormChange = () => {
-		// do something
-		console.log("handleFormChange was clicked");
-	};
-
+const FormModal = ({apiUrl, apiKey, jobTypes, handleJobtypeChange, subJobs, handleSubjobChange, taskTypes, handleTasktypeChange, subTasks, handleSubtasksChange, handleFormChange, handleSubmitForm}) => {
 	return (
 		<div className="container">
 			{ /*Modal*/ }
@@ -28,8 +23,8 @@ const FormModal = ({apiUrl, apiKey, jobTypes, handleJobtypeChange, subJobs, hand
 						<div className="modal-body">
 							<form id={"timesheet_form"}>
 								<div hidden className="form-group col-md-3">
-									<label htmlFor={"week_ending"}>Week Ending</label>
-									<input type="date" className="form-control form-control-sm" id={"week_ending"} name="week_ending" onChange={handleFormChange} placeholder="date" />
+									<label htmlFor={"week_ending_OLD"}>Week Ending</label>
+									<input type="date" className="form-control form-control-sm" id={"week_ending_OLD"} name="week_ending_OLD" onChange={handleFormChange} placeholder="date" />
 								</div>
 
 								<div className="form-row">

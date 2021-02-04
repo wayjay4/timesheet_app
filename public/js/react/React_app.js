@@ -70753,20 +70753,10 @@ function TimesheetApp(_ref) {
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       _useState4 = _slicedToArray(_useState3, 2),
-      foreman = _useState4[0],
-      setForeman = _useState4[1];
+      userPhoto = _useState4[0],
+      setUserPhoto = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
-      _useState6 = _slicedToArray(_useState5, 2),
-      weekending = _useState6[0],
-      setWeekending = _useState6[1];
-
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
-      _useState8 = _slicedToArray(_useState7, 2),
-      userPhoto = _useState8[0],
-      setUserPhoto = _useState8[1];
-
-  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
     'timesheet_id': -1,
     'foreman_name': '',
     'supervisor_id': '',
@@ -70779,54 +70769,54 @@ function TimesheetApp(_ref) {
     'subtask': 0,
     'hours': ''
   }),
+      _useState6 = _slicedToArray(_useState5, 2),
+      timesheetData = _useState6[0],
+      setTimesheetData = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState8 = _slicedToArray(_useState7, 2),
+      jobTypes = _useState8[0],
+      setJobtypes = _useState8[1];
+
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
       _useState10 = _slicedToArray(_useState9, 2),
-      timesheetData = _useState10[0],
-      setTimesheetData = _useState10[1];
+      jobType = _useState10[0],
+      setJobtype = _useState10[1];
 
   var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState12 = _slicedToArray(_useState11, 2),
-      jobTypes = _useState12[0],
-      setJobtypes = _useState12[1];
+      subJobs = _useState12[0],
+      setSubjobs = _useState12[1];
 
   var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
       _useState14 = _slicedToArray(_useState13, 2),
-      jobType = _useState14[0],
-      setJobtype = _useState14[1];
+      subJob = _useState14[0],
+      setSubjob = _useState14[1];
 
   var _useState15 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState16 = _slicedToArray(_useState15, 2),
-      subJobs = _useState16[0],
-      setSubjobs = _useState16[1];
+      taskTypes = _useState16[0],
+      setTasktypes = _useState16[1];
 
   var _useState17 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
       _useState18 = _slicedToArray(_useState17, 2),
-      subJob = _useState18[0],
-      setSubjob = _useState18[1];
+      taskType = _useState18[0],
+      setTasktype = _useState18[1];
 
   var _useState19 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState20 = _slicedToArray(_useState19, 2),
-      taskTypes = _useState20[0],
-      setTasktypes = _useState20[1];
+      subTasks = _useState20[0],
+      setSubtasks = _useState20[1];
 
   var _useState21 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
       _useState22 = _slicedToArray(_useState21, 2),
-      taskType = _useState22[0],
-      setTasktype = _useState22[1];
+      subTask = _useState22[0],
+      setSubtask = _useState22[1];
 
-  var _useState23 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+  var _useState23 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
       _useState24 = _slicedToArray(_useState23, 2),
-      subTasks = _useState24[0],
-      setSubtasks = _useState24[1];
-
-  var _useState25 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
-      _useState26 = _slicedToArray(_useState25, 2),
-      subTask = _useState26[0],
-      setSubtask = _useState26[1];
-
-  var _useState27 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
-      _useState28 = _slicedToArray(_useState27, 2),
-      formValues = _useState28[0],
-      setFormValues = _useState28[1]; // use effect
+      formValues = _useState24[0],
+      setFormValues = _useState24[1]; // use effect
 
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
@@ -70871,7 +70861,8 @@ function TimesheetApp(_ref) {
     setTasktypes({});
     setSubtasks({}); // get next list in chain
 
-    getSubjobs(el.target.value); // handleFormChange(el);
+    getSubjobs(el.target.value);
+    handleFormChange(el);
   };
 
   var getSubjobs = function getSubjobs(jobType) {
@@ -70908,7 +70899,8 @@ function TimesheetApp(_ref) {
     setTasktypes({});
     setSubtasks({}); // get next list in chain
 
-    getTasktypes(el.target.value); // handleFormChange(el);
+    getTasktypes(el.target.value);
+    handleFormChange(el);
   };
 
   var getTasktypes = function getTasktypes(subJob) {
@@ -70943,7 +70935,8 @@ function TimesheetApp(_ref) {
     setSubtask(0);
     setSubtasks({}); // get next list in chain
 
-    getSubtasks(el.target.value); // handleFormChange(el);
+    getSubtasks(el.target.value);
+    handleFormChange(el);
   };
 
   var getSubtasks = function getSubtasks(taskType) {
@@ -70973,7 +70966,15 @@ function TimesheetApp(_ref) {
   };
 
   var handleSubtasksChange = function handleSubtasksChange(el) {
-    setSubtask(el.target.value); // handleFormChange(el);
+    setSubtask(el.target.value);
+    handleFormChange(el);
+  };
+
+  var handleFormChange = function handleFormChange(event) {
+    formValues[event.target.name] = event.target.value;
+    setFormValues(formValues);
+    console.log("formValues: ");
+    console.log(formValues);
   };
 
   var getTimesheets = function getTimesheets() {
@@ -71032,16 +71033,6 @@ function TimesheetApp(_ref) {
     }
   };
 
-  var handleForemanChange = function handleForemanChange(el) {
-    console.log(el.target.value);
-    setForeman(el.target.value);
-  };
-
-  var handleWeekendingChange = function handleWeekendingChange(el) {
-    console.log(el.target.value);
-    setWeekending(el.target.value);
-  };
-
   var isTimesheetsValid = function isTimesheetsValid() {
     return timesheets.length > 0;
   };
@@ -71081,7 +71072,7 @@ function TimesheetApp(_ref) {
         getJobTypes();
       }
 
-      $("#week_ending").val(timesheetData.week_ending);
+      $("#week_ending_OLD").val(timesheetData.week_ending);
       $("#building").val(timesheetData.building);
       $("#date").val(timesheetData.date);
       $("#jobtype").val(timesheetData.jobtype);
@@ -71103,25 +71094,16 @@ function TimesheetApp(_ref) {
   };
 
   var validateTimesheetHeaderData = function validateTimesheetHeaderData(el) {
-    var foreman = $("#foreman").val();
-    var week_ending = $("#weekending").val(); // console.log("el: ");
-    // console.log(el);
+    var foreman_name = $("#foreman_name").val();
+    var week_ending = $("#week_ending").val();
 
-    if (typeof foreman === 'undefined' || foreman.length < 1) {
-      console.log("Errror: please provide a 'foreman_name'");
-      displayErrorMessage("foreman_name");
-      setTimeout(function () {
-        $("#addTimeModal").modal('hide');
-      }, 315);
+    if (typeof foreman_name === 'undefined' || foreman_name.length < 1) {
+      displayErrorMessage("foreman_name_name");
       return false;
     }
 
     if (typeof week_ending === 'undefined' || week_ending.length < 1) {
-      console.log("Errror: please provide a 'week_ending'");
       displayErrorMessage("week_ending");
-      setTimeout(function () {
-        $("#addTimeModal").modal('hide');
-      }, 315);
       return false;
     }
 
@@ -71136,8 +71118,8 @@ function TimesheetApp(_ref) {
 
   var handleSubmitForm = function handleSubmitForm(el) {
     var account = $("#storage").attr("data-acct");
-    formValues['week_ending'] = $("#weekending").val();
-    formValues['foreman_name'] = $("#foreman").val();
+    formValues['week_ending'] = $("#week_ending").val();
+    formValues['foreman_name'] = $("#foreman_name").val();
     formValues['supervisor_id'] = 2;
     formValues['building'] = $("#building").val();
     formValues['date'] = $("#date").val();
@@ -71257,6 +71239,7 @@ function TimesheetApp(_ref) {
     handleTasktypeChange: handleTasktypeChange,
     subTasks: subTasks,
     handleSubtasksChange: handleSubtasksChange,
+    handleFormChange: handleFormChange,
     handleSubmitForm: handleSubmitForm
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "content"
@@ -71296,9 +71279,9 @@ function TimesheetApp(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "text",
     className: "form-control form-control-sm",
-    id: "foreman",
-    value: foreman,
-    onChange: handleForemanChange,
+    id: "foreman_name",
+    name: "foreman_name",
+    onChange: handleFormChange,
     placeholder: "foreman's name"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     colSpan: "1"
@@ -71311,9 +71294,9 @@ function TimesheetApp(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "date",
     className: "form-control form-control-sm",
-    id: "weekending",
-    value: weekending,
-    onChange: handleWeekendingChange,
+    id: "week_ending",
+    name: "week_ending",
+    onChange: handleFormChange,
     placeholder: "date"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     colSpan: "1",
@@ -71548,13 +71531,8 @@ var FormModal = function FormModal(_ref) {
       handleTasktypeChange = _ref.handleTasktypeChange,
       subTasks = _ref.subTasks,
       handleSubtasksChange = _ref.handleSubtasksChange,
+      handleFormChange = _ref.handleFormChange,
       handleSubmitForm = _ref.handleSubmitForm;
-
-  var handleFormChange = function handleFormChange() {
-    // do something
-    console.log("handleFormChange was clicked");
-  };
-
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -71589,12 +71567,12 @@ var FormModal = function FormModal(_ref) {
     hidden: true,
     className: "form-group col-md-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "week_ending"
+    htmlFor: "week_ending_OLD"
   }, "Week Ending"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "date",
     className: "form-control form-control-sm",
-    id: "week_ending",
-    name: "week_ending",
+    id: "week_ending_OLD",
+    name: "week_ending_OLD",
     onChange: handleFormChange,
     placeholder: "date"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
