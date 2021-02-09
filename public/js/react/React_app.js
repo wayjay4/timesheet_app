@@ -71098,7 +71098,7 @@ function TimesheetApp(_ref) {
     var week_ending = $("#week_ending").val();
 
     if (typeof foreman_name === 'undefined' || foreman_name.length < 1) {
-      displayErrorMessage("foreman_name_name");
+      displayErrorMessage("foreman_name");
       return false;
     }
 
