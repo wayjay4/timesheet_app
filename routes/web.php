@@ -14,11 +14,11 @@ use App\Http\Controllers\Dashboard\DashboardController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::redirect('/', 'timesheet/dashboard/');
+
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 
 Route::get('/mydashboard', function () {
 	return view('mydashboard');
