@@ -14,11 +14,11 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="{{ mix('css/bootstrap/bootstrap.min.css') }}">
 
-        <!-- Custom styles for this template -->
+        <!-- Custom styles for this dashboard template -->
         <link rel="stylesheet" href="{{ asset('css/bootstrap/themes/dashboard.css') }}">
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
         @livewireStyles
 
@@ -31,7 +31,7 @@
         <script src="{{ asset('js/bootstrap/themes/dashboard.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-trans">
+        <div class="min-h-screen bg-gray-100">
             @livewire('navigation-dropdown')
 
             <!-- Page Heading -->
@@ -47,7 +47,7 @@
             <main>
                 <div class="container-fluid">
                     <div class="row">
-                        <nav hidden id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                             <div class="sidebar-sticky pt-12">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
@@ -125,7 +125,7 @@
 
                         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                                <h1 class="h2">@yield('header')</h1>
+                                <h2 class="h2">@yield('header')</h2>
                                 <div class="btn-toolbar mb-2 mb-md-0">
                                     <div class="btn-group mr-2">
                                         <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>

@@ -486,7 +486,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
 
     return (
         <div className="container">
-            <h3>Timesheets Container</h3>
+            <h3 hidden>Timesheets Container</h3>
 
             <FormModal
                 apiUrl={apiUrl}
