@@ -131,7 +131,7 @@
                                         <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
                                         <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
                                     </div>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex">
                                         <span data-feather="calendar"></span>
                                         This week
                                     </button>
