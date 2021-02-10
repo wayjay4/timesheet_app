@@ -71559,7 +71559,10 @@ var FormModal = function FormModal(_ref) {
       handleFormChange = _ref.handleFormChange,
       handleSubmitForm = _ref.handleSubmitForm;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "container"
+    className: "container",
+    style: {
+      "color": "black"
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal fade",
     id: "addTimeModal",

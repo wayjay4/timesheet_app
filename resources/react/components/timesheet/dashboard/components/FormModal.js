@@ -6,7 +6,7 @@ import SubtaskList from "./SubtaskList";
 
 const FormModal = ({apiUrl, apiKey, jobTypes, handleJobtypeChange, subJobs, handleSubjobChange, taskTypes, handleTasktypeChange, subTasks, handleSubtasksChange, handleFormChange, handleSubmitForm}) => {
 	return (
-		<div className="container">
+		<div className="container" style={{"color": "black"}}>
 			{ /*Modal*/ }
 			<div className="modal fade" id={"addTimeModal"} data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby={"addTimeModalLabel"} aria-hidden="true">
 				<div className="modal-dialog modal-dialog-centered modal-xl">
