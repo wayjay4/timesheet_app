@@ -28,7 +28,7 @@ html {
 body {
 	line-height: 1.5;
 	font-family: "Poppins", sans-serif;
-	/* color: #CEC7C6;*/
+	color: white;
 
 	min-height: 100vh;
 	background: url(/images/backgrounds/blueblackhue_bground.jpg) no-repeat center center fixed; 

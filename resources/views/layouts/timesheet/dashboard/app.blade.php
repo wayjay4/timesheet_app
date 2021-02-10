@@ -31,7 +31,7 @@
         <script src="{{ asset('js/bootstrap/themes/dashboard.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-trans">
             @livewire('navigation-dropdown')
 
             <!-- Page Heading -->
