@@ -24,9 +24,11 @@ Route::get('/mydashboard', function () {
 	return view('mydashboard');
 })->middleware('auth:sanctum', 'verified');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
+
+Route::redirect('/dashboard', 'timesheet/dashboard/')->name('dashboard');
 
 Route::any('timesheet/dashboard/', [DashboardController::class, 'index'])
 	->middleware('auth:sanctum','verified');
