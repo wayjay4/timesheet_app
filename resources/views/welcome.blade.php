@@ -20,7 +20,7 @@
             }
         </style>
         <link href="{{ asset('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
@@ -37,7 +37,7 @@
                     @endauth
                 </div>
             @endif
-            
+
             <div class="container">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">

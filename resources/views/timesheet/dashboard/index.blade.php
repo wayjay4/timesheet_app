@@ -1,7 +1,7 @@
 @extends('layouts.timesheet.dashboard.app')
 
 @section('header')
-	<span hidden>My Dashboard Container</span>
+	<span>My Timesheet</span>
 @endsection
 
 @section('content')
