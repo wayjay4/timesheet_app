@@ -11,9 +11,11 @@
 		<link href="{{ asset('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
 		<!-- Custom styles for this template -->
 		<link href="{{ asset('css/bootstrap/themes/dashboard.css') }}" rel="stylesheet">
+        <!-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet"> -->
 	</head>
 
 	<body>
+
 		<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
 			<a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Directline - New Mexico</a>
 			<button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,6 +30,10 @@
 		                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
 		                    @auth
 		                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
+
+
+
+
 		                    @else
 		                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
@@ -134,7 +140,7 @@
 						</div>
 					</div>
 
-					<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+					
 
 					<h2>Section title</h2>
 					<div class="table-responsive">
@@ -267,13 +273,12 @@
 				</main>
 			</div>
 		</div>
-
+	
 
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="{{ asset('js/bootstrap/bootstrap.bundle.min.js') }}"></script>
 
 		<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 		<script src="{{ asset('js/bootstrap/themes/dashboard.js') }}"></script>
 	</body>
 </html>
