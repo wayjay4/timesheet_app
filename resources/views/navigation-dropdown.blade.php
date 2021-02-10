@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <image class="block h-9 w-auto" src="/images/logo.png" />
+                        <image class="block h-9 w-auto" src="{{ asset('images/logo.png') }}" />
                     </a>
                 </div>
 
@@ -42,7 +42,7 @@
                     <x-slot name="content">
                         <!-- Account Management -->
                         <div class="block px-4 py-2 text-xs text-gray-400">
-                            Manage Account
+                            {{ __('Manage Account') }}
                         </div>
 
                         <x-jet-dropdown-link href="{{ route('profile.show') }}">
