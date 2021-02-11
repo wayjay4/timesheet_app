@@ -21,7 +21,7 @@ class DashboardController extends Controller
 		
         return view('timesheet.dashboard.timesheets', [
         	'user' => $user,
-            'page' => 'Timesheets'
+            'page' => 'timesheets'
         ]);
     }
 
@@ -32,7 +32,7 @@ class DashboardController extends Controller
 
         return view('timesheet.dashboard.comingsoon', [
             'user' => $user,
-            'page' => 'Orders'
+            'page' => 'orders'
         ]);
     }
 
@@ -43,7 +43,7 @@ class DashboardController extends Controller
 
         return view('timesheet.dashboard.comingsoon', [
             'user' => $user,
-            'page' => 'Products'
+            'page' => 'products'
         ]);
     }
 
@@ -54,7 +54,7 @@ class DashboardController extends Controller
 
         return view('timesheet.dashboard.comingsoon', [
             'user' => $user,
-            'page' => 'Customers'
+            'page' => 'customers'
         ]);
     }
 
@@ -65,7 +65,7 @@ class DashboardController extends Controller
 
         return view('timesheet.dashboard.comingsoon', [
             'user' => $user,
-            'page' => 'Reports'
+            'page' => 'reports'
         ]);
     }
 
@@ -76,7 +76,7 @@ class DashboardController extends Controller
 
         return view('timesheet.dashboard.comingsoon', [
             'user' => $user,
-            'page' => 'Integrations'
+            'page' => 'integrations'
         ]);
     }
 }

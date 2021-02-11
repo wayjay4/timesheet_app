@@ -1,7 +1,7 @@
 @extends('layouts.timesheet.dashboard.app')
 
 @section('header')
-	<span>Coming Soon</span>
+	<span><?=ucfirst($page)?></span>
 @endsection
 
 @section('content')

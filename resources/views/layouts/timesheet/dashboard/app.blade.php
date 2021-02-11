@@ -29,8 +29,28 @@
         <!-- Custom styles for this template -->
         <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" defer></script>
         <script src="{{ asset('js/bootstrap/themes/dashboard.js') }}" defer></script>
+
+        <script>
+            function handleLoad(){
+                setActiveLink();
+            }
+
+            function setActiveLink(){
+                // get current page we are on (ie. sidebar link identifier)
+                let sb_linkname = document.getElementById('storage').getAttribute("data-page");
+                // set page's link to 'active'
+                document.getElementById("sb-"+sb_linkname).classList.add("active");
+
+                // NOTE: another way of doing this with current url
+                // get current page we are on (ie. sidebar link identifier)
+                // let pathArr = window.location.pathname.split('/');
+                // let sb_linkname = pathArr[pathArr.length-1];
+                // set page's link to 'active'
+                // document.getElementById("sb-"+sb_linkname).classList.add("active");
+            }
+        </script>
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased" onload="handleLoad()">
         <div class="min-h-screen bg-trans">
             @livewire('navigation-dropdown')
 
@@ -51,37 +71,37 @@
                             <div class="sidebar-sticky pt-12">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link d-flex active" href="{{ route('dashboard') }}">
+                                        <a class="nav-link d-flex" id="sb-timesheets" href="{{ route('timesheets') }}">
                                             <span data-feather="home"></span>
                                             Timesheets <span class="sr-only">(current)</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link d-flex" href="{{ route('orders') }}">
+                                        <a class="nav-link d-flex" id="sb-orders" href="{{ route('orders') }}">
                                             <span data-feather="file"></span>
                                             Orders
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link d-flex" href="{{ route('products') }}">
+                                        <a class="nav-link d-flex" id="sb-products" href="{{ route('products') }}">
                                             <span data-feather="shopping-cart"></span>
                                             Products
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link d-flex" href="{{ route('customers') }}">
+                                        <a class="nav-link d-flex" id="sb-customers" href="{{ route('customers') }}">
                                             <span data-feather="users"></span>
                                             Customers
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link d-flex" href="{{ route('reports') }}">
+                                        <a class="nav-link d-flex" id="sb-reports" href="{{ route('reports') }}">
                                             <span data-feather="bar-chart-2"></span>
                                             Reports
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link d-flex" href="{{ route('integrations') }}">
+                                        <a class="nav-link d-flex" id="sb-integrations" href="{{ route('integrations') }}">
                                             <span data-feather="layers"></span>
                                             Integrations
                                         </a>
@@ -282,6 +302,6 @@
 
         @yield('addtl_scripts')
 
-        <span hidden id="storage" data-acct="<?=$user->id?>" data-profilePhoto="<?=$user->profile_photo_url?>">
+        <span hidden id="storage" data-acct="<?=$user->id?>" data-profilePhoto="<?=$user->profile_photo_url?>" data-page="<?=$page?>">
     </body>
 </html>

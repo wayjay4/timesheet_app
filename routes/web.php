@@ -32,7 +32,8 @@ Route::redirect('/dashboard', '/dashboard/timesheets/')->name('dashboard');
 Route::redirect('/timesheet/dashboard/', '/dashboard/timesheets/');
 
 Route::any('dashboard/timesheets/', [DashboardController::class, 'timesheets'])
-	->middleware('auth:sanctum','verified');
+	->middleware('auth:sanctum','verified')
+	->name('timesheets');
 
 Route::any('dashboard/timesheets/{any}', [DashboardController::class, 'timesheets'])
 	->middleware('auth:sanctum', 'verified')
