@@ -57,31 +57,31 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link d-flex" href="#">
+                                        <a class="nav-link d-flex" href="{{ route('orders') }}">
                                             <span data-feather="file"></span>
                                             Orders
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link d-flex" href="#">
+                                        <a class="nav-link d-flex" href="{{ route('products') }}">
                                             <span data-feather="shopping-cart"></span>
                                             Products
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link d-flex" href="#">
+                                        <a class="nav-link d-flex" href="{{ route('customers') }}">
                                             <span data-feather="users"></span>
                                             Customers
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link d-flex" href="#">
+                                        <a class="nav-link d-flex" href="{{ route('reports') }}">
                                             <span data-feather="bar-chart-2"></span>
                                             Reports
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link d-flex" href="#">
+                                        <a class="nav-link d-flex" href="{{ route('integrations') }}">
                                             <span data-feather="layers"></span>
                                             Integrations
                                         </a>

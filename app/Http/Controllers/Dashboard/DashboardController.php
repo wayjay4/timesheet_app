@@ -16,18 +16,66 @@ class DashboardController extends Controller
      */
     public function index()
     {
-
-
-		// Get the currently authenticated user...
-
+		// get the currently authenticated user
 		$user = Auth::user();
-
-		// Get the currently authenticated user's ID...
-
-		$id = Auth::id();
 		
         return view('timesheet.dashboard.index', [
         	'user' => $user,
+        ]);
+    }
+
+    public function orders()
+    {
+        // get the currently authenticated user
+        $user = Auth::user();
+
+        return view('timesheet.dashboard.comingsoon', [
+            'user' => $user,
+            'page' => 'Orders'
+        ]);
+    }
+
+    public function products()
+    {
+        // get the currently authenticated user
+        $user = Auth::user();
+
+        return view('timesheet.dashboard.comingsoon', [
+            'user' => $user,
+            'page' => 'Products'
+        ]);
+    }
+
+    public function customers()
+    {
+        // get the currently authenticated user
+        $user = Auth::user();
+
+        return view('timesheet.dashboard.comingsoon', [
+            'user' => $user,
+            'page' => 'Customers'
+        ]);
+    }
+
+    public function reports()
+    {
+        // get the currently authenticated user
+        $user = Auth::user();
+
+        return view('timesheet.dashboard.comingsoon', [
+            'user' => $user,
+            'page' => 'Reports'
+        ]);
+    }
+
+    public function integrations()
+    {
+        // get the currently authenticated user
+        $user = Auth::user();
+
+        return view('timesheet.dashboard.comingsoon', [
+            'user' => $user,
+            'page' => 'Integrations'
         ]);
     }
 }

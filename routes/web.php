@@ -36,3 +36,23 @@ Route::any('timesheet/dashboard/', [DashboardController::class, 'index'])
 Route::any('timesheet/dashboard/{any}', [DashboardController::class, 'index'])
 	->middleware('auth:sanctum', 'verified')
 	->where('any', '.*');
+
+Route::any('dashboard/orders/', [DashboardController::class, 'orders'])
+	->middleware('auth:sanctum','verified')
+	->name('orders');
+
+Route::any('dashboard/products/', [DashboardController::class, 'products'])
+	->middleware('auth:sanctum','verified')
+	->name('products');
+
+Route::any('dashboard/customers/', [DashboardController::class, 'customers'])
+	->middleware('auth:sanctum','verified')
+	->name('customers');
+
+Route::any('dashboard/reports/', [DashboardController::class, 'reports'])
+	->middleware('auth:sanctum','verified')
+	->name('reports');
+
+Route::any('dashboard/integrations/', [DashboardController::class, 'integrations'])
+	->middleware('auth:sanctum','verified')
+	->name('integrations');
