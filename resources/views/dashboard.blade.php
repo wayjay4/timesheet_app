@@ -11,7 +11,7 @@
                 <div class="container">
                     <div class="card">
                         <div class="card-body">
-                            <a href="/timesheet/dashboard/">Timesheet Application</a>
+                            <a href="/dashboard/timesheets/">Timesheet Application</a>
                         </div>
                     </div>
                 </div>

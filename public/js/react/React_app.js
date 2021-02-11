@@ -70665,7 +70665,7 @@ function App() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     hidden: true
   }, "Dashboard API Container"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-    path: "/timesheet/dashboard/"
+    path: "/dashboard/timesheets/"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_timesheet_dashboard_TimesheetApp__WEBPACK_IMPORTED_MODULE_3__["default"], {
     apiKey: apiKey,
     apiUrl: apiUrl

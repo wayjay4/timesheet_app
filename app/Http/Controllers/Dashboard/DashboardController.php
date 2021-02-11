@@ -21,6 +21,7 @@ class DashboardController extends Controller
 		
         return view('timesheet.dashboard.timesheets', [
         	'user' => $user,
+            'page' => 'Timesheets'
         ]);
     }
 

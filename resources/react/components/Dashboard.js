@@ -20,7 +20,7 @@ function App(){
 			<h2 hidden>Dashboard API Container</h2>
 
 			<Switch>
-				<Route path='/timesheet/dashboard/'>
+				<Route path='/dashboard/timesheets/'>
 					<TimesheetApp 
 						apiKey={apiKey}
 						apiUrl={apiUrl}

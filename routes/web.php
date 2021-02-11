@@ -14,7 +14,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 |
 */
 
-Route::redirect('/', 'timesheet/dashboard/');
+Route::redirect('/', 'dashboard/timesheets/');
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -28,12 +28,13 @@ Route::get('/mydashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
 
-Route::redirect('/dashboard', 'timesheet/dashboard/')->name('dashboard');
+Route::redirect('/dashboard', '/dashboard/timesheets/')->name('dashboard');
+Route::redirect('/timesheet/dashboard/', '/dashboard/timesheets/');
 
-Route::any('timesheet/dashboard/', [DashboardController::class, 'timesheets'])
+Route::any('dashboard/timesheets/', [DashboardController::class, 'timesheets'])
 	->middleware('auth:sanctum','verified');
 
-Route::any('timesheet/dashboard/{any}', [DashboardController::class, 'timesheets'])
+Route::any('dashboard/timesheets/{any}', [DashboardController::class, 'timesheets'])
 	->middleware('auth:sanctum', 'verified')
 	->where('any', '.*');
 
