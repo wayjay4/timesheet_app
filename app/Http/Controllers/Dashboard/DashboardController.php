@@ -14,12 +14,12 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function timesheets()
     {
 		// get the currently authenticated user
 		$user = Auth::user();
 		
-        return view('timesheet.dashboard.index', [
+        return view('timesheet.dashboard.timesheets', [
         	'user' => $user,
         ]);
     }

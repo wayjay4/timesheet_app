@@ -30,10 +30,10 @@ Route::get('/mydashboard', function () {
 
 Route::redirect('/dashboard', 'timesheet/dashboard/')->name('dashboard');
 
-Route::any('timesheet/dashboard/', [DashboardController::class, 'index'])
+Route::any('timesheet/dashboard/', [DashboardController::class, 'timesheets'])
 	->middleware('auth:sanctum','verified');
 
-Route::any('timesheet/dashboard/{any}', [DashboardController::class, 'index'])
+Route::any('timesheet/dashboard/{any}', [DashboardController::class, 'timesheets'])
 	->middleware('auth:sanctum', 'verified')
 	->where('any', '.*');
 
