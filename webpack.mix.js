@@ -16,12 +16,12 @@ mix.options({processCssUrls: false})
         require('postcss-import'),
         require('tailwindcss')
     ])
-    .sass('resources/sass/app.scss', 'public/css')
-    .styles(['node_modules/bootstrap/dist/css/bootstrap.min.css'], 'public/css/bootstrap/bootstrap.min.css')
-	.styles(['node_modules/bootstrap/dist/css/bootstrap.min.css.map'], 'public/css/bootstrap/bootstrap.min.css.map')
-    .scripts(['node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'], 'public/js/bootstrap/bootstrap.bundle.min.js')
-    .scripts(['node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map'], 'public/js/bootstrap/bootstrap.bundle.min.js.map')
-	.react('resources/react/App.js', 'public/js/react/React_app.js')
-	.js('resources/js/app.js', 'public/js')
+    
+    .styles('resources/css/bootstrap/themes/dashboard.css', 'public/css/bootstrap/themes/dashboard.css')
+    
+    .js('resources/js/app.js', 'public/js')
+    .scripts('resources/js/bootstrap/themes/dashboard.js', 'public/js/bootstrap/themes/dashboard.js')
+	
+    .react('resources/react/App.js', 'public/js/react/React_app.js')
     .webpackConfig(require('./webpack.config'));
 
