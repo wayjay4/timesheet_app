@@ -24,7 +24,7 @@
         <!-- React script -->
         <script src="{{ mix('js/react/React_app.js') }}" defer></script>
 
-        <script>
+        <script defer>
             function handleLoad(){
                 setActiveLink();
             }
