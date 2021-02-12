@@ -15,10 +15,10 @@ const JobtypeList = ({jobTypes, handleJobtypeChange}) => {
 				    <option value="0"></option>
 	            </select>
 				:
-				<select className="form-control form-control-sm" id={"jobtype"} name="jobtype" onChange={handleJobtypeChange}>
+				<select className="form-control form-control-sm text-capitalize" id={"jobtype"} name="jobtype" onChange={handleJobtypeChange}>
 				    <option value="0">&nbsp;</option>
 				    {jobTypes.map((jobType) => (
-			            <option key={jobType.id} value={jobType.id}>{jobType.name}</option>
+			            <option className="text-capitalize" key={jobType.id} value={jobType.id}>{jobType.name}</option>
 		            ))}
 	            </select>
 			}

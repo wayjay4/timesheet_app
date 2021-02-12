@@ -15,12 +15,12 @@ const SubjobList = ({subJobs, handleSubjobChange}) => {
 				    <option value="0"></option>
 	            </select>
 				:
-				<select className="form-control form-control-sm" id={"subjob"} name="subjob" onChange={handleSubjobChange}>
+				<select className="form-control form-control-sm text-capitalize" id={"subjob"} name="subjob" onChange={handleSubjobChange}>
 				    <option value="0">&nbsp;</option>
 				    {subJobs.map((subJob) => {
 				    	var name = subJob.name.split("-");
 					    return (
-				            <option key={subJob.id} value={subJob.id}>{name[1]}</option>
+				            <option className="text-capitalize" key={subJob.id} value={subJob.id}>{name[1]}</option>
 			            );
 					})}
 	            </select>

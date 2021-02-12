@@ -15,12 +15,12 @@ const TasktypeList = ({taskTypes, handleTasktypeChange}) => {
 				    <option value="0"></option>
 	            </select>
 				:			
-				<select className="form-control form-control-sm" id={"tasktype"} name="tasktype" onChange={handleTasktypeChange}>
+				<select className="form-control form-control-sm text-capitalize" id={"tasktype"} name="tasktype" onChange={handleTasktypeChange}>
 				    <option value="0">&nbsp;</option>
 				    {taskTypes.map((taskType) => {
 				    	var name = taskType.name.split("-");
 				    	return (
-				            <option key={taskType.id} value={taskType.id}>{name[2]}</option>
+				            <option className="text-capitalize" key={taskType.id} value={taskType.id}>{name[2]}</option>
 			            );
 					})}
 	            </select>

@@ -7,7 +7,7 @@ const TimesheetData = ({
 		<div className="container">
 			<div className="row">
 				<div className="col-sm">
-					<p className="text-center">{data}</p>
+					<p className="text-center text-capitalize">{data}</p>
 				</div>
 			</div>
 		</div>

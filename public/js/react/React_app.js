@@ -71707,7 +71707,7 @@ var JobtypeList = function JobtypeList(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "0"
   })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    className: "form-control form-control-sm",
+    className: "form-control form-control-sm text-capitalize",
     id: "jobtype",
     name: "jobtype",
     onChange: handleJobtypeChange
@@ -71715,6 +71715,7 @@ var JobtypeList = function JobtypeList(_ref) {
     value: "0"
   }, "\xA0"), jobTypes.map(function (jobType) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      className: "text-capitalize",
       key: jobType.id,
       value: jobType.id
     }, jobType.name);
@@ -71755,7 +71756,7 @@ var SubjobList = function SubjobList(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "0"
   })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    className: "form-control form-control-sm",
+    className: "form-control form-control-sm text-capitalize",
     id: "subjob",
     name: "subjob",
     onChange: handleSubjobChange
@@ -71764,6 +71765,7 @@ var SubjobList = function SubjobList(_ref) {
   }, "\xA0"), subJobs.map(function (subJob) {
     var name = subJob.name.split("-");
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      className: "text-capitalize",
       key: subJob.id,
       value: subJob.id
     }, name[1]);
@@ -71804,7 +71806,7 @@ var SubtaskList = function SubtaskList(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "0"
   })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    className: "form-control form-control-sm",
+    className: "form-control form-control-sm text-capitalize",
     id: "subtask",
     name: "subtask",
     onChange: handleSubtasksChange
@@ -71812,6 +71814,7 @@ var SubtaskList = function SubtaskList(_ref) {
     value: "0"
   }, "\xA0"), subTasks.map(function (subTask) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      className: "text-capitalize",
       key: subTask.id,
       value: subTask.id
     }, subTask.name);
@@ -71852,7 +71855,7 @@ var TasktypeList = function TasktypeList(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "0"
   })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    className: "form-control form-control-sm",
+    className: "form-control form-control-sm text-capitalize",
     id: "tasktype",
     name: "tasktype",
     onChange: handleTasktypeChange
@@ -71861,6 +71864,7 @@ var TasktypeList = function TasktypeList(_ref) {
   }, "\xA0"), taskTypes.map(function (taskType) {
     var name = taskType.name.split("-");
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      className: "text-capitalize",
       key: taskType.id,
       value: taskType.id
     }, name[2]);
@@ -71893,7 +71897,7 @@ var TimesheetData = function TimesheetData(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-sm"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "text-center"
+    className: "text-center text-capitalize"
   }, data))));
 };
 

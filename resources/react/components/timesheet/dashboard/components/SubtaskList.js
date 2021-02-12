@@ -15,10 +15,10 @@ const SubtaskList = ({subTasks, handleSubtasksChange}) => {
 				    <option value="0"></option>
 	            </select>
 				:			
-				<select className="form-control form-control-sm" id={"subtask"} name="subtask" onChange={handleSubtasksChange}>
+				<select className="form-control form-control-sm text-capitalize" id={"subtask"} name="subtask" onChange={handleSubtasksChange}>
 				    <option value="0">&nbsp;</option>
 				    {subTasks.map((subTask) => (
-			            <option key={subTask.id} value={subTask.id}>{subTask.name}</option>
+			            <option className="text-capitalize" key={subTask.id} value={subTask.id}>{subTask.name}</option>
 		            ))}
 	            </select>
 			}
