@@ -39298,7 +39298,10 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
+__webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js"); // Custom scripts for dashboard template
+
+
+__webpack_require__(/*! ./bootstrap/themes/dashboard */ "./resources/js/bootstrap/themes/dashboard.js");
 
 /***/ }),
 
@@ -39344,6 +39347,22 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/bootstrap/themes/dashboard.js":
+/*!****************************************************!*\
+  !*** ./resources/js/bootstrap/themes/dashboard.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* globals Chart:false, feather:false */
+(function () {
+  'use strict';
+
+  feather.replace();
+})();
 
 /***/ }),
 

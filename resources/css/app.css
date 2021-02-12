@@ -2,5 +2,9 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/*Bootstrap*/
+/* Bootstrap */
 @import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+/* Custom styles for this dashboard template */
+@import './bootstrap/themes/dashboard';

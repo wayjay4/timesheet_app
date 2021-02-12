@@ -15,17 +15,11 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-        <!-- Custom styles for this dashboard template -->
-        <link rel="stylesheet" href="{{ mix('css/bootstrap/themes/dashboard.css') }}">
-
         @livewireStyles
 
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
-
-        <!-- Custom scripts for this dashboard template -->
         <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" defer></script>
-        <script src="{{ mix('js/bootstrap/themes/dashboard.js') }}" defer></script>
+        <script src="{{ mix('js/app.js') }}" defer></script>
 
         <!-- React script -->
         <script src="{{ mix('js/react/React_app.js') }}" defer></script>
