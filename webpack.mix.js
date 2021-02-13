@@ -17,10 +17,7 @@ mix.options({processCssUrls: false})
         require('tailwindcss')
     ])
     
-    .styles('resources/css/bootstrap/themes/dashboard.css', 'public/css/bootstrap/themes/dashboard.css')
-    
     .js('resources/js/app.js', 'public/js')
-    .scripts('resources/js/bootstrap/themes/dashboard.js', 'public/js/bootstrap/themes/dashboard.js')
 	
     .react('resources/react/App.js', 'public/js/react/React_app.js')
     .webpackConfig(require('./webpack.config'));

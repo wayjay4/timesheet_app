@@ -18,6 +18,7 @@
         @livewireStyles
 
         <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" defer></script>
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
