@@ -1,4 +1,4 @@
-@extends('layouts.timesheet.dashboard.app')
+@extends('layouts.dashboard.app')
 
 @section('header')
 	<span><?=ucfirst($page)?></span>
