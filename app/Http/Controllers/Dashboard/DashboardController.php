@@ -19,7 +19,7 @@ class DashboardController extends Controller
 		// get the currently authenticated user
 		$user = Auth::user();
 		
-        return view('timesheet.dashboard.timesheets', [
+        return view('dashboard.timesheets', [
         	'user' => $user,
             'page' => 'timesheets'
         ]);
@@ -30,7 +30,7 @@ class DashboardController extends Controller
         // get the currently authenticated user
         $user = Auth::user();
 
-        return view('timesheet.dashboard.comingsoon', [
+        return view('dashboard.comingsoon', [
             'user' => $user,
             'page' => 'orders'
         ]);
@@ -41,7 +41,7 @@ class DashboardController extends Controller
         // get the currently authenticated user
         $user = Auth::user();
 
-        return view('timesheet.dashboard.comingsoon', [
+        return view('dashboard.comingsoon', [
             'user' => $user,
             'page' => 'products'
         ]);
@@ -52,7 +52,7 @@ class DashboardController extends Controller
         // get the currently authenticated user
         $user = Auth::user();
 
-        return view('timesheet.dashboard.comingsoon', [
+        return view('dashboard.comingsoon', [
             'user' => $user,
             'page' => 'customers'
         ]);
@@ -63,7 +63,7 @@ class DashboardController extends Controller
         // get the currently authenticated user
         $user = Auth::user();
 
-        return view('timesheet.dashboard.comingsoon', [
+        return view('dashboard.comingsoon', [
             'user' => $user,
             'page' => 'reports'
         ]);
@@ -74,7 +74,7 @@ class DashboardController extends Controller
         // get the currently authenticated user
         $user = Auth::user();
 
-        return view('timesheet.dashboard.comingsoon', [
+        return view('dashboard.comingsoon', [
             'user' => $user,
             'page' => 'integrations'
         ]);
