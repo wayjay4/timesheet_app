@@ -47,6 +47,63 @@ function TimesheetApp ({apiKey, apiUrl}) {
         getJobTypes();
     }, []);
 
+    const testApiAuth = () => {
+        let testApiUrl = "https://auth_api_app.webtalkerdesigns.com/api/login";
+        let testFormValues = {
+            'email': 'wayjay4@yahoo.com',
+            'password': 'supersecret',
+        };
+
+        // make connection
+        fetch(testApiUrl, {
+            "method": "POST",
+            "headers": {
+                //"Authorization": "Bearer "+apiKey,
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Referer": location.origin,
+            },
+            "body": JSON.stringify(testFormValues),
+        })
+        .then(response => response.json())
+        .then(response => {
+            console.log("This is response from testApiAuth:");
+            console.log(response);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    };
+
+    const testApiGetUser = () => {
+        let testApiUrl = "https://auth_api_app.webtalkerdesigns.com/api/user";
+        let testFormValues = {
+            'email': 'wayjay4@yahoo.com',
+            'password': 'supersecret',
+        };
+        let apiKey = "8|hIOahwjLrDijhNuIb4cJOJIbuMJkwGPK6dQfPVyI";
+
+        // make connection
+        fetch(testApiUrl, {
+            "method": "GET",
+            "headers": {
+                "Authorization": "Bearer "+apiKey,
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Referer": location.origin,
+            },
+            //"body": JSON.stringify(testFormValues),
+        })
+        .then(response => response.json())
+        .then(response => {
+            console.log("This is response from testApiAuth:");
+            console.log(response);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    };
+
     const getJobTypes = () => {
         // api connection and send request
         fetch(apiUrl+"jobtypes", {
@@ -504,6 +561,8 @@ function TimesheetApp ({apiKey, apiUrl}) {
             />
 
             <div className="content">
+                <button type="button" className="btn btn-primary" onClick={testApiAuth}>Test the API Auth</button>
+                <button type="button" className="btn btn-primary" onClick={testApiGetUser}>Test the API GET User</button> 
                 <div className="timesheet-container">
                     <table className="table table-bordered table-hover table-dark table-sm">
                         <thead>

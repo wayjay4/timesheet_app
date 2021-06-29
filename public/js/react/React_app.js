@@ -70848,6 +70848,59 @@ function TimesheetApp(_ref) {
     getJobTypes();
   }, []);
 
+  var testApiAuth = function testApiAuth() {
+    var testApiUrl = "https://auth_api_app.webtalkerdesigns.com/api/login";
+    var testFormValues = {
+      'email': 'wayjay4@yahoo.com',
+      'password': 'supersecret'
+    }; // make connection
+
+    fetch(testApiUrl, {
+      "method": "POST",
+      "headers": {
+        //"Authorization": "Bearer "+apiKey,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Referer": location.origin
+      },
+      "body": JSON.stringify(testFormValues)
+    }).then(function (response) {
+      return response.json();
+    }).then(function (response) {
+      console.log("This is response from testApiAuth:");
+      console.log(response);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  };
+
+  var testApiGetUser = function testApiGetUser() {
+    var testApiUrl = "https://auth_api_app.webtalkerdesigns.com/api/user";
+    var testFormValues = {
+      'email': 'wayjay4@yahoo.com',
+      'password': 'supersecret'
+    };
+    var apiKey = "8|hIOahwjLrDijhNuIb4cJOJIbuMJkwGPK6dQfPVyI"; // make connection
+
+    fetch(testApiUrl, {
+      "method": "GET",
+      "headers": {
+        "Authorization": "Bearer " + apiKey,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Referer": location.origin
+      } //"body": JSON.stringify(testFormValues),
+
+    }).then(function (response) {
+      return response.json();
+    }).then(function (response) {
+      console.log("This is response from testApiAuth:");
+      console.log(response);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  };
+
   var getJobTypes = function getJobTypes() {
     // api connection and send request
     fetch(apiUrl + "jobtypes", {
@@ -71268,7 +71321,15 @@ function TimesheetApp(_ref) {
     handleSubmitForm: handleSubmitForm
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "button",
+    className: "btn btn-primary",
+    onClick: testApiAuth
+  }, "Test the API Auth"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "button",
+    className: "btn btn-primary",
+    onClick: testApiGetUser
+  }, "Test the API GET User"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "timesheet-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
     className: "table table-bordered table-hover table-dark table-sm"
