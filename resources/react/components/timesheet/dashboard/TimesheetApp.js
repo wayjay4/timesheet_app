@@ -87,7 +87,7 @@ function TimesheetApp ({apiKey, apiUrl}) {
         fetch(testApiUrl, {
             "method": "GET",
             "headers": {
-                "Authorization": "Bearer "+apiKey,
+                //"Authorization": "Bearer "+apiKey,
                 "Content-Type": "application/json",
                 "Accept": "application/json",
                 "Referer": location.origin,
