@@ -69,25 +69,26 @@ function TimesheetApp ({apiKey, apiUrl}) {
         .then(response => {
             console.log("This is response from testApiAuth:");
             console.log(response);
+            testApiGetUser(response.token);
         })
         .catch(err => {
             console.log(err);
         });
     };
 
-    const testApiGetUser = () => {
+    const testApiGetUser = (token) => {
         let testApiUrl = "https://auth_api_app.webtalkerdesigns.com/api/user";
         let testFormValues = {
             'email': 'wayjay4@yahoo.com',
             'password': 'supersecret',
         };
-        let apiKey = "8|hIOahwjLrDijhNuIb4cJOJIbuMJkwGPK6dQfPVyI";
+        let apiKey = token;
 
         // make connection
         fetch(testApiUrl, {
             "method": "GET",
             "headers": {
-                //"Authorization": "Bearer "+apiKey,
+                "Authorization": "Bearer "+apiKey,
                 "Content-Type": "application/json",
                 "Accept": "application/json",
                 "Referer": location.origin,

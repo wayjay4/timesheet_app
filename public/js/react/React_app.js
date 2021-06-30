@@ -70869,23 +70869,24 @@ function TimesheetApp(_ref) {
     }).then(function (response) {
       console.log("This is response from testApiAuth:");
       console.log(response);
+      testApiGetUser(response.token);
     })["catch"](function (err) {
       console.log(err);
     });
   };
 
-  var testApiGetUser = function testApiGetUser() {
+  var testApiGetUser = function testApiGetUser(token) {
     var testApiUrl = "https://auth_api_app.webtalkerdesigns.com/api/user";
     var testFormValues = {
       'email': 'wayjay4@yahoo.com',
       'password': 'supersecret'
     };
-    var apiKey = "8|hIOahwjLrDijhNuIb4cJOJIbuMJkwGPK6dQfPVyI"; // make connection
+    var apiKey = token; // make connection
 
     fetch(testApiUrl, {
       "method": "GET",
       "headers": {
-        //"Authorization": "Bearer "+apiKey,
+        "Authorization": "Bearer " + apiKey,
         "Content-Type": "application/json",
         "Accept": "application/json",
         "Referer": location.origin
