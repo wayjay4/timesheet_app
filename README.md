@@ -2,7 +2,7 @@
 
 A timesheet app demo application.
 
-![Homepage_screenshot.png](public/assets/images/homepage_screenshot.png)
+![Homepage_screenshot.png](public/images/homepage_screenshot.png)
 
 Backend Framework:
 - **Laravel v8.83.0 (PHP v8.1.27):** https://laravel.com/docs/10.x/installation#docker-installation-using-sail
@@ -27,7 +27,7 @@ git clone https://github.com/wayjay4/timesheet_app.git timesheet_app
 Go into timesheet_app dir:
 
 ```sh
-cd property_management_app
+cd timesheet_app
 ```
 
 Install PHP dependencies (composer v2.6.6):
