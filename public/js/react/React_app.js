@@ -72048,7 +72048,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/tardis/Sites/timesheet_app-main/resources/react/App.js */"./resources/react/App.js");
+module.exports = __webpack_require__(/*! /Users/tardis/Sites/timesheet_app/resources/react/App.js */"./resources/react/App.js");
 
 
 /***/ })
